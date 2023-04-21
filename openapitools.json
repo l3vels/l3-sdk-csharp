@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "6.5.0"
+  },
+  "generatorName": "csharp-netcore",
+  "additionalProperties": {
+    "packageName": "IO.Swagger",
+    "packageVersion": "1.0.0",
+    "targetFramework": "net5.0",
+    "sourceFolder": "src",
+    "useDateTimeOffset": true,
+    "optionalMethodArgument": true,
+    "optionalAssemblyInfo": false,
+    "netCoreProjectFile": true
+  }
+}

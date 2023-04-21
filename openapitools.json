@@ -6,9 +6,9 @@
   },
   "generatorName": "csharp-netcore",
   "additionalProperties": {
-    "packageName": "IO.Swagger",
+    "packageName": "L3vels.Sdk",
     "packageVersion": "1.0.0",
-    "targetFramework": "net5.0",
+    "targetFramework": "netstandard2.0",
     "sourceFolder": "src",
     "useDateTimeOffset": true,
     "optionalMethodArgument": true,

@@ -27,6 +27,31 @@ namespace L3vels.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Count collections
+        /// </summary>
+        /// <remarks>
+        /// Count total collections in game.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game/project ID to count collections in</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>decimal</returns>
+        decimal CountCollectionsByGameId(string authorization, string projectId, int operationIndex = 0);
+
+        /// <summary>
+        /// Count collections
+        /// </summary>
+        /// <remarks>
+        /// Count total collections in game.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game/project ID to count collections in</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of decimal</returns>
+        ApiResponse<decimal> CountCollectionsByGameIdWithHttpInfo(string authorization, string projectId, int operationIndex = 0);
+        /// <summary>
         /// Retrieve collection by ID
         /// </summary>
         /// <remarks>
@@ -38,7 +63,7 @@ namespace L3vels.Sdk.Api
         /// <param name="projectId">Game/project ID to find collection in</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Collection</returns>
-        Collection CollectionControllerCollectionById(string authorization, string id, string projectId, int operationIndex = 0);
+        Collection GetCollectionById(string authorization, string id, string projectId, int operationIndex = 0);
 
         /// <summary>
         /// Retrieve collection by ID
@@ -52,7 +77,7 @@ namespace L3vels.Sdk.Api
         /// <param name="projectId">Game/project ID to find collection in</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Collection</returns>
-        ApiResponse<Collection> CollectionControllerCollectionByIdWithHttpInfo(string authorization, string id, string projectId, int operationIndex = 0);
+        ApiResponse<Collection> GetCollectionByIdWithHttpInfo(string authorization, string id, string projectId, int operationIndex = 0);
         /// <summary>
         /// Retrieve collections
         /// </summary>
@@ -69,7 +94,7 @@ namespace L3vels.Sdk.Api
         /// <param name="page">Page number (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Collection&gt;</returns>
-        List<Collection> CollectionControllerCollections(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
+        List<Collection> GetCollections(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
 
         /// <summary>
         /// Retrieve collections
@@ -87,32 +112,7 @@ namespace L3vels.Sdk.Api
         /// <param name="page">Page number (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Collection&gt;</returns>
-        ApiResponse<List<Collection>> CollectionControllerCollectionsWithHttpInfo(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
-        /// <summary>
-        /// Count collections
-        /// </summary>
-        /// <remarks>
-        /// Count total collections in game.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to count collections in</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>decimal</returns>
-        decimal CollectionControllerCollectionsCountByGameId(string authorization, string projectId, int operationIndex = 0);
-
-        /// <summary>
-        /// Count collections
-        /// </summary>
-        /// <remarks>
-        /// Count total collections in game.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to count collections in</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of decimal</returns>
-        ApiResponse<decimal> CollectionControllerCollectionsCountByGameIdWithHttpInfo(string authorization, string projectId, int operationIndex = 0);
+        ApiResponse<List<Collection>> GetCollectionsWithHttpInfo(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -122,6 +122,33 @@ namespace L3vels.Sdk.Api
     public interface ICollectionApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Count collections
+        /// </summary>
+        /// <remarks>
+        /// Count total collections in game.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game/project ID to count collections in</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of decimal</returns>
+        System.Threading.Tasks.Task<decimal> CountCollectionsByGameIdAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Count collections
+        /// </summary>
+        /// <remarks>
+        /// Count total collections in game.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game/project ID to count collections in</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (decimal)</returns>
+        System.Threading.Tasks.Task<ApiResponse<decimal>> CountCollectionsByGameIdWithHttpInfoAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve collection by ID
         /// </summary>
@@ -135,7 +162,7 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Collection</returns>
-        System.Threading.Tasks.Task<Collection> CollectionControllerCollectionByIdAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Collection> GetCollectionByIdAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve collection by ID
@@ -150,7 +177,7 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Collection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Collection>> CollectionControllerCollectionByIdWithHttpInfoAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Collection>> GetCollectionByIdWithHttpInfoAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve collections
         /// </summary>
@@ -168,7 +195,7 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Collection&gt;</returns>
-        System.Threading.Tasks.Task<List<Collection>> CollectionControllerCollectionsAsync(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<Collection>> GetCollectionsAsync(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve collections
@@ -187,34 +214,7 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Collection&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Collection>>> CollectionControllerCollectionsWithHttpInfoAsync(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Count collections
-        /// </summary>
-        /// <remarks>
-        /// Count total collections in game.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to count collections in</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of decimal</returns>
-        System.Threading.Tasks.Task<decimal> CollectionControllerCollectionsCountByGameIdAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Count collections
-        /// </summary>
-        /// <remarks>
-        /// Count total collections in game.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to count collections in</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (decimal)</returns>
-        System.Threading.Tasks.Task<ApiResponse<decimal>> CollectionControllerCollectionsCountByGameIdWithHttpInfoAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Collection>>> GetCollectionsWithHttpInfoAsync(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -336,6 +336,168 @@ namespace L3vels.Sdk.Api
         }
 
         /// <summary>
+        /// Count collections Count total collections in game.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game/project ID to count collections in</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>decimal</returns>
+        public decimal CountCollectionsByGameId(string authorization, string projectId, int operationIndex = 0)
+        {
+            L3vels.Sdk.Client.ApiResponse<decimal> localVarResponse = CountCollectionsByGameIdWithHttpInfo(authorization, projectId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Count collections Count total collections in game.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game/project ID to count collections in</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of decimal</returns>
+        public L3vels.Sdk.Client.ApiResponse<decimal> CountCollectionsByGameIdWithHttpInfo(string authorization, string projectId, int operationIndex = 0)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling CollectionApi->CountCollectionsByGameId");
+            }
+
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling CollectionApi->CountCollectionsByGameId");
+            }
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+
+            localVarRequestOptions.Operation = "CollectionApi.CountCollectionsByGameId";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<decimal>("/v1/collection/count/{project_id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CountCollectionsByGameId", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Count collections Count total collections in game.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game/project ID to count collections in</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of decimal</returns>
+        public async System.Threading.Tasks.Task<decimal> CountCollectionsByGameIdAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            L3vels.Sdk.Client.ApiResponse<decimal> localVarResponse = await CountCollectionsByGameIdWithHttpInfoAsync(authorization, projectId, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Count collections Count total collections in game.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game/project ID to count collections in</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (decimal)</returns>
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<decimal>> CountCollectionsByGameIdWithHttpInfoAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling CollectionApi->CountCollectionsByGameId");
+            }
+
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling CollectionApi->CountCollectionsByGameId");
+            }
+
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+
+            localVarRequestOptions.Operation = "CollectionApi.CountCollectionsByGameId";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<decimal>("/v1/collection/count/{project_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CountCollectionsByGameId", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Retrieve collection by ID This API method retrieves a specific collection based on the unique identifier provided in the request.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -344,9 +506,9 @@ namespace L3vels.Sdk.Api
         /// <param name="projectId">Game/project ID to find collection in</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Collection</returns>
-        public Collection CollectionControllerCollectionById(string authorization, string id, string projectId, int operationIndex = 0)
+        public Collection GetCollectionById(string authorization, string id, string projectId, int operationIndex = 0)
         {
-            L3vels.Sdk.Client.ApiResponse<Collection> localVarResponse = CollectionControllerCollectionByIdWithHttpInfo(authorization, id, projectId);
+            L3vels.Sdk.Client.ApiResponse<Collection> localVarResponse = GetCollectionByIdWithHttpInfo(authorization, id, projectId);
             return localVarResponse.Data;
         }
 
@@ -359,24 +521,24 @@ namespace L3vels.Sdk.Api
         /// <param name="projectId">Game/project ID to find collection in</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Collection</returns>
-        public L3vels.Sdk.Client.ApiResponse<Collection> CollectionControllerCollectionByIdWithHttpInfo(string authorization, string id, string projectId, int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<Collection> GetCollectionByIdWithHttpInfo(string authorization, string id, string projectId, int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling CollectionApi->CollectionControllerCollectionById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling CollectionApi->GetCollectionById");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling CollectionApi->CollectionControllerCollectionById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling CollectionApi->GetCollectionById");
             }
 
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling CollectionApi->CollectionControllerCollectionById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling CollectionApi->GetCollectionById");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -405,7 +567,7 @@ namespace L3vels.Sdk.Api
             localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
-            localVarRequestOptions.Operation = "CollectionApi.CollectionControllerCollectionById";
+            localVarRequestOptions.Operation = "CollectionApi.GetCollectionById";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -413,7 +575,7 @@ namespace L3vels.Sdk.Api
             var localVarResponse = this.Client.Get<Collection>("/v1/collection/{project_id}/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CollectionControllerCollectionById", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetCollectionById", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -433,9 +595,9 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Collection</returns>
-        public async System.Threading.Tasks.Task<Collection> CollectionControllerCollectionByIdAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Collection> GetCollectionByIdAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            L3vels.Sdk.Client.ApiResponse<Collection> localVarResponse = await CollectionControllerCollectionByIdWithHttpInfoAsync(authorization, id, projectId, operationIndex, cancellationToken).ConfigureAwait(false);
+            L3vels.Sdk.Client.ApiResponse<Collection> localVarResponse = await GetCollectionByIdWithHttpInfoAsync(authorization, id, projectId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -449,24 +611,24 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Collection)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Collection>> CollectionControllerCollectionByIdWithHttpInfoAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Collection>> GetCollectionByIdWithHttpInfoAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling CollectionApi->CollectionControllerCollectionById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling CollectionApi->GetCollectionById");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling CollectionApi->CollectionControllerCollectionById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling CollectionApi->GetCollectionById");
             }
 
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling CollectionApi->CollectionControllerCollectionById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling CollectionApi->GetCollectionById");
             }
 
 
@@ -496,7 +658,7 @@ namespace L3vels.Sdk.Api
             localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
-            localVarRequestOptions.Operation = "CollectionApi.CollectionControllerCollectionById";
+            localVarRequestOptions.Operation = "CollectionApi.GetCollectionById";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -505,7 +667,7 @@ namespace L3vels.Sdk.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CollectionControllerCollectionById", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetCollectionById", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -528,9 +690,9 @@ namespace L3vels.Sdk.Api
         /// <param name="page">Page number (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;Collection&gt;</returns>
-        public List<Collection> CollectionControllerCollections(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
+        public List<Collection> GetCollections(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
         {
-            L3vels.Sdk.Client.ApiResponse<List<Collection>> localVarResponse = CollectionControllerCollectionsWithHttpInfo(authorization, projectId, sort, order, searchText, limit, page);
+            L3vels.Sdk.Client.ApiResponse<List<Collection>> localVarResponse = GetCollectionsWithHttpInfo(authorization, projectId, sort, order, searchText, limit, page);
             return localVarResponse.Data;
         }
 
@@ -547,18 +709,18 @@ namespace L3vels.Sdk.Api
         /// <param name="page">Page number (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;Collection&gt;</returns>
-        public L3vels.Sdk.Client.ApiResponse<List<Collection>> CollectionControllerCollectionsWithHttpInfo(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<List<Collection>> GetCollectionsWithHttpInfo(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling CollectionApi->CollectionControllerCollections");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling CollectionApi->GetCollections");
             }
 
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling CollectionApi->CollectionControllerCollections");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling CollectionApi->GetCollections");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -606,7 +768,7 @@ namespace L3vels.Sdk.Api
             }
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
-            localVarRequestOptions.Operation = "CollectionApi.CollectionControllerCollections";
+            localVarRequestOptions.Operation = "CollectionApi.GetCollections";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -614,7 +776,7 @@ namespace L3vels.Sdk.Api
             var localVarResponse = this.Client.Get<List<Collection>>("/v1/collection", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CollectionControllerCollections", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetCollections", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -638,9 +800,9 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Collection&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Collection>> CollectionControllerCollectionsAsync(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<Collection>> GetCollectionsAsync(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            L3vels.Sdk.Client.ApiResponse<List<Collection>> localVarResponse = await CollectionControllerCollectionsWithHttpInfoAsync(authorization, projectId, sort, order, searchText, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            L3vels.Sdk.Client.ApiResponse<List<Collection>> localVarResponse = await GetCollectionsWithHttpInfoAsync(authorization, projectId, sort, order, searchText, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -658,18 +820,18 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Collection&gt;)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<List<Collection>>> CollectionControllerCollectionsWithHttpInfoAsync(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<List<Collection>>> GetCollectionsWithHttpInfoAsync(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling CollectionApi->CollectionControllerCollections");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling CollectionApi->GetCollections");
             }
 
             // verify the required parameter 'projectId' is set
             if (projectId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling CollectionApi->CollectionControllerCollections");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling CollectionApi->GetCollections");
             }
 
 
@@ -718,7 +880,7 @@ namespace L3vels.Sdk.Api
             }
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
-            localVarRequestOptions.Operation = "CollectionApi.CollectionControllerCollections";
+            localVarRequestOptions.Operation = "CollectionApi.GetCollections";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -727,169 +889,7 @@ namespace L3vels.Sdk.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CollectionControllerCollections", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Count collections Count total collections in game.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to count collections in</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>decimal</returns>
-        public decimal CollectionControllerCollectionsCountByGameId(string authorization, string projectId, int operationIndex = 0)
-        {
-            L3vels.Sdk.Client.ApiResponse<decimal> localVarResponse = CollectionControllerCollectionsCountByGameIdWithHttpInfo(authorization, projectId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Count collections Count total collections in game.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to count collections in</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of decimal</returns>
-        public L3vels.Sdk.Client.ApiResponse<decimal> CollectionControllerCollectionsCountByGameIdWithHttpInfo(string authorization, string projectId, int operationIndex = 0)
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling CollectionApi->CollectionControllerCollectionsCountByGameId");
-            }
-
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling CollectionApi->CollectionControllerCollectionsCountByGameId");
-            }
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-
-            localVarRequestOptions.Operation = "CollectionApi.CollectionControllerCollectionsCountByGameId";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<decimal>("/v1/collection/count/{project_id}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CollectionControllerCollectionsCountByGameId", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Count collections Count total collections in game.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to count collections in</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of decimal</returns>
-        public async System.Threading.Tasks.Task<decimal> CollectionControllerCollectionsCountByGameIdAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            L3vels.Sdk.Client.ApiResponse<decimal> localVarResponse = await CollectionControllerCollectionsCountByGameIdWithHttpInfoAsync(authorization, projectId, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Count collections Count total collections in game.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to count collections in</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (decimal)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<decimal>> CollectionControllerCollectionsCountByGameIdWithHttpInfoAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling CollectionApi->CollectionControllerCollectionsCountByGameId");
-            }
-
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling CollectionApi->CollectionControllerCollectionsCountByGameId");
-            }
-
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-
-            localVarRequestOptions.Operation = "CollectionApi.CollectionControllerCollectionsCountByGameId";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<decimal>("/v1/collection/count/{project_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("CollectionControllerCollectionsCountByGameId", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetCollections", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

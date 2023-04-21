@@ -107,9 +107,9 @@ Class | Method | HTTP request | Description
 *AssetApi* | [**GetAssetById**](docs/AssetApi.md#getassetbyid) | **GET** /v1/asset/{project_id}/{id} | Retrieve asset by ID
 *AssetApi* | [**GetAssets**](docs/AssetApi.md#getassets) | **GET** /v1/asset | Retrieve assets
 *AssetApi* | [**UpdateAsset**](docs/AssetApi.md#updateasset) | **PATCH** /v1/asset/{id} | Update asset
-*CollectionApi* | [**CollectionControllerCollectionById**](docs/CollectionApi.md#collectioncontrollercollectionbyid) | **GET** /v1/collection/{project_id}/{id} | Retrieve collection by ID
-*CollectionApi* | [**CollectionControllerCollections**](docs/CollectionApi.md#collectioncontrollercollections) | **GET** /v1/collection | Retrieve collections
-*CollectionApi* | [**CollectionControllerCollectionsCountByGameId**](docs/CollectionApi.md#collectioncontrollercollectionscountbygameid) | **GET** /v1/collection/count/{project_id} | Count collections
+*CollectionApi* | [**CountCollectionsByGameId**](docs/CollectionApi.md#countcollectionsbygameid) | **GET** /v1/collection/count/{project_id} | Count collections
+*CollectionApi* | [**GetCollectionById**](docs/CollectionApi.md#getcollectionbyid) | **GET** /v1/collection/{project_id}/{id} | Retrieve collection by ID
+*CollectionApi* | [**GetCollections**](docs/CollectionApi.md#getcollections) | **GET** /v1/collection | Retrieve collections
 *ContractApi* | [**ContractControllerCollectionSize**](docs/ContractApi.md#contractcontrollercollectionsize) | **GET** /v1/contract/collection-size | Collection size
 *ContractApi* | [**ContractControllerContractUri**](docs/ContractApi.md#contractcontrollercontracturi) | **GET** /v1/contract/contract-uri | Get Contract URI
 *ContractApi* | [**ContractControllerSetContractUri**](docs/ContractApi.md#contractcontrollersetcontracturi) | **PUT** /v1/contract/contract-uri | Update Contract URI

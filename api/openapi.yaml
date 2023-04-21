@@ -273,7 +273,7 @@ paths:
       description: "This API method retrieves a list of collections that match the\
         \ specified filter criteria. Developers can use this method to retrieve collections\
         \ by name, category, status, or other properties."
-      operationId: CollectionController_collections
+      operationId: getCollections
       parameters:
       - description: API key is associated with multiple projects. Please include
           it in to use developers API.
@@ -372,7 +372,7 @@ paths:
   /v1/collection/count/{project_id}:
     get:
       description: Count total collections in game.
-      operationId: CollectionController_collectionsCountByGameId
+      operationId: countCollectionsByGameId
       parameters:
       - description: API key is associated with multiple projects. Please include
           it in to use developers API.
@@ -423,7 +423,7 @@ paths:
     get:
       description: This API method retrieves a specific collection based on the unique
         identifier provided in the request.
-      operationId: CollectionController_collectionById
+      operationId: getCollectionById
       parameters:
       - description: API key is associated with multiple projects. Please include
           it in to use developers API.

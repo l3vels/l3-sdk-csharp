@@ -28,6 +28,118 @@ namespace L3vels.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Count players
+        /// </summary>
+        /// <remarks>
+        /// Count players in game. Example: count players in game Call of Duty.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game Id</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>decimal</returns>
+        decimal CountPlayersByGameId(string authorization, string projectId, int operationIndex = 0);
+
+        /// <summary>
+        /// Count players
+        /// </summary>
+        /// <remarks>
+        /// Count players in game. Example: count players in game Call of Duty.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game Id</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of decimal</returns>
+        ApiResponse<decimal> CountPlayersByGameIdWithHttpInfo(string authorization, string projectId, int operationIndex = 0);
+        /// <summary>
+        /// Create new player
+        /// </summary>
+        /// <remarks>
+        /// Create new player for game/project. Example: Create new player Jack in game Call of Duty.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="createPlayerDto"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Player</returns>
+        Player CreatePlayer(string authorization, CreatePlayerDto createPlayerDto, int operationIndex = 0);
+
+        /// <summary>
+        /// Create new player
+        /// </summary>
+        /// <remarks>
+        /// Create new player for game/project. Example: Create new player Jack in game Call of Duty.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="createPlayerDto"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Player</returns>
+        ApiResponse<Player> CreatePlayerWithHttpInfo(string authorization, CreatePlayerDto createPlayerDto, int operationIndex = 0);
+        /// <summary>
+        /// Retrieve player by ID
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a specific player by ID associated with game/project. Example: retrieve player Jack from game Call of Duty.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="id">Player ID that you created in your game/project. Example: Jack, George, etc.</param>
+        /// <param name="projectId">Game/project ID to find asset in. Example: Call of Duty, Fortnite, etc.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Player</returns>
+        Player GetPlayerById(string authorization, string id, string projectId, int operationIndex = 0);
+
+        /// <summary>
+        /// Retrieve player by ID
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a specific player by ID associated with game/project. Example: retrieve player Jack from game Call of Duty.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="id">Player ID that you created in your game/project. Example: Jack, George, etc.</param>
+        /// <param name="projectId">Game/project ID to find asset in. Example: Call of Duty, Fortnite, etc.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Player</returns>
+        ApiResponse<Player> GetPlayerByIdWithHttpInfo(string authorization, string id, string projectId, int operationIndex = 0);
+        /// <summary>
+        /// Retrieve players
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of players that match the specified filter criteria. Developers can use this method to retrieve players by name, category, status, or other properties. Example: Retrieve players from game Call of Duty.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game/project ID to find player in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="sort">Player field to sort by. You can sort by name, created_on and etc. (optional)</param>
+        /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
+        /// <param name="searchText">Search player by name (optional)</param>
+        /// <param name="limit">Number of players to return per page (optional)</param>
+        /// <param name="page">Page number (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>List&lt;Player&gt;</returns>
+        List<Player> GetPlayers(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
+
+        /// <summary>
+        /// Retrieve players
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of players that match the specified filter criteria. Developers can use this method to retrieve players by name, category, status, or other properties. Example: Retrieve players from game Call of Duty.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game/project ID to find player in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="sort">Player field to sort by. You can sort by name, created_on and etc. (optional)</param>
+        /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
+        /// <param name="searchText">Search player by name (optional)</param>
+        /// <param name="limit">Number of players to return per page (optional)</param>
+        /// <param name="page">Page number (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of List&lt;Player&gt;</returns>
+        ApiResponse<List<Player>> GetPlayersWithHttpInfo(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
+        /// <summary>
         /// Retrieve player asset by ID
         /// </summary>
         /// <remarks>
@@ -92,141 +204,6 @@ namespace L3vels.Sdk.Api
         /// <returns>ApiResponse of List&lt;PlayerAsset&gt;</returns>
         ApiResponse<List<PlayerAsset>> PlayerAssetControllerPlayerAssetsWithHttpInfo(string authorization, string projectId, string assetId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
         /// <summary>
-        /// Create new player
-        /// </summary>
-        /// <remarks>
-        /// Create new player for game/project. Example: Create new player Jack in game Call of Duty.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="createPlayerDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Player</returns>
-        Player PlayerControllerCreatePlayer(string authorization, CreatePlayerDto createPlayerDto, int operationIndex = 0);
-
-        /// <summary>
-        /// Create new player
-        /// </summary>
-        /// <remarks>
-        /// Create new player for game/project. Example: Create new player Jack in game Call of Duty.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="createPlayerDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Player</returns>
-        ApiResponse<Player> PlayerControllerCreatePlayerWithHttpInfo(string authorization, CreatePlayerDto createPlayerDto, int operationIndex = 0);
-        /// <summary>
-        /// Delete a Player
-        /// </summary>
-        /// <remarks>
-        /// This API method allows developers to delete a Player by providing the ID of the Player. Once deleted, the Player and all associated assets will be removed from the system.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        void PlayerControllerDeletePlayer(string authorization, int operationIndex = 0);
-
-        /// <summary>
-        /// Delete a Player
-        /// </summary>
-        /// <remarks>
-        /// This API method allows developers to delete a Player by providing the ID of the Player. Once deleted, the Player and all associated assets will be removed from the system.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> PlayerControllerDeletePlayerWithHttpInfo(string authorization, int operationIndex = 0);
-        /// <summary>
-        /// Retrieve players
-        /// </summary>
-        /// <remarks>
-        /// Retrieve a list of players that match the specified filter criteria. Developers can use this method to retrieve players by name, category, status, or other properties. Example: Retrieve players from game Call of Duty.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find player in your game. Example: Fortnite, Minecraft, etc.</param>
-        /// <param name="sort">Player field to sort by. You can sort by name, created_on and etc. (optional)</param>
-        /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
-        /// <param name="searchText">Search player by name (optional)</param>
-        /// <param name="limit">Number of players to return per page (optional)</param>
-        /// <param name="page">Page number (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;Player&gt;</returns>
-        List<Player> PlayerControllerGetPlayers(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
-
-        /// <summary>
-        /// Retrieve players
-        /// </summary>
-        /// <remarks>
-        /// Retrieve a list of players that match the specified filter criteria. Developers can use this method to retrieve players by name, category, status, or other properties. Example: Retrieve players from game Call of Duty.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find player in your game. Example: Fortnite, Minecraft, etc.</param>
-        /// <param name="sort">Player field to sort by. You can sort by name, created_on and etc. (optional)</param>
-        /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
-        /// <param name="searchText">Search player by name (optional)</param>
-        /// <param name="limit">Number of players to return per page (optional)</param>
-        /// <param name="page">Page number (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;Player&gt;</returns>
-        ApiResponse<List<Player>> PlayerControllerGetPlayersWithHttpInfo(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
-        /// <summary>
-        /// Retrieve player by ID
-        /// </summary>
-        /// <remarks>
-        /// Retrieves a specific player by ID associated with game/project. Example: retrieve player Jack from game Call of Duty.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="id">Player ID that you created in your game/project. Example: Jack, George, etc.</param>
-        /// <param name="projectId">Game/project ID to find asset in. Example: Call of Duty, Fortnite, etc.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Player</returns>
-        Player PlayerControllerPlayerById(string authorization, string id, string projectId, int operationIndex = 0);
-
-        /// <summary>
-        /// Retrieve player by ID
-        /// </summary>
-        /// <remarks>
-        /// Retrieves a specific player by ID associated with game/project. Example: retrieve player Jack from game Call of Duty.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="id">Player ID that you created in your game/project. Example: Jack, George, etc.</param>
-        /// <param name="projectId">Game/project ID to find asset in. Example: Call of Duty, Fortnite, etc.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Player</returns>
-        ApiResponse<Player> PlayerControllerPlayerByIdWithHttpInfo(string authorization, string id, string projectId, int operationIndex = 0);
-        /// <summary>
-        /// Count players
-        /// </summary>
-        /// <remarks>
-        /// Count players in game. Example: count players in game Call of Duty.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game Id</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>decimal</returns>
-        decimal PlayerControllerPlayersCountByGameId(string authorization, string projectId, int operationIndex = 0);
-
-        /// <summary>
-        /// Count players
-        /// </summary>
-        /// <remarks>
-        /// Count players in game. Example: count players in game Call of Duty.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game Id</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of decimal</returns>
-        ApiResponse<decimal> PlayerControllerPlayersCountByGameIdWithHttpInfo(string authorization, string projectId, int operationIndex = 0);
-        /// <summary>
         /// Update an existing Player
         /// </summary>
         /// <remarks>
@@ -236,7 +213,7 @@ namespace L3vels.Sdk.Api
         /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Player</returns>
-        Player PlayerControllerUpdatePlayer(string authorization, int operationIndex = 0);
+        Player UpdatePlayer(string authorization, int operationIndex = 0);
 
         /// <summary>
         /// Update an existing Player
@@ -248,7 +225,7 @@ namespace L3vels.Sdk.Api
         /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Player</returns>
-        ApiResponse<Player> PlayerControllerUpdatePlayerWithHttpInfo(string authorization, int operationIndex = 0);
+        ApiResponse<Player> UpdatePlayerWithHttpInfo(string authorization, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -258,6 +235,126 @@ namespace L3vels.Sdk.Api
     public interface IPlayerApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Count players
+        /// </summary>
+        /// <remarks>
+        /// Count players in game. Example: count players in game Call of Duty.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game Id</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of decimal</returns>
+        System.Threading.Tasks.Task<decimal> CountPlayersByGameIdAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Count players
+        /// </summary>
+        /// <remarks>
+        /// Count players in game. Example: count players in game Call of Duty.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game Id</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (decimal)</returns>
+        System.Threading.Tasks.Task<ApiResponse<decimal>> CountPlayersByGameIdWithHttpInfoAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Create new player
+        /// </summary>
+        /// <remarks>
+        /// Create new player for game/project. Example: Create new player Jack in game Call of Duty.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="createPlayerDto"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Player</returns>
+        System.Threading.Tasks.Task<Player> CreatePlayerAsync(string authorization, CreatePlayerDto createPlayerDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Create new player
+        /// </summary>
+        /// <remarks>
+        /// Create new player for game/project. Example: Create new player Jack in game Call of Duty.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="createPlayerDto"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Player)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Player>> CreatePlayerWithHttpInfoAsync(string authorization, CreatePlayerDto createPlayerDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve player by ID
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a specific player by ID associated with game/project. Example: retrieve player Jack from game Call of Duty.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="id">Player ID that you created in your game/project. Example: Jack, George, etc.</param>
+        /// <param name="projectId">Game/project ID to find asset in. Example: Call of Duty, Fortnite, etc.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Player</returns>
+        System.Threading.Tasks.Task<Player> GetPlayerByIdAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Retrieve player by ID
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a specific player by ID associated with game/project. Example: retrieve player Jack from game Call of Duty.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="id">Player ID that you created in your game/project. Example: Jack, George, etc.</param>
+        /// <param name="projectId">Game/project ID to find asset in. Example: Call of Duty, Fortnite, etc.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Player)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Player>> GetPlayerByIdWithHttpInfoAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve players
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of players that match the specified filter criteria. Developers can use this method to retrieve players by name, category, status, or other properties. Example: Retrieve players from game Call of Duty.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game/project ID to find player in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="sort">Player field to sort by. You can sort by name, created_on and etc. (optional)</param>
+        /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
+        /// <param name="searchText">Search player by name (optional)</param>
+        /// <param name="limit">Number of players to return per page (optional)</param>
+        /// <param name="page">Page number (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Player&gt;</returns>
+        System.Threading.Tasks.Task<List<Player>> GetPlayersAsync(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Retrieve players
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of players that match the specified filter criteria. Developers can use this method to retrieve players by name, category, status, or other properties. Example: Retrieve players from game Call of Duty.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game/project ID to find player in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="sort">Player field to sort by. You can sort by name, created_on and etc. (optional)</param>
+        /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
+        /// <param name="searchText">Search player by name (optional)</param>
+        /// <param name="limit">Number of players to return per page (optional)</param>
+        /// <param name="page">Page number (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Player&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Player>>> GetPlayersWithHttpInfoAsync(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve player asset by ID
         /// </summary>
@@ -327,151 +424,6 @@ namespace L3vels.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;PlayerAsset&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<PlayerAsset>>> PlayerAssetControllerPlayerAssetsWithHttpInfoAsync(string authorization, string projectId, string assetId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Create new player
-        /// </summary>
-        /// <remarks>
-        /// Create new player for game/project. Example: Create new player Jack in game Call of Duty.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="createPlayerDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Player</returns>
-        System.Threading.Tasks.Task<Player> PlayerControllerCreatePlayerAsync(string authorization, CreatePlayerDto createPlayerDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Create new player
-        /// </summary>
-        /// <remarks>
-        /// Create new player for game/project. Example: Create new player Jack in game Call of Duty.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="createPlayerDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Player)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Player>> PlayerControllerCreatePlayerWithHttpInfoAsync(string authorization, CreatePlayerDto createPlayerDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Delete a Player
-        /// </summary>
-        /// <remarks>
-        /// This API method allows developers to delete a Player by providing the ID of the Player. Once deleted, the Player and all associated assets will be removed from the system.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task PlayerControllerDeletePlayerAsync(string authorization, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Delete a Player
-        /// </summary>
-        /// <remarks>
-        /// This API method allows developers to delete a Player by providing the ID of the Player. Once deleted, the Player and all associated assets will be removed from the system.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> PlayerControllerDeletePlayerWithHttpInfoAsync(string authorization, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Retrieve players
-        /// </summary>
-        /// <remarks>
-        /// Retrieve a list of players that match the specified filter criteria. Developers can use this method to retrieve players by name, category, status, or other properties. Example: Retrieve players from game Call of Duty.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find player in your game. Example: Fortnite, Minecraft, etc.</param>
-        /// <param name="sort">Player field to sort by. You can sort by name, created_on and etc. (optional)</param>
-        /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
-        /// <param name="searchText">Search player by name (optional)</param>
-        /// <param name="limit">Number of players to return per page (optional)</param>
-        /// <param name="page">Page number (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Player&gt;</returns>
-        System.Threading.Tasks.Task<List<Player>> PlayerControllerGetPlayersAsync(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Retrieve players
-        /// </summary>
-        /// <remarks>
-        /// Retrieve a list of players that match the specified filter criteria. Developers can use this method to retrieve players by name, category, status, or other properties. Example: Retrieve players from game Call of Duty.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find player in your game. Example: Fortnite, Minecraft, etc.</param>
-        /// <param name="sort">Player field to sort by. You can sort by name, created_on and etc. (optional)</param>
-        /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
-        /// <param name="searchText">Search player by name (optional)</param>
-        /// <param name="limit">Number of players to return per page (optional)</param>
-        /// <param name="page">Page number (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Player&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Player>>> PlayerControllerGetPlayersWithHttpInfoAsync(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Retrieve player by ID
-        /// </summary>
-        /// <remarks>
-        /// Retrieves a specific player by ID associated with game/project. Example: retrieve player Jack from game Call of Duty.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="id">Player ID that you created in your game/project. Example: Jack, George, etc.</param>
-        /// <param name="projectId">Game/project ID to find asset in. Example: Call of Duty, Fortnite, etc.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Player</returns>
-        System.Threading.Tasks.Task<Player> PlayerControllerPlayerByIdAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Retrieve player by ID
-        /// </summary>
-        /// <remarks>
-        /// Retrieves a specific player by ID associated with game/project. Example: retrieve player Jack from game Call of Duty.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="id">Player ID that you created in your game/project. Example: Jack, George, etc.</param>
-        /// <param name="projectId">Game/project ID to find asset in. Example: Call of Duty, Fortnite, etc.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Player)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Player>> PlayerControllerPlayerByIdWithHttpInfoAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Count players
-        /// </summary>
-        /// <remarks>
-        /// Count players in game. Example: count players in game Call of Duty.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game Id</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of decimal</returns>
-        System.Threading.Tasks.Task<decimal> PlayerControllerPlayersCountByGameIdAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Count players
-        /// </summary>
-        /// <remarks>
-        /// Count players in game. Example: count players in game Call of Duty.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game Id</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (decimal)</returns>
-        System.Threading.Tasks.Task<ApiResponse<decimal>> PlayerControllerPlayersCountByGameIdWithHttpInfoAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
         /// Update an existing Player
         /// </summary>
         /// <remarks>
@@ -482,7 +434,7 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Player</returns>
-        System.Threading.Tasks.Task<Player> PlayerControllerUpdatePlayerAsync(string authorization, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Player> UpdatePlayerAsync(string authorization, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update an existing Player
@@ -495,7 +447,7 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Player)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Player>> PlayerControllerUpdatePlayerWithHttpInfoAsync(string authorization, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Player>> UpdatePlayerWithHttpInfoAsync(string authorization, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -614,6 +566,734 @@ namespace L3vels.Sdk.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Count players Count players in game. Example: count players in game Call of Duty.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game Id</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>decimal</returns>
+        public decimal CountPlayersByGameId(string authorization, string projectId, int operationIndex = 0)
+        {
+            L3vels.Sdk.Client.ApiResponse<decimal> localVarResponse = CountPlayersByGameIdWithHttpInfo(authorization, projectId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Count players Count players in game. Example: count players in game Call of Duty.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game Id</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of decimal</returns>
+        public L3vels.Sdk.Client.ApiResponse<decimal> CountPlayersByGameIdWithHttpInfo(string authorization, string projectId, int operationIndex = 0)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->CountPlayersByGameId");
+            }
+
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling PlayerApi->CountPlayersByGameId");
+            }
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+
+            localVarRequestOptions.Operation = "PlayerApi.CountPlayersByGameId";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<decimal>("/v1/player/count/{project_id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CountPlayersByGameId", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Count players Count players in game. Example: count players in game Call of Duty.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game Id</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of decimal</returns>
+        public async System.Threading.Tasks.Task<decimal> CountPlayersByGameIdAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            L3vels.Sdk.Client.ApiResponse<decimal> localVarResponse = await CountPlayersByGameIdWithHttpInfoAsync(authorization, projectId, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Count players Count players in game. Example: count players in game Call of Duty.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game Id</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (decimal)</returns>
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<decimal>> CountPlayersByGameIdWithHttpInfoAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->CountPlayersByGameId");
+            }
+
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling PlayerApi->CountPlayersByGameId");
+            }
+
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+
+            localVarRequestOptions.Operation = "PlayerApi.CountPlayersByGameId";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<decimal>("/v1/player/count/{project_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CountPlayersByGameId", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create new player Create new player for game/project. Example: Create new player Jack in game Call of Duty.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="createPlayerDto"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Player</returns>
+        public Player CreatePlayer(string authorization, CreatePlayerDto createPlayerDto, int operationIndex = 0)
+        {
+            L3vels.Sdk.Client.ApiResponse<Player> localVarResponse = CreatePlayerWithHttpInfo(authorization, createPlayerDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create new player Create new player for game/project. Example: Create new player Jack in game Call of Duty.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="createPlayerDto"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Player</returns>
+        public L3vels.Sdk.Client.ApiResponse<Player> CreatePlayerWithHttpInfo(string authorization, CreatePlayerDto createPlayerDto, int operationIndex = 0)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->CreatePlayer");
+            }
+
+            // verify the required parameter 'createPlayerDto' is set
+            if (createPlayerDto == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'createPlayerDto' when calling PlayerApi->CreatePlayer");
+            }
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+            localVarRequestOptions.Data = createPlayerDto;
+
+            localVarRequestOptions.Operation = "PlayerApi.CreatePlayer";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Player>("/v1/player", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreatePlayer", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create new player Create new player for game/project. Example: Create new player Jack in game Call of Duty.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="createPlayerDto"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Player</returns>
+        public async System.Threading.Tasks.Task<Player> CreatePlayerAsync(string authorization, CreatePlayerDto createPlayerDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            L3vels.Sdk.Client.ApiResponse<Player> localVarResponse = await CreatePlayerWithHttpInfoAsync(authorization, createPlayerDto, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create new player Create new player for game/project. Example: Create new player Jack in game Call of Duty.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="createPlayerDto"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Player)</returns>
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Player>> CreatePlayerWithHttpInfoAsync(string authorization, CreatePlayerDto createPlayerDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->CreatePlayer");
+            }
+
+            // verify the required parameter 'createPlayerDto' is set
+            if (createPlayerDto == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'createPlayerDto' when calling PlayerApi->CreatePlayer");
+            }
+
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+            localVarRequestOptions.Data = createPlayerDto;
+
+            localVarRequestOptions.Operation = "PlayerApi.CreatePlayer";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Player>("/v1/player", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreatePlayer", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve player by ID Retrieves a specific player by ID associated with game/project. Example: retrieve player Jack from game Call of Duty.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="id">Player ID that you created in your game/project. Example: Jack, George, etc.</param>
+        /// <param name="projectId">Game/project ID to find asset in. Example: Call of Duty, Fortnite, etc.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Player</returns>
+        public Player GetPlayerById(string authorization, string id, string projectId, int operationIndex = 0)
+        {
+            L3vels.Sdk.Client.ApiResponse<Player> localVarResponse = GetPlayerByIdWithHttpInfo(authorization, id, projectId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve player by ID Retrieves a specific player by ID associated with game/project. Example: retrieve player Jack from game Call of Duty.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="id">Player ID that you created in your game/project. Example: Jack, George, etc.</param>
+        /// <param name="projectId">Game/project ID to find asset in. Example: Call of Duty, Fortnite, etc.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Player</returns>
+        public L3vels.Sdk.Client.ApiResponse<Player> GetPlayerByIdWithHttpInfo(string authorization, string id, string projectId, int operationIndex = 0)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->GetPlayerById");
+            }
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling PlayerApi->GetPlayerById");
+            }
+
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling PlayerApi->GetPlayerById");
+            }
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("id", L3vels.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+
+            localVarRequestOptions.Operation = "PlayerApi.GetPlayerById";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Player>("/v1/player/{project_id}/{id}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPlayerById", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve player by ID Retrieves a specific player by ID associated with game/project. Example: retrieve player Jack from game Call of Duty.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="id">Player ID that you created in your game/project. Example: Jack, George, etc.</param>
+        /// <param name="projectId">Game/project ID to find asset in. Example: Call of Duty, Fortnite, etc.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Player</returns>
+        public async System.Threading.Tasks.Task<Player> GetPlayerByIdAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            L3vels.Sdk.Client.ApiResponse<Player> localVarResponse = await GetPlayerByIdWithHttpInfoAsync(authorization, id, projectId, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve player by ID Retrieves a specific player by ID associated with game/project. Example: retrieve player Jack from game Call of Duty.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="id">Player ID that you created in your game/project. Example: Jack, George, etc.</param>
+        /// <param name="projectId">Game/project ID to find asset in. Example: Call of Duty, Fortnite, etc.</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Player)</returns>
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Player>> GetPlayerByIdWithHttpInfoAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->GetPlayerById");
+            }
+
+            // verify the required parameter 'id' is set
+            if (id == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling PlayerApi->GetPlayerById");
+            }
+
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling PlayerApi->GetPlayerById");
+            }
+
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("id", L3vels.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+
+            localVarRequestOptions.Operation = "PlayerApi.GetPlayerById";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Player>("/v1/player/{project_id}/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPlayerById", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve players Retrieve a list of players that match the specified filter criteria. Developers can use this method to retrieve players by name, category, status, or other properties. Example: Retrieve players from game Call of Duty.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game/project ID to find player in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="sort">Player field to sort by. You can sort by name, created_on and etc. (optional)</param>
+        /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
+        /// <param name="searchText">Search player by name (optional)</param>
+        /// <param name="limit">Number of players to return per page (optional)</param>
+        /// <param name="page">Page number (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>List&lt;Player&gt;</returns>
+        public List<Player> GetPlayers(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
+        {
+            L3vels.Sdk.Client.ApiResponse<List<Player>> localVarResponse = GetPlayersWithHttpInfo(authorization, projectId, sort, order, searchText, limit, page);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve players Retrieve a list of players that match the specified filter criteria. Developers can use this method to retrieve players by name, category, status, or other properties. Example: Retrieve players from game Call of Duty.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game/project ID to find player in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="sort">Player field to sort by. You can sort by name, created_on and etc. (optional)</param>
+        /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
+        /// <param name="searchText">Search player by name (optional)</param>
+        /// <param name="limit">Number of players to return per page (optional)</param>
+        /// <param name="page">Page number (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of List&lt;Player&gt;</returns>
+        public L3vels.Sdk.Client.ApiResponse<List<Player>> GetPlayersWithHttpInfo(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->GetPlayers");
+            }
+
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling PlayerApi->GetPlayers");
+            }
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "project_id", projectId));
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
+            }
+            if (order != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "order", order));
+            }
+            if (searchText != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "search_text", searchText));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+
+            localVarRequestOptions.Operation = "PlayerApi.GetPlayers";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<Player>>("/v1/player", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPlayers", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve players Retrieve a list of players that match the specified filter criteria. Developers can use this method to retrieve players by name, category, status, or other properties. Example: Retrieve players from game Call of Duty.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game/project ID to find player in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="sort">Player field to sort by. You can sort by name, created_on and etc. (optional)</param>
+        /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
+        /// <param name="searchText">Search player by name (optional)</param>
+        /// <param name="limit">Number of players to return per page (optional)</param>
+        /// <param name="page">Page number (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Player&gt;</returns>
+        public async System.Threading.Tasks.Task<List<Player>> GetPlayersAsync(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            L3vels.Sdk.Client.ApiResponse<List<Player>> localVarResponse = await GetPlayersWithHttpInfoAsync(authorization, projectId, sort, order, searchText, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve players Retrieve a list of players that match the specified filter criteria. Developers can use this method to retrieve players by name, category, status, or other properties. Example: Retrieve players from game Call of Duty.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="projectId">Game/project ID to find player in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="sort">Player field to sort by. You can sort by name, created_on and etc. (optional)</param>
+        /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
+        /// <param name="searchText">Search player by name (optional)</param>
+        /// <param name="limit">Number of players to return per page (optional)</param>
+        /// <param name="page">Page number (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Player&gt;)</returns>
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<List<Player>>> GetPlayersWithHttpInfoAsync(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->GetPlayers");
+            }
+
+            // verify the required parameter 'projectId' is set
+            if (projectId == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling PlayerApi->GetPlayers");
+            }
+
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "project_id", projectId));
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
+            }
+            if (order != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "order", order));
+            }
+            if (searchText != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "search_text", searchText));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+
+            localVarRequestOptions.Operation = "PlayerApi.GetPlayers";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Player>>("/v1/player", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetPlayers", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>
@@ -1031,883 +1711,15 @@ namespace L3vels.Sdk.Api
         }
 
         /// <summary>
-        /// Create new player Create new player for game/project. Example: Create new player Jack in game Call of Duty.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="createPlayerDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Player</returns>
-        public Player PlayerControllerCreatePlayer(string authorization, CreatePlayerDto createPlayerDto, int operationIndex = 0)
-        {
-            L3vels.Sdk.Client.ApiResponse<Player> localVarResponse = PlayerControllerCreatePlayerWithHttpInfo(authorization, createPlayerDto);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create new player Create new player for game/project. Example: Create new player Jack in game Call of Duty.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="createPlayerDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Player</returns>
-        public L3vels.Sdk.Client.ApiResponse<Player> PlayerControllerCreatePlayerWithHttpInfo(string authorization, CreatePlayerDto createPlayerDto, int operationIndex = 0)
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->PlayerControllerCreatePlayer");
-            }
-
-            // verify the required parameter 'createPlayerDto' is set
-            if (createPlayerDto == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'createPlayerDto' when calling PlayerApi->PlayerControllerCreatePlayer");
-            }
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = createPlayerDto;
-
-            localVarRequestOptions.Operation = "PlayerApi.PlayerControllerCreatePlayer";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Player>("/v1/player", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PlayerControllerCreatePlayer", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Create new player Create new player for game/project. Example: Create new player Jack in game Call of Duty.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="createPlayerDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Player</returns>
-        public async System.Threading.Tasks.Task<Player> PlayerControllerCreatePlayerAsync(string authorization, CreatePlayerDto createPlayerDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            L3vels.Sdk.Client.ApiResponse<Player> localVarResponse = await PlayerControllerCreatePlayerWithHttpInfoAsync(authorization, createPlayerDto, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create new player Create new player for game/project. Example: Create new player Jack in game Call of Duty.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="createPlayerDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Player)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Player>> PlayerControllerCreatePlayerWithHttpInfoAsync(string authorization, CreatePlayerDto createPlayerDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->PlayerControllerCreatePlayer");
-            }
-
-            // verify the required parameter 'createPlayerDto' is set
-            if (createPlayerDto == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'createPlayerDto' when calling PlayerApi->PlayerControllerCreatePlayer");
-            }
-
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = createPlayerDto;
-
-            localVarRequestOptions.Operation = "PlayerApi.PlayerControllerCreatePlayer";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Player>("/v1/player", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PlayerControllerCreatePlayer", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Delete a Player This API method allows developers to delete a Player by providing the ID of the Player. Once deleted, the Player and all associated assets will be removed from the system.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        public void PlayerControllerDeletePlayer(string authorization, int operationIndex = 0)
-        {
-            PlayerControllerDeletePlayerWithHttpInfo(authorization);
-        }
-
-        /// <summary>
-        /// Delete a Player This API method allows developers to delete a Player by providing the ID of the Player. Once deleted, the Player and all associated assets will be removed from the system.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public L3vels.Sdk.Client.ApiResponse<Object> PlayerControllerDeletePlayerWithHttpInfo(string authorization, int operationIndex = 0)
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->PlayerControllerDeletePlayer");
-            }
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-
-            localVarRequestOptions.Operation = "PlayerApi.PlayerControllerDeletePlayer";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Delete<Object>("/v1/player", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PlayerControllerDeletePlayer", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Delete a Player This API method allows developers to delete a Player by providing the ID of the Player. Once deleted, the Player and all associated assets will be removed from the system.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task PlayerControllerDeletePlayerAsync(string authorization, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await PlayerControllerDeletePlayerWithHttpInfoAsync(authorization, operationIndex, cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Delete a Player This API method allows developers to delete a Player by providing the ID of the Player. Once deleted, the Player and all associated assets will be removed from the system.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> PlayerControllerDeletePlayerWithHttpInfoAsync(string authorization, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->PlayerControllerDeletePlayer");
-            }
-
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-
-            localVarRequestOptions.Operation = "PlayerApi.PlayerControllerDeletePlayer";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/v1/player", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PlayerControllerDeletePlayer", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve players Retrieve a list of players that match the specified filter criteria. Developers can use this method to retrieve players by name, category, status, or other properties. Example: Retrieve players from game Call of Duty.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find player in your game. Example: Fortnite, Minecraft, etc.</param>
-        /// <param name="sort">Player field to sort by. You can sort by name, created_on and etc. (optional)</param>
-        /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
-        /// <param name="searchText">Search player by name (optional)</param>
-        /// <param name="limit">Number of players to return per page (optional)</param>
-        /// <param name="page">Page number (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;Player&gt;</returns>
-        public List<Player> PlayerControllerGetPlayers(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
-        {
-            L3vels.Sdk.Client.ApiResponse<List<Player>> localVarResponse = PlayerControllerGetPlayersWithHttpInfo(authorization, projectId, sort, order, searchText, limit, page);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve players Retrieve a list of players that match the specified filter criteria. Developers can use this method to retrieve players by name, category, status, or other properties. Example: Retrieve players from game Call of Duty.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find player in your game. Example: Fortnite, Minecraft, etc.</param>
-        /// <param name="sort">Player field to sort by. You can sort by name, created_on and etc. (optional)</param>
-        /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
-        /// <param name="searchText">Search player by name (optional)</param>
-        /// <param name="limit">Number of players to return per page (optional)</param>
-        /// <param name="page">Page number (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;Player&gt;</returns>
-        public L3vels.Sdk.Client.ApiResponse<List<Player>> PlayerControllerGetPlayersWithHttpInfo(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->PlayerControllerGetPlayers");
-            }
-
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling PlayerApi->PlayerControllerGetPlayers");
-            }
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "project_id", projectId));
-            if (sort != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
-            }
-            if (order != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "order", order));
-            }
-            if (searchText != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "search_text", searchText));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-
-            localVarRequestOptions.Operation = "PlayerApi.PlayerControllerGetPlayers";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Player>>("/v1/player", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PlayerControllerGetPlayers", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve players Retrieve a list of players that match the specified filter criteria. Developers can use this method to retrieve players by name, category, status, or other properties. Example: Retrieve players from game Call of Duty.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find player in your game. Example: Fortnite, Minecraft, etc.</param>
-        /// <param name="sort">Player field to sort by. You can sort by name, created_on and etc. (optional)</param>
-        /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
-        /// <param name="searchText">Search player by name (optional)</param>
-        /// <param name="limit">Number of players to return per page (optional)</param>
-        /// <param name="page">Page number (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Player&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Player>> PlayerControllerGetPlayersAsync(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            L3vels.Sdk.Client.ApiResponse<List<Player>> localVarResponse = await PlayerControllerGetPlayersWithHttpInfoAsync(authorization, projectId, sort, order, searchText, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve players Retrieve a list of players that match the specified filter criteria. Developers can use this method to retrieve players by name, category, status, or other properties. Example: Retrieve players from game Call of Duty.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find player in your game. Example: Fortnite, Minecraft, etc.</param>
-        /// <param name="sort">Player field to sort by. You can sort by name, created_on and etc. (optional)</param>
-        /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
-        /// <param name="searchText">Search player by name (optional)</param>
-        /// <param name="limit">Number of players to return per page (optional)</param>
-        /// <param name="page">Page number (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Player&gt;)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<List<Player>>> PlayerControllerGetPlayersWithHttpInfoAsync(string authorization, string projectId, string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->PlayerControllerGetPlayers");
-            }
-
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling PlayerApi->PlayerControllerGetPlayers");
-            }
-
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "project_id", projectId));
-            if (sort != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
-            }
-            if (order != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "order", order));
-            }
-            if (searchText != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "search_text", searchText));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-
-            localVarRequestOptions.Operation = "PlayerApi.PlayerControllerGetPlayers";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Player>>("/v1/player", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PlayerControllerGetPlayers", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve player by ID Retrieves a specific player by ID associated with game/project. Example: retrieve player Jack from game Call of Duty.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="id">Player ID that you created in your game/project. Example: Jack, George, etc.</param>
-        /// <param name="projectId">Game/project ID to find asset in. Example: Call of Duty, Fortnite, etc.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Player</returns>
-        public Player PlayerControllerPlayerById(string authorization, string id, string projectId, int operationIndex = 0)
-        {
-            L3vels.Sdk.Client.ApiResponse<Player> localVarResponse = PlayerControllerPlayerByIdWithHttpInfo(authorization, id, projectId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve player by ID Retrieves a specific player by ID associated with game/project. Example: retrieve player Jack from game Call of Duty.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="id">Player ID that you created in your game/project. Example: Jack, George, etc.</param>
-        /// <param name="projectId">Game/project ID to find asset in. Example: Call of Duty, Fortnite, etc.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Player</returns>
-        public L3vels.Sdk.Client.ApiResponse<Player> PlayerControllerPlayerByIdWithHttpInfo(string authorization, string id, string projectId, int operationIndex = 0)
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->PlayerControllerPlayerById");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling PlayerApi->PlayerControllerPlayerById");
-            }
-
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling PlayerApi->PlayerControllerPlayerById");
-            }
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("id", L3vels.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-
-            localVarRequestOptions.Operation = "PlayerApi.PlayerControllerPlayerById";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Player>("/v1/player/{project_id}/{id}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PlayerControllerPlayerById", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Retrieve player by ID Retrieves a specific player by ID associated with game/project. Example: retrieve player Jack from game Call of Duty.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="id">Player ID that you created in your game/project. Example: Jack, George, etc.</param>
-        /// <param name="projectId">Game/project ID to find asset in. Example: Call of Duty, Fortnite, etc.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Player</returns>
-        public async System.Threading.Tasks.Task<Player> PlayerControllerPlayerByIdAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            L3vels.Sdk.Client.ApiResponse<Player> localVarResponse = await PlayerControllerPlayerByIdWithHttpInfoAsync(authorization, id, projectId, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Retrieve player by ID Retrieves a specific player by ID associated with game/project. Example: retrieve player Jack from game Call of Duty.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="id">Player ID that you created in your game/project. Example: Jack, George, etc.</param>
-        /// <param name="projectId">Game/project ID to find asset in. Example: Call of Duty, Fortnite, etc.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Player)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Player>> PlayerControllerPlayerByIdWithHttpInfoAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->PlayerControllerPlayerById");
-            }
-
-            // verify the required parameter 'id' is set
-            if (id == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling PlayerApi->PlayerControllerPlayerById");
-            }
-
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling PlayerApi->PlayerControllerPlayerById");
-            }
-
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("id", L3vels.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-
-            localVarRequestOptions.Operation = "PlayerApi.PlayerControllerPlayerById";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Player>("/v1/player/{project_id}/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PlayerControllerPlayerById", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Count players Count players in game. Example: count players in game Call of Duty.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game Id</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>decimal</returns>
-        public decimal PlayerControllerPlayersCountByGameId(string authorization, string projectId, int operationIndex = 0)
-        {
-            L3vels.Sdk.Client.ApiResponse<decimal> localVarResponse = PlayerControllerPlayersCountByGameIdWithHttpInfo(authorization, projectId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Count players Count players in game. Example: count players in game Call of Duty.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game Id</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of decimal</returns>
-        public L3vels.Sdk.Client.ApiResponse<decimal> PlayerControllerPlayersCountByGameIdWithHttpInfo(string authorization, string projectId, int operationIndex = 0)
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->PlayerControllerPlayersCountByGameId");
-            }
-
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling PlayerApi->PlayerControllerPlayersCountByGameId");
-            }
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-
-            localVarRequestOptions.Operation = "PlayerApi.PlayerControllerPlayersCountByGameId";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<decimal>("/v1/player/count/{project_id}", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PlayerControllerPlayersCountByGameId", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Count players Count players in game. Example: count players in game Call of Duty.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game Id</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of decimal</returns>
-        public async System.Threading.Tasks.Task<decimal> PlayerControllerPlayersCountByGameIdAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            L3vels.Sdk.Client.ApiResponse<decimal> localVarResponse = await PlayerControllerPlayersCountByGameIdWithHttpInfoAsync(authorization, projectId, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Count players Count players in game. Example: count players in game Call of Duty.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game Id</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (decimal)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<decimal>> PlayerControllerPlayersCountByGameIdWithHttpInfoAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->PlayerControllerPlayersCountByGameId");
-            }
-
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling PlayerApi->PlayerControllerPlayersCountByGameId");
-            }
-
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-
-            localVarRequestOptions.Operation = "PlayerApi.PlayerControllerPlayersCountByGameId";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<decimal>("/v1/player/count/{project_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("PlayerControllerPlayersCountByGameId", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Update an existing Player This API method allows developers to update an existing Player by providing the ID of the Player and the updated properties and associated assets.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Player</returns>
-        public Player PlayerControllerUpdatePlayer(string authorization, int operationIndex = 0)
+        public Player UpdatePlayer(string authorization, int operationIndex = 0)
         {
-            L3vels.Sdk.Client.ApiResponse<Player> localVarResponse = PlayerControllerUpdatePlayerWithHttpInfo(authorization);
+            L3vels.Sdk.Client.ApiResponse<Player> localVarResponse = UpdatePlayerWithHttpInfo(authorization);
             return localVarResponse.Data;
         }
 
@@ -1918,12 +1730,12 @@ namespace L3vels.Sdk.Api
         /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Player</returns>
-        public L3vels.Sdk.Client.ApiResponse<Player> PlayerControllerUpdatePlayerWithHttpInfo(string authorization, int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<Player> UpdatePlayerWithHttpInfo(string authorization, int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->PlayerControllerUpdatePlayer");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->UpdatePlayer");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -1950,7 +1762,7 @@ namespace L3vels.Sdk.Api
 
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
-            localVarRequestOptions.Operation = "PlayerApi.PlayerControllerUpdatePlayer";
+            localVarRequestOptions.Operation = "PlayerApi.UpdatePlayer";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -1958,7 +1770,7 @@ namespace L3vels.Sdk.Api
             var localVarResponse = this.Client.Put<Player>("/v1/player", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("PlayerControllerUpdatePlayer", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdatePlayer", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1976,9 +1788,9 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Player</returns>
-        public async System.Threading.Tasks.Task<Player> PlayerControllerUpdatePlayerAsync(string authorization, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Player> UpdatePlayerAsync(string authorization, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            L3vels.Sdk.Client.ApiResponse<Player> localVarResponse = await PlayerControllerUpdatePlayerWithHttpInfoAsync(authorization, operationIndex, cancellationToken).ConfigureAwait(false);
+            L3vels.Sdk.Client.ApiResponse<Player> localVarResponse = await UpdatePlayerWithHttpInfoAsync(authorization, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1990,12 +1802,12 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Player)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Player>> PlayerControllerUpdatePlayerWithHttpInfoAsync(string authorization, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Player>> UpdatePlayerWithHttpInfoAsync(string authorization, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->PlayerControllerUpdatePlayer");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling PlayerApi->UpdatePlayer");
             }
 
 
@@ -2023,7 +1835,7 @@ namespace L3vels.Sdk.Api
 
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
-            localVarRequestOptions.Operation = "PlayerApi.PlayerControllerUpdatePlayer";
+            localVarRequestOptions.Operation = "PlayerApi.UpdatePlayer";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -2032,7 +1844,7 @@ namespace L3vels.Sdk.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("PlayerControllerUpdatePlayer", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdatePlayer", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

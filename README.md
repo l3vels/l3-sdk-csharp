@@ -114,21 +114,20 @@ Class | Method | HTTP request | Description
 *ContractApi* | [**ContractControllerContractUri**](docs/ContractApi.md#contractcontrollercontracturi) | **GET** /v1/contract/contract-uri | Get Contract URI
 *ContractApi* | [**ContractControllerSetContractUri**](docs/ContractApi.md#contractcontrollersetcontracturi) | **PUT** /v1/contract/contract-uri | Update Contract URI
 *ContractApi* | [**ContractControllerSetSaleStatus**](docs/ContractApi.md#contractcontrollersetsalestatus) | **PUT** /v1/contract/sale-status | Update Sale status
-*GameApi* | [**ProjectControllerProjectById**](docs/GameApi.md#projectcontrollerprojectbyid) | **GET** /v1/game/{id} | Retrieve Game
+*GameApi* | [**GetGameById**](docs/GameApi.md#getgamebyid) | **GET** /v1/game/{id} | Retrieve Game
 *MintApi* | [**MintControllerAirdrop**](docs/MintApi.md#mintcontrollerairdrop) | **POST** /v1/mint/airdrop | Airdrop asset to player
 *MintApi* | [**MintControllerAward**](docs/MintApi.md#mintcontrolleraward) | **POST** /v1/mint/award | Award asset to player
 *MintApi* | [**MintControllerMint**](docs/MintApi.md#mintcontrollermint) | **POST** /v1/mint | Mint asset
 *MintApi* | [**MintControllerMintBatch**](docs/MintApi.md#mintcontrollermintbatch) | **POST** /v1/mint/batch | Batch mint assets
 *MintApi* | [**MintControllerPlayerMint**](docs/MintApi.md#mintcontrollerplayermint) | **POST** /v1/mint/player | Mint asset by player
 *MintApi* | [**MintControllerPlayerMintBatch**](docs/MintApi.md#mintcontrollerplayermintbatch) | **POST** /v1/mint/batch-player | Batch mint assets by player
+*PlayerApi* | [**CountPlayersByGameId**](docs/PlayerApi.md#countplayersbygameid) | **GET** /v1/player/count/{project_id} | Count players
+*PlayerApi* | [**CreatePlayer**](docs/PlayerApi.md#createplayer) | **POST** /v1/player | Create new player
+*PlayerApi* | [**GetPlayerById**](docs/PlayerApi.md#getplayerbyid) | **GET** /v1/player/{project_id}/{id} | Retrieve player by ID
+*PlayerApi* | [**GetPlayers**](docs/PlayerApi.md#getplayers) | **GET** /v1/player | Retrieve players
 *PlayerApi* | [**PlayerAssetControllerPlayerAssetById**](docs/PlayerApi.md#playerassetcontrollerplayerassetbyid) | **GET** /v1/player-asset/{project_id}/{id} | Retrieve player asset by ID
 *PlayerApi* | [**PlayerAssetControllerPlayerAssets**](docs/PlayerApi.md#playerassetcontrollerplayerassets) | **GET** /v1/player-asset | Retrieve player assets
-*PlayerApi* | [**PlayerControllerCreatePlayer**](docs/PlayerApi.md#playercontrollercreateplayer) | **POST** /v1/player | Create new player
-*PlayerApi* | [**PlayerControllerDeletePlayer**](docs/PlayerApi.md#playercontrollerdeleteplayer) | **DELETE** /v1/player | Delete a Player
-*PlayerApi* | [**PlayerControllerGetPlayers**](docs/PlayerApi.md#playercontrollergetplayers) | **GET** /v1/player | Retrieve players
-*PlayerApi* | [**PlayerControllerPlayerById**](docs/PlayerApi.md#playercontrollerplayerbyid) | **GET** /v1/player/{project_id}/{id} | Retrieve player by ID
-*PlayerApi* | [**PlayerControllerPlayersCountByGameId**](docs/PlayerApi.md#playercontrollerplayerscountbygameid) | **GET** /v1/player/count/{project_id} | Count players
-*PlayerApi* | [**PlayerControllerUpdatePlayer**](docs/PlayerApi.md#playercontrollerupdateplayer) | **PUT** /v1/player | Update an existing Player
+*PlayerApi* | [**UpdatePlayer**](docs/PlayerApi.md#updateplayer) | **PUT** /v1/player | Update an existing Player
 *TransactionApi* | [**TransactionControllerTransactionById**](docs/TransactionApi.md#transactioncontrollertransactionbyid) | **GET** /v1/transaction/{project_id}/{id} | Retrieve Transaction by ID
 *TransactionApi* | [**TransactionControllerTransactions**](docs/TransactionApi.md#transactioncontrollertransactions) | **GET** /v1/transaction | Retrieve transactions
 *TransactionApi* | [**TransactionControllerWebhook**](docs/TransactionApi.md#transactioncontrollerwebhook) | **POST** /v1/transaction/webhook | 

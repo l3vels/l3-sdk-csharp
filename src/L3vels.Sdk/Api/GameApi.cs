@@ -38,7 +38,7 @@ namespace L3vels.Sdk.Api
         /// <param name="id">Game or Project Id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Project</returns>
-        Project ProjectControllerProjectById(string authorization, string id, int operationIndex = 0);
+        Project GetGameById(string authorization, string id, int operationIndex = 0);
 
         /// <summary>
         /// Retrieve Game
@@ -51,7 +51,7 @@ namespace L3vels.Sdk.Api
         /// <param name="id">Game or Project Id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Project</returns>
-        ApiResponse<Project> ProjectControllerProjectByIdWithHttpInfo(string authorization, string id, int operationIndex = 0);
+        ApiResponse<Project> GetGameByIdWithHttpInfo(string authorization, string id, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -73,7 +73,7 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Project</returns>
-        System.Threading.Tasks.Task<Project> ProjectControllerProjectByIdAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Project> GetGameByIdAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve Game
@@ -87,7 +87,7 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Project)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Project>> ProjectControllerProjectByIdWithHttpInfoAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Project>> GetGameByIdWithHttpInfoAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -216,9 +216,9 @@ namespace L3vels.Sdk.Api
         /// <param name="id">Game or Project Id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Project</returns>
-        public Project ProjectControllerProjectById(string authorization, string id, int operationIndex = 0)
+        public Project GetGameById(string authorization, string id, int operationIndex = 0)
         {
-            L3vels.Sdk.Client.ApiResponse<Project> localVarResponse = ProjectControllerProjectByIdWithHttpInfo(authorization, id);
+            L3vels.Sdk.Client.ApiResponse<Project> localVarResponse = GetGameByIdWithHttpInfo(authorization, id);
             return localVarResponse.Data;
         }
 
@@ -230,18 +230,18 @@ namespace L3vels.Sdk.Api
         /// <param name="id">Game or Project Id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Project</returns>
-        public L3vels.Sdk.Client.ApiResponse<Project> ProjectControllerProjectByIdWithHttpInfo(string authorization, string id, int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<Project> GetGameByIdWithHttpInfo(string authorization, string id, int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling GameApi->ProjectControllerProjectById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling GameApi->GetGameById");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling GameApi->ProjectControllerProjectById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling GameApi->GetGameById");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -269,7 +269,7 @@ namespace L3vels.Sdk.Api
             localVarRequestOptions.PathParameters.Add("id", L3vels.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
-            localVarRequestOptions.Operation = "GameApi.ProjectControllerProjectById";
+            localVarRequestOptions.Operation = "GameApi.GetGameById";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -277,7 +277,7 @@ namespace L3vels.Sdk.Api
             var localVarResponse = this.Client.Get<Project>("/v1/game/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ProjectControllerProjectById", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetGameById", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -296,9 +296,9 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Project</returns>
-        public async System.Threading.Tasks.Task<Project> ProjectControllerProjectByIdAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Project> GetGameByIdAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            L3vels.Sdk.Client.ApiResponse<Project> localVarResponse = await ProjectControllerProjectByIdWithHttpInfoAsync(authorization, id, operationIndex, cancellationToken).ConfigureAwait(false);
+            L3vels.Sdk.Client.ApiResponse<Project> localVarResponse = await GetGameByIdWithHttpInfoAsync(authorization, id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -311,18 +311,18 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Project)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Project>> ProjectControllerProjectByIdWithHttpInfoAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Project>> GetGameByIdWithHttpInfoAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling GameApi->ProjectControllerProjectById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling GameApi->GetGameById");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling GameApi->ProjectControllerProjectById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling GameApi->GetGameById");
             }
 
 
@@ -351,7 +351,7 @@ namespace L3vels.Sdk.Api
             localVarRequestOptions.PathParameters.Add("id", L3vels.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
-            localVarRequestOptions.Operation = "GameApi.ProjectControllerProjectById";
+            localVarRequestOptions.Operation = "GameApi.GetGameById";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -360,7 +360,7 @@ namespace L3vels.Sdk.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ProjectControllerProjectById", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetGameById", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

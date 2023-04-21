@@ -34,7 +34,7 @@ paths:
   /v1/game/{id}:
     get:
       description: Get game/project by ID created on the platform.
-      operationId: ProjectController_projectById
+      operationId: getGameById
       parameters:
       - description: API key is associated with multiple projects. Please include
           it in to use developers API.
@@ -1138,7 +1138,7 @@ paths:
     get:
       description: "Retrieves a specific player by ID associated with game/project.\
         \ Example: retrieve player Jack from game Call of Duty."
-      operationId: PlayerController_playerById
+      operationId: getPlayerById
       parameters:
       - description: API key is associated with multiple projects. Please include
           it in to use developers API.
@@ -1197,49 +1197,11 @@ paths:
       tags:
       - Player
   /v1/player:
-    delete:
-      description: "This API method allows developers to delete a Player by providing\
-        \ the ID of the Player. Once deleted, the Player and all associated assets\
-        \ will be removed from the system."
-      operationId: PlayerController_deletePlayer
-      parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
-        explode: false
-        in: header
-        name: Authorization
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: The players has successful deleted.
-        "400":
-          description: "Bad Request, The request was unacceptable, often due to missing\
-            \ a required parameter."
-        "401":
-          description: "Unauthorized, No valid API key provided."
-        "404":
-          description: "Not Found, The requested resource doesn't exist."
-        "409":
-          description: "Conflict, The request conflicts with another request (perhaps\
-            \ due to using the same idempotent key)."
-        "429":
-          description: "Too Many Requests, Too many requests hit the API too quickly.\
-            \ We recommend an exponential backoff of your requests."
-        "500":
-          description: "Server Errors, Something went wrong on L3vels's end."
-        "504":
-          description: "Gateway Timeout, Your request took too long."
-      summary: Delete a Player
-      tags:
-      - Player
     get:
       description: "Retrieve a list of players that match the specified filter criteria.\
         \ Developers can use this method to retrieve players by name, category, status,\
         \ or other properties. Example: Retrieve players from game Call of Duty."
-      operationId: PlayerController_getPlayers
+      operationId: getPlayers
       parameters:
       - description: API key is associated with multiple projects. Please include
           it in to use developers API.
@@ -1338,7 +1300,7 @@ paths:
     post:
       description: "Create new player for game/project. Example: Create new player\
         \ Jack in game Call of Duty."
-      operationId: PlayerController_createPlayer
+      operationId: createPlayer
       parameters:
       - description: API key is associated with multiple projects. Please include
           it in to use developers API.
@@ -1386,7 +1348,7 @@ paths:
       description: This API method allows developers to update an existing Player
         by providing the ID of the Player and the updated properties and associated
         assets.
-      operationId: PlayerController_updatePlayer
+      operationId: updatePlayer
       parameters:
       - description: API key is associated with multiple projects. Please include
           it in to use developers API.
@@ -1428,7 +1390,7 @@ paths:
     get:
       description: "Count players in game. Example: count players in game Call of\
         \ Duty."
-      operationId: PlayerController_playersCountByGameId
+      operationId: countPlayersByGameId
       parameters:
       - description: API key is associated with multiple projects. Please include
           it in to use developers API.

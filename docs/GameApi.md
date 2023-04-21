@@ -4,11 +4,11 @@ All URIs are relative to *https://api-dev.l3vels.xyz*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ProjectControllerProjectById**](GameApi.md#projectcontrollerprojectbyid) | **GET** /v1/game/{id} | Retrieve Game |
+| [**GetGameById**](GameApi.md#getgamebyid) | **GET** /v1/game/{id} | Retrieve Game |
 
-<a name="projectcontrollerprojectbyid"></a>
-# **ProjectControllerProjectById**
-> Project ProjectControllerProjectById (string authorization, string id)
+<a name="getgamebyid"></a>
+# **GetGameById**
+> Project GetGameById (string authorization, string id)
 
 Retrieve Game
 
@@ -24,7 +24,7 @@ using L3vels.Sdk.Model;
 
 namespace Example
 {
-    public class ProjectControllerProjectByIdExample
+    public class GetGameByIdExample
     {
         public static void Main()
         {
@@ -37,12 +37,12 @@ namespace Example
             try
             {
                 // Retrieve Game
-                Project result = apiInstance.ProjectControllerProjectById(authorization, id);
+                Project result = apiInstance.GetGameById(authorization, id);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GameApi.ProjectControllerProjectById: " + e.Message);
+                Debug.Print("Exception when calling GameApi.GetGameById: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -51,21 +51,21 @@ namespace Example
 }
 ```
 
-#### Using the ProjectControllerProjectByIdWithHttpInfo variant
+#### Using the GetGameByIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Retrieve Game
-    ApiResponse<Project> response = apiInstance.ProjectControllerProjectByIdWithHttpInfo(authorization, id);
+    ApiResponse<Project> response = apiInstance.GetGameByIdWithHttpInfo(authorization, id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling GameApi.ProjectControllerProjectByIdWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling GameApi.GetGameByIdWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

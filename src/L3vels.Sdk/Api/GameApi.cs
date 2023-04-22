@@ -31,27 +31,27 @@ namespace L3vels.Sdk.Api
         /// Retrieve Game
         /// </summary>
         /// <remarks>
-        /// Get game/project by ID created on the platform.
+        /// Get Game by ID created on the platform.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="id">Game or Project Id</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="id">Game or Game Id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Project</returns>
-        Project GetGameById(string authorization, string id, int operationIndex = 0);
+        /// <returns>Game</returns>
+        Game GetGameById(string authorization, string id, int operationIndex = 0);
 
         /// <summary>
         /// Retrieve Game
         /// </summary>
         /// <remarks>
-        /// Get game/project by ID created on the platform.
+        /// Get Game by ID created on the platform.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="id">Game or Project Id</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="id">Game or Game Id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Project</returns>
-        ApiResponse<Project> GetGameByIdWithHttpInfo(string authorization, string id, int operationIndex = 0);
+        /// <returns>ApiResponse of Game</returns>
+        ApiResponse<Game> GetGameByIdWithHttpInfo(string authorization, string id, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -65,29 +65,29 @@ namespace L3vels.Sdk.Api
         /// Retrieve Game
         /// </summary>
         /// <remarks>
-        /// Get game/project by ID created on the platform.
+        /// Get Game by ID created on the platform.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="id">Game or Project Id</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="id">Game or Game Id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Project</returns>
-        System.Threading.Tasks.Task<Project> GetGameByIdAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of Game</returns>
+        System.Threading.Tasks.Task<Game> GetGameByIdAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve Game
         /// </summary>
         /// <remarks>
-        /// Get game/project by ID created on the platform.
+        /// Get Game by ID created on the platform.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="id">Game or Project Id</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="id">Game or Game Id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Project)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Project>> GetGameByIdWithHttpInfoAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (Game)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Game>> GetGameByIdWithHttpInfoAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -209,28 +209,28 @@ namespace L3vels.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve Game Get game/project by ID created on the platform.
+        /// Retrieve Game Get Game by ID created on the platform.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="id">Game or Project Id</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="id">Game or Game Id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Project</returns>
-        public Project GetGameById(string authorization, string id, int operationIndex = 0)
+        /// <returns>Game</returns>
+        public Game GetGameById(string authorization, string id, int operationIndex = 0)
         {
-            L3vels.Sdk.Client.ApiResponse<Project> localVarResponse = GetGameByIdWithHttpInfo(authorization, id);
+            L3vels.Sdk.Client.ApiResponse<Game> localVarResponse = GetGameByIdWithHttpInfo(authorization, id);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve Game Get game/project by ID created on the platform.
+        /// Retrieve Game Get Game by ID created on the platform.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="id">Game or Project Id</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="id">Game or Game Id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Project</returns>
-        public L3vels.Sdk.Client.ApiResponse<Project> GetGameByIdWithHttpInfo(string authorization, string id, int operationIndex = 0)
+        /// <returns>ApiResponse of Game</returns>
+        public L3vels.Sdk.Client.ApiResponse<Game> GetGameByIdWithHttpInfo(string authorization, string id, int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -274,7 +274,7 @@ namespace L3vels.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Project>("/v1/game/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Game>("/v1/game/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGameById", localVarResponse);
@@ -288,30 +288,30 @@ namespace L3vels.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve Game Get game/project by ID created on the platform.
+        /// Retrieve Game Get Game by ID created on the platform.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="id">Game or Project Id</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="id">Game or Game Id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Project</returns>
-        public async System.Threading.Tasks.Task<Project> GetGameByIdAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of Game</returns>
+        public async System.Threading.Tasks.Task<Game> GetGameByIdAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            L3vels.Sdk.Client.ApiResponse<Project> localVarResponse = await GetGameByIdWithHttpInfoAsync(authorization, id, operationIndex, cancellationToken).ConfigureAwait(false);
+            L3vels.Sdk.Client.ApiResponse<Game> localVarResponse = await GetGameByIdWithHttpInfoAsync(authorization, id, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve Game Get game/project by ID created on the platform.
+        /// Retrieve Game Get Game by ID created on the platform.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="id">Game or Project Id</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="id">Game or Game Id</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Project)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Project>> GetGameByIdWithHttpInfoAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (Game)</returns>
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Game>> GetGameByIdWithHttpInfoAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -356,7 +356,7 @@ namespace L3vels.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Project>("/v1/game/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Game>("/v1/game/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

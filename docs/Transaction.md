@@ -19,13 +19,13 @@ Name | Type | Description | Notes
 **Type** | **string** | Transaction type: Mint, Transfer, Award, Airdrop, etc. | 
 **Method** | **string** | Function method name that was called in smart contract | 
 **Events** | **List&lt;string&gt;** | List of events that were emitted in the transaction | 
-**ProjectId** | **string** | The unique identifier of the project that the transaction is associated with. This allows developers to organize their transactions by project and helps with tracking and reporting. | 
-**CollectionId** | **string** | The unique identifier of the collection that the transaction is associated with. This allows developers to organize their transactions by project and helps with tracking and reporting. | 
-**AccountId** | **decimal** | The unique identifier of the account that the transaction belongs to. | 
+**GameId** | **string** | The unique identifier of the game that the transaction is associated with. This allows developers to organize their transactions by game and helps with tracking and reporting. | 
+**CollectionId** | **string** | The unique identifier of the collection that the transaction is associated with. This allows developers to organize their transactions by game and helps with tracking and reporting. | 
+**AccountId** | **string** | The unique identifier of the account that the transaction belongs to. | 
 **CreatedOn** | **DateTimeOffset** | The date when the collection was created. | 
 **ModifiedOn** | **DateTimeOffset** | The date when the collection was last modified. | 
-**CreatedBy** | **decimal** | The Id of the user who created the collection. | 
-**ModifiedBy** | **decimal** | The Id of the user who last modified the collection. | 
+**CreatedBy** | **string** | The Id of the user who created the collection. | 
+**ModifiedBy** | **string** | The Id of the user who last modified the collection. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

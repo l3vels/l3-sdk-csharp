@@ -75,13 +75,13 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api-dev.l3vels.xyz";
             var apiInstance = new AssetApi(config);
-            var authorization = "authorization_example";  // string | API key is associated with multiple projects. Please include it in to use developers API.
-            var projectId = "projectId_example";  // string | 
+            var authorization = "authorization_example";  // string | API key is associated with multiple games. Please include it in to use developers API.
+            var gameId = "gameId_example";  // string | 
 
             try
             {
                 // Count assets
-                decimal result = apiInstance.CountByGame(authorization, projectId);
+                decimal result = apiInstance.CountByGame(authorization, gameId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -103,33 +103,33 @@ All URIs are relative to *https://api-dev.l3vels.xyz*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AssetApi* | [**CountByGame**](docs/AssetApi.md#countbygame) | **GET** /v1/asset/count/{project_id} | Count assets
-*AssetApi* | [**GetAssetById**](docs/AssetApi.md#getassetbyid) | **GET** /v1/asset/{project_id}/{id} | Retrieve asset by ID
+*AssetApi* | [**CountByGame**](docs/AssetApi.md#countbygame) | **GET** /v1/asset/count/{game_id} | Count assets
+*AssetApi* | [**GetAssetById**](docs/AssetApi.md#getassetbyid) | **GET** /v1/asset/{game_id}/{id} | Retrieve asset by ID
 *AssetApi* | [**GetAssets**](docs/AssetApi.md#getassets) | **GET** /v1/asset | Retrieve assets
 *AssetApi* | [**UpdateAsset**](docs/AssetApi.md#updateasset) | **PATCH** /v1/asset/{id} | Update asset
-*CollectionApi* | [**CountCollectionsByGameId**](docs/CollectionApi.md#countcollectionsbygameid) | **GET** /v1/collection/count/{project_id} | Count collections
-*CollectionApi* | [**GetCollectionById**](docs/CollectionApi.md#getcollectionbyid) | **GET** /v1/collection/{project_id}/{id} | Retrieve collection by ID
+*CollectionApi* | [**CountCollectionsByGameId**](docs/CollectionApi.md#countcollectionsbygameid) | **GET** /v1/collection/count/{game_id} | Count collections
+*CollectionApi* | [**GetCollectionById**](docs/CollectionApi.md#getcollectionbyid) | **GET** /v1/collection/{game_id}/{id} | Retrieve collection by ID
 *CollectionApi* | [**GetCollections**](docs/CollectionApi.md#getcollections) | **GET** /v1/collection | Retrieve collections
-*ContractApi* | [**ContractControllerCollectionSize**](docs/ContractApi.md#contractcontrollercollectionsize) | **GET** /v1/contract/collection-size | Collection size
-*ContractApi* | [**ContractControllerContractUri**](docs/ContractApi.md#contractcontrollercontracturi) | **GET** /v1/contract/contract-uri | Get Contract URI
-*ContractApi* | [**ContractControllerSetContractUri**](docs/ContractApi.md#contractcontrollersetcontracturi) | **PUT** /v1/contract/contract-uri | Update Contract URI
-*ContractApi* | [**ContractControllerSetSaleStatus**](docs/ContractApi.md#contractcontrollersetsalestatus) | **PUT** /v1/contract/sale-status | Update Sale status
+*ContractApi* | [**CountContractsByGameId**](docs/ContractApi.md#countcontractsbygameid) | **GET** /v1/contract/collection-size | Collection size
+*ContractApi* | [**GetContractURI**](docs/ContractApi.md#getcontracturi) | **GET** /v1/contract/contract-uri | Get Contract URI
+*ContractApi* | [**SetContractURI**](docs/ContractApi.md#setcontracturi) | **PUT** /v1/contract/contract-uri | Update Contract URI
+*ContractApi* | [**UpdateSaleStatus**](docs/ContractApi.md#updatesalestatus) | **PUT** /v1/contract/sale-status | Update Sale status
 *GameApi* | [**GetGameById**](docs/GameApi.md#getgamebyid) | **GET** /v1/game/{id} | Retrieve Game
-*MintApi* | [**MintControllerAirdrop**](docs/MintApi.md#mintcontrollerairdrop) | **POST** /v1/mint/airdrop | Airdrop asset to player
-*MintApi* | [**MintControllerAward**](docs/MintApi.md#mintcontrolleraward) | **POST** /v1/mint/award | Award asset to player
-*MintApi* | [**MintControllerMint**](docs/MintApi.md#mintcontrollermint) | **POST** /v1/mint | Mint asset
-*MintApi* | [**MintControllerMintBatch**](docs/MintApi.md#mintcontrollermintbatch) | **POST** /v1/mint/batch | Batch mint assets
-*MintApi* | [**MintControllerPlayerMint**](docs/MintApi.md#mintcontrollerplayermint) | **POST** /v1/mint/player | Mint asset by player
-*MintApi* | [**MintControllerPlayerMintBatch**](docs/MintApi.md#mintcontrollerplayermintbatch) | **POST** /v1/mint/batch-player | Batch mint assets by player
-*PlayerApi* | [**CountPlayersByGameId**](docs/PlayerApi.md#countplayersbygameid) | **GET** /v1/player/count/{project_id} | Count players
+*MintApi* | [**AirdropAssetToPlayer**](docs/MintApi.md#airdropassettoplayer) | **POST** /v1/mint/airdrop | Airdrop asset to player
+*MintApi* | [**AwardAssetToPlayer**](docs/MintApi.md#awardassettoplayer) | **POST** /v1/mint/award | Award asset to player
+*MintApi* | [**BatchMintAssetByPlayer**](docs/MintApi.md#batchmintassetbyplayer) | **POST** /v1/mint/batch-player | Batch mint assets by player
+*MintApi* | [**MintAsset**](docs/MintApi.md#mintasset) | **POST** /v1/mint | Mint asset
+*MintApi* | [**MintAssetByPlayer**](docs/MintApi.md#mintassetbyplayer) | **POST** /v1/mint/player | Mint asset by player
+*MintApi* | [**MintBatchAsset**](docs/MintApi.md#mintbatchasset) | **POST** /v1/mint/batch | Batch mint assets
+*PlayerApi* | [**CountPlayersByGameId**](docs/PlayerApi.md#countplayersbygameid) | **GET** /v1/player/count/{game_id} | Count players
 *PlayerApi* | [**CreatePlayer**](docs/PlayerApi.md#createplayer) | **POST** /v1/player | Create new player
-*PlayerApi* | [**GetPlayerById**](docs/PlayerApi.md#getplayerbyid) | **GET** /v1/player/{project_id}/{id} | Retrieve player by ID
+*PlayerApi* | [**GetPlayerAssetById**](docs/PlayerApi.md#getplayerassetbyid) | **GET** /v1/player-asset/{game_id}/{id} | Retrieve player asset by ID
+*PlayerApi* | [**GetPlayerById**](docs/PlayerApi.md#getplayerbyid) | **GET** /v1/player/{game_id}/{id} | Retrieve player by ID
 *PlayerApi* | [**GetPlayers**](docs/PlayerApi.md#getplayers) | **GET** /v1/player | Retrieve players
-*PlayerApi* | [**PlayerAssetControllerPlayerAssetById**](docs/PlayerApi.md#playerassetcontrollerplayerassetbyid) | **GET** /v1/player-asset/{project_id}/{id} | Retrieve player asset by ID
-*PlayerApi* | [**PlayerAssetControllerPlayerAssets**](docs/PlayerApi.md#playerassetcontrollerplayerassets) | **GET** /v1/player-asset | Retrieve player assets
+*PlayerApi* | [**PlayerAssets**](docs/PlayerApi.md#playerassets) | **GET** /v1/player-asset | Retrieve player assets
 *PlayerApi* | [**UpdatePlayer**](docs/PlayerApi.md#updateplayer) | **PUT** /v1/player | Update an existing Player
-*TransactionApi* | [**TransactionControllerTransactionById**](docs/TransactionApi.md#transactioncontrollertransactionbyid) | **GET** /v1/transaction/{project_id}/{id} | Retrieve Transaction by ID
-*TransactionApi* | [**TransactionControllerTransactions**](docs/TransactionApi.md#transactioncontrollertransactions) | **GET** /v1/transaction | Retrieve transactions
+*TransactionApi* | [**GetTransactionById**](docs/TransactionApi.md#gettransactionbyid) | **GET** /v1/transaction/{game_id}/{id} | Retrieve Transaction by ID
+*TransactionApi* | [**GetTransactions**](docs/TransactionApi.md#gettransactions) | **GET** /v1/transaction | Retrieve transactions
 *TransactionApi* | [**TransactionControllerWebhook**](docs/TransactionApi.md#transactioncontrollerwebhook) | **POST** /v1/transaction/webhook | 
 *UtilitiesApi* | [**UtilityControllerHealth**](docs/UtilitiesApi.md#utilitycontrollerhealth) | **GET** /v1/utilities/health | 
 
@@ -138,20 +138,20 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Model.Asset](docs/Asset.md)
- - [Model.AssetsResponseDto](docs/AssetsResponseDto.md)
+ - [Model.AssetsResponse](docs/AssetsResponse.md)
  - [Model.Collection](docs/Collection.md)
- - [Model.CreatePlayerDto](docs/CreatePlayerDto.md)
- - [Model.MintBatchDto](docs/MintBatchDto.md)
- - [Model.MintDto](docs/MintDto.md)
- - [Model.MintDtoAsset](docs/MintDtoAsset.md)
+ - [Model.CreatePlayerInput](docs/CreatePlayerInput.md)
+ - [Model.Game](docs/Game.md)
+ - [Model.MintBatchInput](docs/MintBatchInput.md)
+ - [Model.MintInput](docs/MintInput.md)
+ - [Model.MintInputAsset](docs/MintInputAsset.md)
  - [Model.Player](docs/Player.md)
  - [Model.PlayerAsset](docs/PlayerAsset.md)
- - [Model.Project](docs/Project.md)
- - [Model.SetContractUriDto](docs/SetContractUriDto.md)
- - [Model.SetSaleStatusDto](docs/SetSaleStatusDto.md)
- - [Model.TokenDto](docs/TokenDto.md)
+ - [Model.SetContractUriInput](docs/SetContractUriInput.md)
+ - [Model.SetSaleStatusInput](docs/SetSaleStatusInput.md)
+ - [Model.TokenInput](docs/TokenInput.md)
  - [Model.Transaction](docs/Transaction.md)
- - [Model.UpdateAssetDto](docs/UpdateAssetDto.md)
+ - [Model.UpdateAssetInput](docs/UpdateAssetInput.md)
 
 
 <a name="documentation-for-authorization"></a>

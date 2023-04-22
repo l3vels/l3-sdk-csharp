@@ -19,12 +19,12 @@ Name | Type | Description | Notes
 **CustomAssetProps** | **Object** | Custom assets fields associated with the collection. | 
 **Categories** | **Object** | The category or categories that the collection belongs to. | 
 **Status** | **string** | The current status of the collection. Possible values are: Draft, Active | 
-**AccountId** | **decimal** | The unique identifier of the account that the Collection belongs to. | 
-**ProjectId** | **string** | The unique identifier of the project that the collection is associated with. This allows developers to organize their collections by project and helps with tracking and reporting. | 
+**AccountId** | **string** | The unique identifier of the account that the Collection belongs to. | 
+**GameId** | **string** | The unique identifier of the game that the collection is associated with. This allows developers to organize their collections by game and helps with tracking and reporting. | 
 **CreatedOn** | **DateTimeOffset** | The date when the collection was created. | 
 **ModifiedOn** | **DateTimeOffset** | The date when the collection was last modified. | 
-**CreatedBy** | **decimal** | The Id of the user who created the collection. | 
-**ModifiedBy** | **decimal** | The Id of the user who last modified the collection. | 
+**CreatedBy** | **string** | The Id of the user who created the collection. | 
+**ModifiedBy** | **string** | The Id of the user who last modified the collection. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

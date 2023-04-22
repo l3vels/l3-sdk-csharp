@@ -4,13 +4,13 @@ All URIs are relative to *https://api-dev.l3vels.xyz*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**TransactionControllerTransactionById**](TransactionApi.md#transactioncontrollertransactionbyid) | **GET** /v1/transaction/{project_id}/{id} | Retrieve Transaction by ID |
-| [**TransactionControllerTransactions**](TransactionApi.md#transactioncontrollertransactions) | **GET** /v1/transaction | Retrieve transactions |
+| [**GetTransactionById**](TransactionApi.md#gettransactionbyid) | **GET** /v1/transaction/{game_id}/{id} | Retrieve Transaction by ID |
+| [**GetTransactions**](TransactionApi.md#gettransactions) | **GET** /v1/transaction | Retrieve transactions |
 | [**TransactionControllerWebhook**](TransactionApi.md#transactioncontrollerwebhook) | **POST** /v1/transaction/webhook |  |
 
-<a name="transactioncontrollertransactionbyid"></a>
-# **TransactionControllerTransactionById**
-> Transaction TransactionControllerTransactionById (string authorization, string id, string projectId)
+<a name="gettransactionbyid"></a>
+# **GetTransactionById**
+> Transaction GetTransactionById (string authorization, string id, string gameId)
 
 Retrieve Transaction by ID
 
@@ -26,26 +26,26 @@ using L3vels.Sdk.Model;
 
 namespace Example
 {
-    public class TransactionControllerTransactionByIdExample
+    public class GetTransactionByIdExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api-dev.l3vels.xyz";
             var apiInstance = new TransactionApi(config);
-            var authorization = "authorization_example";  // string | API key is associated with multiple projects. Please include it in to use developers API.
+            var authorization = "authorization_example";  // string | API key is associated with multiple games. Please include it in to use developers API.
             var id = "id_example";  // string | 
-            var projectId = "projectId_example";  // string | 
+            var gameId = "gameId_example";  // string | 
 
             try
             {
                 // Retrieve Transaction by ID
-                Transaction result = apiInstance.TransactionControllerTransactionById(authorization, id, projectId);
+                Transaction result = apiInstance.GetTransactionById(authorization, id, gameId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TransactionApi.TransactionControllerTransactionById: " + e.Message);
+                Debug.Print("Exception when calling TransactionApi.GetTransactionById: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -54,21 +54,21 @@ namespace Example
 }
 ```
 
-#### Using the TransactionControllerTransactionByIdWithHttpInfo variant
+#### Using the GetTransactionByIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Retrieve Transaction by ID
-    ApiResponse<Transaction> response = apiInstance.TransactionControllerTransactionByIdWithHttpInfo(authorization, id, projectId);
+    ApiResponse<Transaction> response = apiInstance.GetTransactionByIdWithHttpInfo(authorization, id, gameId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling TransactionApi.TransactionControllerTransactionByIdWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TransactionApi.GetTransactionByIdWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -78,9 +78,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **authorization** | **string** | API key is associated with multiple projects. Please include it in to use developers API. |  |
+| **authorization** | **string** | API key is associated with multiple games. Please include it in to use developers API. |  |
 | **id** | **string** |  |  |
-| **projectId** | **string** |  |  |
+| **gameId** | **string** |  |  |
 
 ### Return type
 
@@ -110,9 +110,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="transactioncontrollertransactions"></a>
-# **TransactionControllerTransactions**
-> Transaction TransactionControllerTransactions (string authorization, string projectId, string collectionId = null, string playerId = null, string sort = null, string order = null, string searchText = null, decimal? limit = null, decimal? page = null)
+<a name="gettransactions"></a>
+# **GetTransactions**
+> Transaction GetTransactions (string authorization, string gameId, string collectionId = null, string playerId = null, string sort = null, string order = null, string searchText = null, decimal? limit = null, decimal? page = null)
 
 Retrieve transactions
 
@@ -128,15 +128,15 @@ using L3vels.Sdk.Model;
 
 namespace Example
 {
-    public class TransactionControllerTransactionsExample
+    public class GetTransactionsExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api-dev.l3vels.xyz";
             var apiInstance = new TransactionApi(config);
-            var authorization = "authorization_example";  // string | API key is associated with multiple projects. Please include it in to use developers API.
-            var projectId = a44b646a-ae14-4e05-ae09-b12d5e7269bf;  // string | Game/project ID to find transactions in your game. Example: Fortnite, Minecraft, etc.
+            var authorization = "authorization_example";  // string | API key is associated with multiple games. Please include it in to use developers API.
+            var gameId = a44b646a-ae14-4e05-ae09-b12d5e7269bf;  // string | Game ID to find transactions in your game. Example: Fortnite, Minecraft, etc.
             var collectionId = a44b646a-ae14-4e05-ae09-b12d5e7269bf;  // string | Filter transactions by collection. Example: Get transactions only from Weapons collection. (optional) 
             var playerId = a44b646a-ae14-4e05-ae09-b12d5e7269bf;  // string | Player ID to mint to. You can provide player ID or player address (optional) 
             var sort = name;  // string | Asset field to sort by. You can sort by name, created_on and etc. (optional) 
@@ -148,12 +148,12 @@ namespace Example
             try
             {
                 // Retrieve transactions
-                Transaction result = apiInstance.TransactionControllerTransactions(authorization, projectId, collectionId, playerId, sort, order, searchText, limit, page);
+                Transaction result = apiInstance.GetTransactions(authorization, gameId, collectionId, playerId, sort, order, searchText, limit, page);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TransactionApi.TransactionControllerTransactions: " + e.Message);
+                Debug.Print("Exception when calling TransactionApi.GetTransactions: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -162,21 +162,21 @@ namespace Example
 }
 ```
 
-#### Using the TransactionControllerTransactionsWithHttpInfo variant
+#### Using the GetTransactionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Retrieve transactions
-    ApiResponse<Transaction> response = apiInstance.TransactionControllerTransactionsWithHttpInfo(authorization, projectId, collectionId, playerId, sort, order, searchText, limit, page);
+    ApiResponse<Transaction> response = apiInstance.GetTransactionsWithHttpInfo(authorization, gameId, collectionId, playerId, sort, order, searchText, limit, page);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling TransactionApi.TransactionControllerTransactionsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TransactionApi.GetTransactionsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -186,8 +186,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **authorization** | **string** | API key is associated with multiple projects. Please include it in to use developers API. |  |
-| **projectId** | **string** | Game/project ID to find transactions in your game. Example: Fortnite, Minecraft, etc. |  |
+| **authorization** | **string** | API key is associated with multiple games. Please include it in to use developers API. |  |
+| **gameId** | **string** | Game ID to find transactions in your game. Example: Fortnite, Minecraft, etc. |  |
 | **collectionId** | **string** | Filter transactions by collection. Example: Get transactions only from Weapons collection. | [optional]  |
 | **playerId** | **string** | Player ID to mint to. You can provide player ID or player address | [optional]  |
 | **sort** | **string** | Asset field to sort by. You can sort by name, created_on and etc. | [optional]  |
@@ -247,7 +247,7 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api-dev.l3vels.xyz";
             var apiInstance = new TransactionApi(config);
-            var authorization = "authorization_example";  // string | API key is associated with multiple projects. Please include it in to use developers API.
+            var authorization = "authorization_example";  // string | API key is associated with multiple games. Please include it in to use developers API.
 
             try
             {
@@ -284,7 +284,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **authorization** | **string** | API key is associated with multiple projects. Please include it in to use developers API. |  |
+| **authorization** | **string** | API key is associated with multiple games. Please include it in to use developers API. |  |
 
 ### Return type
 

@@ -4,14 +4,14 @@ All URIs are relative to *https://api-dev.l3vels.xyz*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CountByGame**](AssetApi.md#countbygame) | **GET** /v1/asset/count/{project_id} | Count assets |
-| [**GetAssetById**](AssetApi.md#getassetbyid) | **GET** /v1/asset/{project_id}/{id} | Retrieve asset by ID |
+| [**CountByGame**](AssetApi.md#countbygame) | **GET** /v1/asset/count/{game_id} | Count assets |
+| [**GetAssetById**](AssetApi.md#getassetbyid) | **GET** /v1/asset/{game_id}/{id} | Retrieve asset by ID |
 | [**GetAssets**](AssetApi.md#getassets) | **GET** /v1/asset | Retrieve assets |
 | [**UpdateAsset**](AssetApi.md#updateasset) | **PATCH** /v1/asset/{id} | Update asset |
 
 <a name="countbygame"></a>
 # **CountByGame**
-> decimal CountByGame (string authorization, string projectId)
+> decimal CountByGame (string authorization, string gameId)
 
 Count assets
 
@@ -34,13 +34,13 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api-dev.l3vels.xyz";
             var apiInstance = new AssetApi(config);
-            var authorization = "authorization_example";  // string | API key is associated with multiple projects. Please include it in to use developers API.
-            var projectId = "projectId_example";  // string | 
+            var authorization = "authorization_example";  // string | API key is associated with multiple games. Please include it in to use developers API.
+            var gameId = "gameId_example";  // string | 
 
             try
             {
                 // Count assets
-                decimal result = apiInstance.CountByGame(authorization, projectId);
+                decimal result = apiInstance.CountByGame(authorization, gameId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -61,7 +61,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Count assets
-    ApiResponse<decimal> response = apiInstance.CountByGameWithHttpInfo(authorization, projectId);
+    ApiResponse<decimal> response = apiInstance.CountByGameWithHttpInfo(authorization, gameId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -78,8 +78,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **authorization** | **string** | API key is associated with multiple projects. Please include it in to use developers API. |  |
-| **projectId** | **string** |  |  |
+| **authorization** | **string** | API key is associated with multiple games. Please include it in to use developers API. |  |
+| **gameId** | **string** |  |  |
 
 ### Return type
 
@@ -111,11 +111,11 @@ No authorization required
 
 <a name="getassetbyid"></a>
 # **GetAssetById**
-> Asset GetAssetById (string authorization, string id, string projectId)
+> Asset GetAssetById (string authorization, string id, string gameId)
 
 Retrieve asset by ID
 
-Retrieve asset by ID in specific game/project. Example: Find asset AK-47 in game Call of Duty
+Retrieve asset by ID in specific Game. Example: Find asset AK-47 in game Call of Duty
 
 ### Example
 ```csharp
@@ -134,14 +134,14 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api-dev.l3vels.xyz";
             var apiInstance = new AssetApi(config);
-            var authorization = "authorization_example";  // string | API key is associated with multiple projects. Please include it in to use developers API.
+            var authorization = "authorization_example";  // string | API key is associated with multiple games. Please include it in to use developers API.
             var id = 9abd57ce-b11c-4828-ab6a-19f568a8081a;  // string | Asset ID to find
-            var projectId = 556a2843-b302-4b9d-916c-cefcb5d66053;  // string | Game/project ID to find asset in
+            var gameId = 556a2843-b302-4b9d-916c-cefcb5d66053;  // string | Game ID to find asset in
 
             try
             {
                 // Retrieve asset by ID
-                Asset result = apiInstance.GetAssetById(authorization, id, projectId);
+                Asset result = apiInstance.GetAssetById(authorization, id, gameId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -162,7 +162,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Retrieve asset by ID
-    ApiResponse<Asset> response = apiInstance.GetAssetByIdWithHttpInfo(authorization, id, projectId);
+    ApiResponse<Asset> response = apiInstance.GetAssetByIdWithHttpInfo(authorization, id, gameId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -179,9 +179,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **authorization** | **string** | API key is associated with multiple projects. Please include it in to use developers API. |  |
+| **authorization** | **string** | API key is associated with multiple games. Please include it in to use developers API. |  |
 | **id** | **string** | Asset ID to find |  |
-| **projectId** | **string** | Game/project ID to find asset in |  |
+| **gameId** | **string** | Game ID to find asset in |  |
 
 ### Return type
 
@@ -213,7 +213,7 @@ No authorization required
 
 <a name="getassets"></a>
 # **GetAssets**
-> AssetsResponseDto GetAssets (string authorization, string projectId, string collectionId = null, string sort = null, string order = null, string searchText = null, decimal? limit = null, decimal? page = null)
+> AssetsResponse GetAssets (string authorization, string gameId, string collectionId = null, string sort = null, string order = null, string searchText = null, decimal? limit = null, decimal? page = null)
 
 Retrieve assets
 
@@ -236,8 +236,8 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api-dev.l3vels.xyz";
             var apiInstance = new AssetApi(config);
-            var authorization = "authorization_example";  // string | API key is associated with multiple projects. Please include it in to use developers API.
-            var projectId = a44b646a-ae14-4e05-ae09-b12d5e7269bf;  // string | Game/project ID to find assets in your game. Example: Fortnite, Minecraft, etc.
+            var authorization = "authorization_example";  // string | API key is associated with multiple games. Please include it in to use developers API.
+            var gameId = a44b646a-ae14-4e05-ae09-b12d5e7269bf;  // string | Game ID to find assets in your game. Example: Fortnite, Minecraft, etc.
             var collectionId = a44b646a-ae14-4e05-ae09-b12d5e7269bf;  // string | Filter assets by collection. Example: Get assets only from Weapons collection. (optional) 
             var sort = name;  // string | Asset field to sort by. You can sort by name, created_on and etc. (optional) 
             var order = ASC;  // string | Sort order (ASC for ascending or DESC for descending) (optional) 
@@ -248,7 +248,7 @@ namespace Example
             try
             {
                 // Retrieve assets
-                AssetsResponseDto result = apiInstance.GetAssets(authorization, projectId, collectionId, sort, order, searchText, limit, page);
+                AssetsResponse result = apiInstance.GetAssets(authorization, gameId, collectionId, sort, order, searchText, limit, page);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -269,7 +269,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Retrieve assets
-    ApiResponse<AssetsResponseDto> response = apiInstance.GetAssetsWithHttpInfo(authorization, projectId, collectionId, sort, order, searchText, limit, page);
+    ApiResponse<AssetsResponse> response = apiInstance.GetAssetsWithHttpInfo(authorization, gameId, collectionId, sort, order, searchText, limit, page);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -286,8 +286,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **authorization** | **string** | API key is associated with multiple projects. Please include it in to use developers API. |  |
-| **projectId** | **string** | Game/project ID to find assets in your game. Example: Fortnite, Minecraft, etc. |  |
+| **authorization** | **string** | API key is associated with multiple games. Please include it in to use developers API. |  |
+| **gameId** | **string** | Game ID to find assets in your game. Example: Fortnite, Minecraft, etc. |  |
 | **collectionId** | **string** | Filter assets by collection. Example: Get assets only from Weapons collection. | [optional]  |
 | **sort** | **string** | Asset field to sort by. You can sort by name, created_on and etc. | [optional]  |
 | **order** | **string** | Sort order (ASC for ascending or DESC for descending) | [optional]  |
@@ -297,7 +297,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**AssetsResponseDto**](AssetsResponseDto.md)
+[**AssetsResponse**](AssetsResponse.md)
 
 ### Authorization
 
@@ -325,7 +325,7 @@ No authorization required
 
 <a name="updateasset"></a>
 # **UpdateAsset**
-> Asset UpdateAsset (string authorization, string id, UpdateAssetDto updateAssetDto)
+> Asset UpdateAsset (string authorization, string id, UpdateAssetInput updateAssetInput)
 
 Update asset
 
@@ -348,14 +348,14 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api-dev.l3vels.xyz";
             var apiInstance = new AssetApi(config);
-            var authorization = "authorization_example";  // string | API key is associated with multiple projects. Please include it in to use developers API.
+            var authorization = "authorization_example";  // string | API key is associated with multiple games. Please include it in to use developers API.
             var id = 353c69f6-76a6-4baa-b68b-852c1c531953;  // string | Asset ID to update
-            var updateAssetDto = new UpdateAssetDto(); // UpdateAssetDto | 
+            var updateAssetInput = new UpdateAssetInput(); // UpdateAssetInput | 
 
             try
             {
                 // Update asset
-                Asset result = apiInstance.UpdateAsset(authorization, id, updateAssetDto);
+                Asset result = apiInstance.UpdateAsset(authorization, id, updateAssetInput);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -376,7 +376,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update asset
-    ApiResponse<Asset> response = apiInstance.UpdateAssetWithHttpInfo(authorization, id, updateAssetDto);
+    ApiResponse<Asset> response = apiInstance.UpdateAssetWithHttpInfo(authorization, id, updateAssetInput);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -393,9 +393,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **authorization** | **string** | API key is associated with multiple projects. Please include it in to use developers API. |  |
+| **authorization** | **string** | API key is associated with multiple games. Please include it in to use developers API. |  |
 | **id** | **string** | Asset ID to update |  |
-| **updateAssetDto** | [**UpdateAssetDto**](UpdateAssetDto.md) |  |  |
+| **updateAssetInput** | [**UpdateAssetInput**](UpdateAssetInput.md) |  |  |
 
 ### Return type
 

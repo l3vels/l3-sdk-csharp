@@ -56,12 +56,12 @@ namespace L3vels.Sdk.Model
         /// <param name="categories">The category or categories that the collection belongs to. (required).</param>
         /// <param name="status">The current status of the collection. Possible values are: Draft, Active (required).</param>
         /// <param name="accountId">The unique identifier of the account that the Collection belongs to. (required).</param>
-        /// <param name="projectId">The unique identifier of the project that the collection is associated with. This allows developers to organize their collections by project and helps with tracking and reporting. (required).</param>
+        /// <param name="gameId">The unique identifier of the game that the collection is associated with. This allows developers to organize their collections by game and helps with tracking and reporting. (required).</param>
         /// <param name="createdOn">The date when the collection was created. (required).</param>
         /// <param name="modifiedOn">The date when the collection was last modified. (required).</param>
         /// <param name="createdBy">The Id of the user who created the collection. (required).</param>
         /// <param name="modifiedBy">The Id of the user who last modified the collection. (required).</param>
-        public Collection(string id = default(string), string uniqueId = default(string), string name = default(string), string description = default(string), string logoImage = default(string), List<string> medias = default(List<string>), string mainMedia = default(string), string url = default(string), string webLink = default(string), decimal supply = default(decimal), Object customPropertyProps = default(Object), List<string> socialLinks = default(List<string>), Object customAssetProps = default(Object), Object categories = default(Object), string status = default(string), decimal accountId = default(decimal), string projectId = default(string), DateTimeOffset createdOn = default(DateTimeOffset), DateTimeOffset modifiedOn = default(DateTimeOffset), decimal createdBy = default(decimal), decimal modifiedBy = default(decimal))
+        public Collection(string id = default(string), string uniqueId = default(string), string name = default(string), string description = default(string), string logoImage = default(string), List<string> medias = default(List<string>), string mainMedia = default(string), string url = default(string), string webLink = default(string), decimal supply = default(decimal), Object customPropertyProps = default(Object), List<string> socialLinks = default(List<string>), Object customAssetProps = default(Object), Object categories = default(Object), string status = default(string), string accountId = default(string), string gameId = default(string), DateTimeOffset createdOn = default(DateTimeOffset), DateTimeOffset modifiedOn = default(DateTimeOffset), string createdBy = default(string), string modifiedBy = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -148,16 +148,31 @@ namespace L3vels.Sdk.Model
                 throw new ArgumentNullException("status is a required property for Collection and cannot be null");
             }
             this.Status = status;
-            this.AccountId = accountId;
-            // to ensure "projectId" is required (not null)
-            if (projectId == null)
+            // to ensure "accountId" is required (not null)
+            if (accountId == null)
             {
-                throw new ArgumentNullException("projectId is a required property for Collection and cannot be null");
+                throw new ArgumentNullException("accountId is a required property for Collection and cannot be null");
             }
-            this.ProjectId = projectId;
+            this.AccountId = accountId;
+            // to ensure "gameId" is required (not null)
+            if (gameId == null)
+            {
+                throw new ArgumentNullException("gameId is a required property for Collection and cannot be null");
+            }
+            this.GameId = gameId;
             this.CreatedOn = createdOn;
             this.ModifiedOn = modifiedOn;
+            // to ensure "createdBy" is required (not null)
+            if (createdBy == null)
+            {
+                throw new ArgumentNullException("createdBy is a required property for Collection and cannot be null");
+            }
             this.CreatedBy = createdBy;
+            // to ensure "modifiedBy" is required (not null)
+            if (modifiedBy == null)
+            {
+                throw new ArgumentNullException("modifiedBy is a required property for Collection and cannot be null");
+            }
             this.ModifiedBy = modifiedBy;
         }
 
@@ -280,16 +295,17 @@ namespace L3vels.Sdk.Model
         /// The unique identifier of the account that the Collection belongs to.
         /// </summary>
         /// <value>The unique identifier of the account that the Collection belongs to.</value>
+        /// <example>&quot;313a56d2-b900-456b-ae11-829c8e5661a7&quot;</example>
         [DataMember(Name = "account_id", IsRequired = true, EmitDefaultValue = true)]
-        public decimal AccountId { get; set; }
+        public string AccountId { get; set; }
 
         /// <summary>
-        /// The unique identifier of the project that the collection is associated with. This allows developers to organize their collections by project and helps with tracking and reporting.
+        /// The unique identifier of the game that the collection is associated with. This allows developers to organize their collections by game and helps with tracking and reporting.
         /// </summary>
-        /// <value>The unique identifier of the project that the collection is associated with. This allows developers to organize their collections by project and helps with tracking and reporting.</value>
+        /// <value>The unique identifier of the game that the collection is associated with. This allows developers to organize their collections by game and helps with tracking and reporting.</value>
         /// <example>&quot;fd1895eb-6301-4107-a248-c3f2ae5bcaad&quot;</example>
-        [DataMember(Name = "project_id", IsRequired = true, EmitDefaultValue = true)]
-        public string ProjectId { get; set; }
+        [DataMember(Name = "game_id", IsRequired = true, EmitDefaultValue = true)]
+        public string GameId { get; set; }
 
         /// <summary>
         /// The date when the collection was created.
@@ -309,15 +325,17 @@ namespace L3vels.Sdk.Model
         /// The Id of the user who created the collection.
         /// </summary>
         /// <value>The Id of the user who created the collection.</value>
+        /// <example>&quot;f414ea43-7afc-424f-bed4-704bafa52093&quot;</example>
         [DataMember(Name = "created_by", IsRequired = true, EmitDefaultValue = true)]
-        public decimal CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
 
         /// <summary>
         /// The Id of the user who last modified the collection.
         /// </summary>
         /// <value>The Id of the user who last modified the collection.</value>
+        /// <example>&quot;f414ea43-7afc-424f-bed4-704bafa52093&quot;</example>
         [DataMember(Name = "modified_by", IsRequired = true, EmitDefaultValue = true)]
-        public decimal ModifiedBy { get; set; }
+        public string ModifiedBy { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -343,7 +361,7 @@ namespace L3vels.Sdk.Model
             sb.Append("  Categories: ").Append(Categories).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  AccountId: ").Append(AccountId).Append("\n");
-            sb.Append("  ProjectId: ").Append(ProjectId).Append("\n");
+            sb.Append("  GameId: ").Append(GameId).Append("\n");
             sb.Append("  CreatedOn: ").Append(CreatedOn).Append("\n");
             sb.Append("  ModifiedOn: ").Append(ModifiedOn).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
@@ -461,12 +479,13 @@ namespace L3vels.Sdk.Model
                 ) && 
                 (
                     this.AccountId == input.AccountId ||
-                    this.AccountId.Equals(input.AccountId)
+                    (this.AccountId != null &&
+                    this.AccountId.Equals(input.AccountId))
                 ) && 
                 (
-                    this.ProjectId == input.ProjectId ||
-                    (this.ProjectId != null &&
-                    this.ProjectId.Equals(input.ProjectId))
+                    this.GameId == input.GameId ||
+                    (this.GameId != null &&
+                    this.GameId.Equals(input.GameId))
                 ) && 
                 (
                     this.CreatedOn == input.CreatedOn ||
@@ -480,11 +499,13 @@ namespace L3vels.Sdk.Model
                 ) && 
                 (
                     this.CreatedBy == input.CreatedBy ||
-                    this.CreatedBy.Equals(input.CreatedBy)
+                    (this.CreatedBy != null &&
+                    this.CreatedBy.Equals(input.CreatedBy))
                 ) && 
                 (
                     this.ModifiedBy == input.ModifiedBy ||
-                    this.ModifiedBy.Equals(input.ModifiedBy)
+                    (this.ModifiedBy != null &&
+                    this.ModifiedBy.Equals(input.ModifiedBy))
                 );
         }
 
@@ -554,10 +575,13 @@ namespace L3vels.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.AccountId.GetHashCode();
-                if (this.ProjectId != null)
+                if (this.AccountId != null)
                 {
-                    hashCode = (hashCode * 59) + this.ProjectId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.AccountId.GetHashCode();
+                }
+                if (this.GameId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GameId.GetHashCode();
                 }
                 if (this.CreatedOn != null)
                 {
@@ -567,8 +591,14 @@ namespace L3vels.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ModifiedOn.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.CreatedBy.GetHashCode();
-                hashCode = (hashCode * 59) + this.ModifiedBy.GetHashCode();
+                if (this.CreatedBy != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedBy.GetHashCode();
+                }
+                if (this.ModifiedBy != null)
+                {
+                    hashCode = (hashCode * 59) + this.ModifiedBy.GetHashCode();
+                }
                 return hashCode;
             }
         }

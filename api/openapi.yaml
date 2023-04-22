@@ -33,11 +33,11 @@ paths:
       - Utilities
   /v1/game/{id}:
     get:
-      description: Get game/project by ID created on the platform.
+      description: Get Game by ID created on the platform.
       operationId: getGameById
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -45,7 +45,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Game or Project Id
+      - description: Game or Game Id
         example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         explode: false
         in: path
@@ -59,8 +59,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Project'
-          description: The game/project has been found.
+                $ref: '#/components/schemas/Game'
+          description: The Game has been found.
         "400":
           description: "Bad Request, The request was unacceptable, often due to missing\
             \ a required parameter."
@@ -83,11 +83,11 @@ paths:
       - Game
   /v1/contract/collection-size:
     get:
-      description: Get size of collection
-      operationId: ContractController_collectionSize
+      description: Count total contract in game.
+      operationId: countContractsByGameId
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -104,14 +104,14 @@ paths:
         style: form
       - explode: true
         in: query
-        name: project_id
+        name: game_id
         required: true
         schema:
           type: string
         style: form
       responses:
         "200":
-          description: Collection size
+          description: Contract size
         "400":
           description: "Bad Request, The request was unacceptable, often due to missing\
             \ a required parameter."
@@ -135,10 +135,10 @@ paths:
   /v1/contract/contract-uri:
     get:
       description: Gets contract uri of contract
-      operationId: ContractController_contractUri
+      operationId: getContractURI
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -155,7 +155,7 @@ paths:
         style: form
       - explode: true
         in: query
-        name: project_id
+        name: game_id
         required: true
         schema:
           type: string
@@ -185,10 +185,10 @@ paths:
       - Contract
     put:
       description: Update Contract URI
-      operationId: ContractController_setContractUri
+      operationId: setContractURI
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -200,7 +200,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SetContractUriDto'
+              $ref: '#/components/schemas/SetContractUriInput'
         required: true
       responses:
         "200":
@@ -228,10 +228,10 @@ paths:
   /v1/contract/sale-status:
     put:
       description: "Update Sale status to PAUSED, PRE_SALE or PUBLIC"
-      operationId: ContractController_setSaleStatus
+      operationId: updateSaleStatus
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -243,7 +243,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SetSaleStatusDto'
+              $ref: '#/components/schemas/SetSaleStatusInput'
         required: true
       responses:
         "200":
@@ -275,8 +275,8 @@ paths:
         \ by name, category, status, or other properties."
       operationId: getCollections
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -284,12 +284,12 @@ paths:
         schema:
           type: string
         style: simple
-      - description: "Game/project ID to find collections in your game. Example: Fortnite,\
+      - description: "Game ID to find collections in your game. Example: Fortnite,\
           \ Minecraft, etc."
         example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         explode: true
         in: query
-        name: project_id
+        name: game_id
         required: true
         schema:
           type: string
@@ -369,13 +369,13 @@ paths:
       summary: Retrieve collections
       tags:
       - Collection
-  /v1/collection/count/{project_id}:
+  /v1/collection/count/{game_id}:
     get:
       description: Count total collections in game.
       operationId: countCollectionsByGameId
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -383,11 +383,11 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Game/project ID to count collections in
+      - description: Game ID to count collections in
         example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         explode: false
         in: path
-        name: project_id
+        name: game_id
         required: true
         schema:
           type: string
@@ -419,14 +419,14 @@ paths:
       summary: Count collections
       tags:
       - Collection
-  /v1/collection/{project_id}/{id}:
+  /v1/collection/{game_id}/{id}:
     get:
       description: This API method retrieves a specific collection based on the unique
         identifier provided in the request.
       operationId: getCollectionById
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -443,11 +443,11 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Game/project ID to find collection in
+      - description: Game ID to find collection in
         example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         explode: false
         in: path
-        name: project_id
+        name: game_id
         required: true
         schema:
           type: string
@@ -486,8 +486,8 @@ paths:
         \ description or other properties"
       operationId: getAssets
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -495,12 +495,12 @@ paths:
         schema:
           type: string
         style: simple
-      - description: "Game/project ID to find assets in your game. Example: Fortnite,\
-          \ Minecraft, etc."
+      - description: "Game ID to find assets in your game. Example: Fortnite, Minecraft,\
+          \ etc."
         example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         explode: true
         in: query
-        name: project_id
+        name: game_id
         required: true
         schema:
           type: string
@@ -569,7 +569,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AssetsResponseDto'
+                $ref: '#/components/schemas/AssetsResponse'
           description: The assets has been found.
         "400":
           description: "Bad Request, The request was unacceptable, often due to missing\
@@ -591,13 +591,13 @@ paths:
       summary: Retrieve assets
       tags:
       - Asset
-  /v1/asset/count/{project_id}:
+  /v1/asset/count/{game_id}:
     get:
       description: Counts total assets in game.
       operationId: countByGame
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -607,7 +607,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: project_id
+        name: game_id
         required: true
         schema:
           type: string
@@ -639,14 +639,14 @@ paths:
       summary: Count assets
       tags:
       - Asset
-  /v1/asset/{project_id}/{id}:
+  /v1/asset/{game_id}/{id}:
     get:
-      description: "Retrieve asset by ID in specific game/project. Example: Find asset\
-        \ AK-47 in game Call of Duty"
+      description: "Retrieve asset by ID in specific Game. Example: Find asset AK-47\
+        \ in game Call of Duty"
       operationId: getAssetById
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -663,11 +663,11 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Game/project ID to find asset in
+      - description: Game ID to find asset in
         example: 556a2843-b302-4b9d-916c-cefcb5d66053
         explode: false
         in: path
-        name: project_id
+        name: game_id
         required: true
         schema:
           type: string
@@ -705,8 +705,8 @@ paths:
         \ AK-47 in collection Weapons"
       operationId: updateAsset
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -727,7 +727,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateAssetDto'
+              $ref: '#/components/schemas/UpdateAssetInput'
         required: true
       responses:
         "200":
@@ -760,8 +760,8 @@ paths:
     post:
       operationId: TransactionController_webhook
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -794,10 +794,10 @@ paths:
   /v1/transaction:
     get:
       description: Retrieve all transactions.
-      operationId: TransactionController_transactions
+      operationId: getTransactions
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -805,12 +805,12 @@ paths:
         schema:
           type: string
         style: simple
-      - description: "Game/project ID to find transactions in your game. Example:\
-          \ Fortnite, Minecraft, etc."
+      - description: "Game ID to find transactions in your game. Example: Fortnite,\
+          \ Minecraft, etc."
         example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         explode: true
         in: query
-        name: project_id
+        name: game_id
         required: true
         schema:
           type: string
@@ -910,13 +910,13 @@ paths:
       summary: Retrieve transactions
       tags:
       - Transaction
-  /v1/transaction/{project_id}/{id}:
+  /v1/transaction/{game_id}/{id}:
     get:
       description: Retrieve transaction by ID
-      operationId: TransactionController_transactionById
+      operationId: getTransactionById
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -933,7 +933,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: project_id
+        name: game_id
         required: true
         schema:
           type: string
@@ -965,15 +965,15 @@ paths:
       summary: Retrieve Transaction by ID
       tags:
       - Transaction
-  /v1/player-asset/{project_id}/{id}:
+  /v1/player-asset/{game_id}/{id}:
     get:
       description: Retrieve player asset by ID. Player asset represents a single asset
         that a player owns. It has amount field that represents how many of this asset
         player owns.
-      operationId: PlayerAssetController_playerAssetById
+      operationId: getPlayerAssetById
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -990,7 +990,7 @@ paths:
         style: simple
       - explode: false
         in: path
-        name: project_id
+        name: game_id
         required: true
         schema:
           type: string
@@ -1026,11 +1026,11 @@ paths:
     get:
       description: "This API method retrieves a list of Player assets that match the\
         \ specified filter criteria. Developers can use this method to retrieve Player\
-        \ assets by player, game/project or other properties."
-      operationId: PlayerAssetController_playerAssets
+        \ assets by player, Game or other properties."
+      operationId: playerAssets
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -1038,18 +1038,18 @@ paths:
         schema:
           type: string
         style: simple
-      - description: "Game/project ID to find player assets in your game. Example:\
-          \ Fortnite, Minecraft, etc."
+      - description: "Game ID to find player assets in your game. Example: Fortnite,\
+          \ Minecraft, etc."
         example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         explode: true
         in: query
-        name: project_id
+        name: game_id
         required: true
         schema:
           type: string
         style: form
-      - description: "Game/project ID to find player assets in your game. Example:\
-          \ Fortnite, Minecraft, etc."
+      - description: "Game ID to find player assets in your game. Example: Fortnite,\
+          \ Minecraft, etc."
         example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         explode: true
         in: query
@@ -1058,8 +1058,8 @@ paths:
         schema:
           type: string
         style: form
-      - description: "Game/project ID to find player assets in your game. Example:\
-          \ Fortnite, Minecraft, etc."
+      - description: "Game ID to find player assets in your game. Example: Fortnite,\
+          \ Minecraft, etc."
         example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         explode: true
         in: query
@@ -1134,14 +1134,14 @@ paths:
       summary: Retrieve player assets
       tags:
       - Player
-  /v1/player/{project_id}/{id}:
+  /v1/player/{game_id}/{id}:
     get:
-      description: "Retrieves a specific player by ID associated with game/project.\
-        \ Example: retrieve player Jack from game Call of Duty."
+      description: "Retrieves a specific player by ID associated with Game. Example:\
+        \ retrieve player Jack from game Call of Duty."
       operationId: getPlayerById
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -1149,8 +1149,8 @@ paths:
         schema:
           type: string
         style: simple
-      - description: "Player ID that you created in your game/project. Example: Jack,\
-          \ George, etc."
+      - description: "Player ID that you created in your Game. Example: Jack, George,\
+          \ etc."
         example: 9abd57ce-b11c-4828-ab6a-19f568a8081a
         explode: false
         in: path
@@ -1159,12 +1159,11 @@ paths:
         schema:
           type: string
         style: simple
-      - description: "Game/project ID to find asset in. Example: Call of Duty, Fortnite,\
-          \ etc."
+      - description: "Game ID to find asset in. Example: Call of Duty, Fortnite, etc."
         example: 556a2843-b302-4b9d-916c-cefcb5d66053
         explode: false
         in: path
-        name: project_id
+        name: game_id
         required: true
         schema:
           type: string
@@ -1203,8 +1202,8 @@ paths:
         \ or other properties. Example: Retrieve players from game Call of Duty."
       operationId: getPlayers
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -1212,12 +1211,12 @@ paths:
         schema:
           type: string
         style: simple
-      - description: "Game/project ID to find player in your game. Example: Fortnite,\
-          \ Minecraft, etc."
+      - description: "Game ID to find player in your game. Example: Fortnite, Minecraft,\
+          \ etc."
         example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         explode: true
         in: query
-        name: project_id
+        name: game_id
         required: true
         schema:
           type: string
@@ -1298,12 +1297,12 @@ paths:
       tags:
       - Player
     post:
-      description: "Create new player for game/project. Example: Create new player\
-        \ Jack in game Call of Duty."
+      description: "Create new player for Game. Example: Create new player Jack in\
+        \ game Call of Duty."
       operationId: createPlayer
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -1315,7 +1314,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreatePlayerDto'
+              $ref: '#/components/schemas/CreatePlayerInput'
         required: true
       responses:
         "200":
@@ -1350,8 +1349,8 @@ paths:
         assets.
       operationId: updatePlayer
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -1386,14 +1385,14 @@ paths:
       summary: Update an existing Player
       tags:
       - Player
-  /v1/player/count/{project_id}:
+  /v1/player/count/{game_id}:
     get:
       description: "Count players in game. Example: count players in game Call of\
         \ Duty."
       operationId: countPlayersByGameId
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -1405,7 +1404,7 @@ paths:
         example: "1"
         explode: false
         in: path
-        name: project_id
+        name: game_id
         required: true
         schema:
           type: string
@@ -1440,10 +1439,10 @@ paths:
   /v1/mint:
     post:
       description: Mint an asset by admin to player
-      operationId: MintController_mint
+      operationId: mintAsset
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -1455,7 +1454,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MintDto'
+              $ref: '#/components/schemas/MintInput'
         required: true
       responses:
         "200":
@@ -1483,10 +1482,10 @@ paths:
   /v1/mint/batch:
     post:
       description: Batch mint assets by admin to player
-      operationId: MintController_mintBatch
+      operationId: mintBatchAsset
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -1498,7 +1497,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MintBatchDto'
+              $ref: '#/components/schemas/MintBatchInput'
         required: true
       responses:
         "200":
@@ -1526,10 +1525,10 @@ paths:
   /v1/mint/award:
     post:
       description: Award asset to player
-      operationId: MintController_award
+      operationId: awardAssetToPlayer
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -1541,7 +1540,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MintDto'
+              $ref: '#/components/schemas/MintInput'
         required: true
       responses:
         "200":
@@ -1569,10 +1568,10 @@ paths:
   /v1/mint/airdrop:
     post:
       description: Airdrop asset to player
-      operationId: MintController_airdrop
+      operationId: airdropAssetToPlayer
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -1584,7 +1583,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MintDto'
+              $ref: '#/components/schemas/MintInput'
         required: true
       responses:
         "200":
@@ -1612,10 +1611,10 @@ paths:
   /v1/mint/player:
     post:
       description: Mint asset by player. Player must have enough balance to mint.
-      operationId: MintController_playerMint
+      operationId: mintAssetByPlayer
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -1627,7 +1626,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MintDto'
+              $ref: '#/components/schemas/MintInput'
         required: true
       responses:
         "200":
@@ -1656,10 +1655,10 @@ paths:
     post:
       description: Batch mint assets by player. Player must have enough balance to
         mint.
-      operationId: MintController_playerMintBatch
+      operationId: batchMintAssetByPlayer
       parameters:
-      - description: API key is associated with multiple projects. Please include
-          it in to use developers API.
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
         explode: false
         in: header
         name: Authorization
@@ -1671,7 +1670,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/MintBatchDto'
+              $ref: '#/components/schemas/MintBatchInput'
         required: true
       responses:
         "200":
@@ -1698,7 +1697,7 @@ paths:
       - Mint
 components:
   schemas:
-    Project:
+    Game:
       example:
         modified_on: 2000-01-23T04:56:07.000+00:00
         contact_phone: ""
@@ -1707,16 +1706,16 @@ components:
         instagram: ""
         logo_image: ""
         web_link: ""
-        created_by: 6.027456183070403
+        created_by: ""
         url: ""
         contact_email: ""
         medias: ""
         twitter: ""
         discord: ""
-        account_id: 0.8008281904610115
+        account_id: ""
         created_on: 2000-01-23T04:56:07.000+00:00
         name: ""
-        modified_by: 1.4658129805029452
+        modified_by: ""
         main_media: ""
         id: ""
         category: ""
@@ -1798,7 +1797,8 @@ components:
         account_id:
           description: ' The unique identifier of the account that the Game belongs
             to. This allows developers to manage multiple Games across multiple accounts.'
-          type: number
+          example: ""
+          type: string
         created_on:
           description: The date and time that the Game entity was created.
           format: date-time
@@ -1809,10 +1809,12 @@ components:
           type: string
         created_by:
           description: The user or system that created the Game entity.
-          type: number
+          example: ""
+          type: string
         modified_by:
           description: The user or system that last modified the Game entity.
-          type: number
+          example: ""
+          type: string
       required:
       - account_id
       - category
@@ -1836,14 +1838,14 @@ components:
       - url
       - web_link
       type: object
-    SetContractUriDto:
+    SetContractUriInput:
       example:
         collection_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         contract_uri: "https://api.example.com/contract/{contractAddress}"
-        project_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
+        game_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
       properties:
-        project_id:
-          description: Project Id
+        game_id:
+          description: Game Id
           example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
           type: string
         collection_id:
@@ -1857,16 +1859,16 @@ components:
       required:
       - collection_id
       - contract_uri
-      - project_id
+      - game_id
       type: object
-    SetSaleStatusDto:
+    SetSaleStatusInput:
       example:
         collection_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
-        project_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         sale_status: PUBLIC
+        game_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
       properties:
-        project_id:
-          description: Project Id
+        game_id:
+          description: Game Id
           example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
           type: string
         collection_id:
@@ -1879,7 +1881,7 @@ components:
           type: object
       required:
       - collection_id
-      - project_id
+      - game_id
       - sale_status
       type: object
     Collection:
@@ -1894,19 +1896,19 @@ components:
         logo_image: https://example.com/logo.png
         web_link: https://gamefi.org/games/mobox
         supply: 1000
-        created_by: 6.027456183070403
+        created_by: f414ea43-7afc-424f-bed4-704bafa52093
         url: https://l3vels.xyz/collections/crypto-of-arms
         medias: ""
-        account_id: 0.8008281904610115
-        project_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
+        account_id: 313a56d2-b900-456b-ae11-829c8e5661a7
         created_on: 2000-01-23T04:56:07.000+00:00
         name: Weapons
-        modified_by: 1.4658129805029452
+        modified_by: f414ea43-7afc-424f-bed4-704bafa52093
         main_media: https://example.com/main_media.png
         custom_asset_props: ""
         id: 05450af0-4522-4e79-9acc-c1c09aae9152
         categories: Weapons
         status: Draft
+        game_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
       properties:
         id:
           description: The unique identifier for the collection entity.
@@ -1982,11 +1984,12 @@ components:
         account_id:
           description: The unique identifier of the account that the Collection belongs
             to.
-          type: number
-        project_id:
-          description: The unique identifier of the project that the collection is
-            associated with. This allows developers to organize their collections
-            by project and helps with tracking and reporting.
+          example: 313a56d2-b900-456b-ae11-829c8e5661a7
+          type: string
+        game_id:
+          description: The unique identifier of the game that the collection is associated
+            with. This allows developers to organize their collections by game and
+            helps with tracking and reporting.
           example: fd1895eb-6301-4107-a248-c3f2ae5bcaad
           type: string
         created_on:
@@ -1999,10 +2002,12 @@ components:
           type: string
         created_by:
           description: The Id of the user who created the collection.
-          type: number
+          example: f414ea43-7afc-424f-bed4-704bafa52093
+          type: string
         modified_by:
           description: The Id of the user who last modified the collection.
-          type: number
+          example: f414ea43-7afc-424f-bed4-704bafa52093
+          type: string
       required:
       - account_id
       - categories
@@ -2011,6 +2016,7 @@ components:
       - custom_asset_props
       - custom_property_props
       - description
+      - game_id
       - id
       - logo_image
       - main_media
@@ -2018,7 +2024,6 @@ components:
       - modified_by
       - modified_on
       - name
-      - project_id
       - social_links
       - status
       - supply
@@ -2034,23 +2039,23 @@ components:
           Union.
         asset_url: https://example.com/assets/1
         supply: 100
-        created_by: 6.027456183070403
+        created_by: f414ea43-7afc-424f-bed4-704bafa52093
         collection_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
         medias: ""
-        account_id: 0.8008281904610115
+        account_id: 313a56d2-b900-456b-ae11-829c8e5661a7
         token_id: 1
-        project_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
         created_on: 2000-01-23T04:56:07.000+00:00
         parent_id: 05450af0-4522-4e79-9acc-c1c09aae9152
         price: 10
         name: AK-47
         asset_type: Main
-        modified_by: 1.4658129805029452
+        modified_by: f414ea43-7afc-424f-bed4-704bafa52093
         main_media: ""
         attributes: ""
         id: 05450af0-4522-4e79-9acc-c1c09aae9152
         properties: ""
         status: Available
+        game_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
       properties:
         id:
           description: The unique identifier for the asset entity.
@@ -2120,17 +2125,18 @@ components:
         account_id:
           description: The unique identifier of the account that the Collection belongs
             to.
-          type: number
-        project_id:
-          description: The unique identifier of the project that the asset is associated
-            with. This allows developers to organize their assets by project and helps
+          example: 313a56d2-b900-456b-ae11-829c8e5661a7
+          type: string
+        game_id:
+          description: The unique identifier of the game that the asset is associated
+            with. This allows developers to organize their assets by game and helps
             with tracking and reporting.
           example: fd1895eb-6301-4107-a248-c3f2ae5bcaad
           type: string
         collection_id:
           description: The unique identifier of the collection that the asset is associated
-            with. This allows developers to organize their collections by project
-            and helps with tracking and reporting.
+            with. This allows developers to organize their collections by game and
+            helps with tracking and reporting.
           example: fd1895eb-6301-4107-a248-c3f2ae5bcaad
           type: string
         created_on:
@@ -2143,10 +2149,12 @@ components:
           type: string
         created_by:
           description: The Id of the user who created the collection.
-          type: number
+          example: f414ea43-7afc-424f-bed4-704bafa52093
+          type: string
         modified_by:
           description: The Id of the user who last modified the collection.
-          type: number
+          example: f414ea43-7afc-424f-bed4-704bafa52093
+          type: string
       required:
       - account_id
       - asset_type
@@ -2156,6 +2164,7 @@ components:
       - created_by
       - created_on
       - description
+      - game_id
       - id
       - main_media
       - medias
@@ -2165,13 +2174,12 @@ components:
       - name
       - parent_id
       - price
-      - project_id
       - properties
       - status
       - supply
       - token_id
       type: object
-    AssetsResponseDto:
+    AssetsResponse:
       example:
         total: 10
         limit: 10
@@ -2183,46 +2191,46 @@ components:
             Union.
           asset_url: https://example.com/assets/1
           supply: 100
-          created_by: 6.027456183070403
+          created_by: f414ea43-7afc-424f-bed4-704bafa52093
           collection_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
           medias: ""
-          account_id: 0.8008281904610115
+          account_id: 313a56d2-b900-456b-ae11-829c8e5661a7
           token_id: 1
-          project_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
           created_on: 2000-01-23T04:56:07.000+00:00
           parent_id: 05450af0-4522-4e79-9acc-c1c09aae9152
           price: 10
           name: AK-47
           asset_type: Main
-          modified_by: 1.4658129805029452
+          modified_by: f414ea43-7afc-424f-bed4-704bafa52093
           main_media: ""
           attributes: ""
           id: 05450af0-4522-4e79-9acc-c1c09aae9152
           properties: ""
           status: Available
+          game_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
         - modified_on: 2000-01-23T04:56:07.000+00:00
           minted_amount: 15
           description: Assault rifle operated by gas pressure. Developed in the Soviet
             Union.
           asset_url: https://example.com/assets/1
           supply: 100
-          created_by: 6.027456183070403
+          created_by: f414ea43-7afc-424f-bed4-704bafa52093
           collection_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
           medias: ""
-          account_id: 0.8008281904610115
+          account_id: 313a56d2-b900-456b-ae11-829c8e5661a7
           token_id: 1
-          project_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
           created_on: 2000-01-23T04:56:07.000+00:00
           parent_id: 05450af0-4522-4e79-9acc-c1c09aae9152
           price: 10
           name: AK-47
           asset_type: Main
-          modified_by: 1.4658129805029452
+          modified_by: f414ea43-7afc-424f-bed4-704bafa52093
           main_media: ""
           attributes: ""
           id: 05450af0-4522-4e79-9acc-c1c09aae9152
           properties: ""
           status: Available
+          game_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
       properties:
         items:
           description: Number of assets to return per page
@@ -2247,10 +2255,9 @@ components:
       - page
       - total
       type: object
-    UpdateAssetDto:
+    UpdateAssetInput:
       example:
         collection_id: 353c69f6-76a6-4baa-b68b-852c1c531953
-        project_id: 353c69f6-76a6-4baa-b68b-852c1c531953
         price: 10
         name: AK-47
         description: Assault rifle operated by gas pressure. Developed in the Soviet
@@ -2261,6 +2268,7 @@ components:
             prop_name: Damage
             prop_type: Number
         supply: 10
+        game_id: 353c69f6-76a6-4baa-b68b-852c1c531953
       properties:
         name:
           description: The name of the asset.
@@ -2295,13 +2303,13 @@ components:
             \ AK-47 asset in Weapons collection."
           example: 353c69f6-76a6-4baa-b68b-852c1c531953
           type: string
-        project_id:
-          description: "Game/project ID to update the asset in. Example: Call of Duty"
+        game_id:
+          description: "Game ID to update the asset in. Example: Call of Duty"
           example: 353c69f6-76a6-4baa-b68b-852c1c531953
           type: string
       required:
       - collection_id
-      - project_id
+      - game_id
       type: object
     Transaction:
       example:
@@ -2312,14 +2320,13 @@ components:
         block_number: 34609977
         contract_address: 0xd873927250e1353ba4eae9b7de599017f3002913
         type: Mint
-        created_by: 6.027456183070403
+        created_by: f414ea43-7afc-424f-bed4-704bafa52093
         collection_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
         environment: Testnet
-        account_id: 0.8008281904610115
+        account_id: 313a56d2-b900-456b-ae11-829c8e5661a7
         blockchain: Polygon
-        project_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
         created_on: 2000-01-23T04:56:07.000+00:00
-        modified_by: 1.4658129805029452
+        modified_by: f414ea43-7afc-424f-bed4-704bafa52093
         from: 0xBd876ACF229C18A861d561a2b83B70193E659794
         id: 05450af0-4522-4e79-9acc-c1c09aae9152
         to: 0xd873927250e1353ba4eae9b7de599017f3002913
@@ -2329,6 +2336,7 @@ components:
         - TransferSingle
         - Award
         status: Success
+        game_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
       properties:
         id:
           description: The unique identifier for the transaction entity.
@@ -2398,22 +2406,23 @@ components:
           items:
             type: string
           type: array
-        project_id:
-          description: The unique identifier of the project that the transaction is
-            associated with. This allows developers to organize their transactions
-            by project and helps with tracking and reporting.
+        game_id:
+          description: The unique identifier of the game that the transaction is associated
+            with. This allows developers to organize their transactions by game and
+            helps with tracking and reporting.
           example: fd1895eb-6301-4107-a248-c3f2ae5bcaad
           type: string
         collection_id:
           description: The unique identifier of the collection that the transaction
             is associated with. This allows developers to organize their transactions
-            by project and helps with tracking and reporting.
+            by game and helps with tracking and reporting.
           example: fd1895eb-6301-4107-a248-c3f2ae5bcaad
           type: string
         account_id:
           description: The unique identifier of the account that the transaction belongs
             to.
-          type: number
+          example: 313a56d2-b900-456b-ae11-829c8e5661a7
+          type: string
         created_on:
           description: The date when the collection was created.
           format: date-time
@@ -2424,10 +2433,12 @@ components:
           type: string
         created_by:
           description: The Id of the user who created the collection.
-          type: number
+          example: f414ea43-7afc-424f-bed4-704bafa52093
+          type: string
         modified_by:
           description: The Id of the user who last modified the collection.
-          type: number
+          example: f414ea43-7afc-424f-bed4-704bafa52093
+          type: string
       required:
       - account_id
       - block_number
@@ -2442,11 +2453,11 @@ components:
       - environment
       - events
       - from
+      - game_id
       - id
       - method
       - modified_by
       - modified_on
-      - project_id
       - status
       - to
       - transaction_hash
@@ -2458,13 +2469,13 @@ components:
         modified_on: 2000-01-23T04:56:07.000+00:00
         amount: 1
         player_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
-        account_id: 0.8008281904610115
-        project_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
+        account_id: 313a56d2-b900-456b-ae11-829c8e5661a7
         created_on: 2000-01-23T04:56:07.000+00:00
-        modified_by: 1.4658129805029452
+        modified_by: f414ea43-7afc-424f-bed4-704bafa52093
         id: ""
         asset_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
-        created_by: 6.027456183070403
+        created_by: f414ea43-7afc-424f-bed4-704bafa52093
+        game_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
       properties:
         id:
           description: The unique identifier for the Player asset entity.
@@ -2492,11 +2503,12 @@ components:
         account_id:
           description: The unique identifier of the account that the Player belongs
             to.
-          type: number
-        project_id:
-          description: The unique identifier of the project that the Player is associated
-            with. This allows developers to organize their players by project and
-            helps with tracking and reporting.
+          example: 313a56d2-b900-456b-ae11-829c8e5661a7
+          type: string
+        game_id:
+          description: The unique identifier of the game that the Player is associated
+            with. This allows developers to organize their players by game and helps
+            with tracking and reporting.
           example: fd1895eb-6301-4107-a248-c3f2ae5bcaad
           type: string
         created_on:
@@ -2509,10 +2521,12 @@ components:
           type: string
         created_by:
           description: The Id of the user who created the player.
-          type: number
+          example: f414ea43-7afc-424f-bed4-704bafa52093
+          type: string
         modified_by:
           description: The Id of the user who last modified the player.
-          type: number
+          example: f414ea43-7afc-424f-bed4-704bafa52093
+          type: string
       required:
       - account_id
       - amount
@@ -2520,11 +2534,11 @@ components:
       - collection_id
       - created_by
       - created_on
+      - game_id
       - id
       - modified_by
       - modified_on
       - player_id
-      - project_id
       type: object
     Player:
       example:
@@ -2533,17 +2547,17 @@ components:
         last_seen: 2000-01-23T04:56:07.000+00:00
         avatar: https://example.com/avatar.png
         is_create_wallet: true
-        created_by: 6.027456183070403
-        account_id: 0.8008281904610115
-        project_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
+        created_by: f414ea43-7afc-424f-bed4-704bafa52093
+        account_id: 313a56d2-b900-456b-ae11-829c8e5661a7
         created_on: 2000-01-23T04:56:07.000+00:00
         name: Jack Coon
-        modified_by: 1.4658129805029452
+        modified_by: f414ea43-7afc-424f-bed4-704bafa52093
         id: 353c69f6-76a6-4baa-b68b-852c1c531953
         custom_props: "[{\"prop_name\":\"VIP\",\"prop_type\":\"Boolean\",\"prop_value\"\
           :\"true\"}]"
         email: jack@coon.com
         username: jackcoon
+        game_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
       properties:
         id:
           description: The unique identifier for the Player entity.
@@ -2582,12 +2596,13 @@ components:
         account_id:
           description: The unique identifier of the account that the Player belongs
             to.
-          type: number
-        project_id:
-          description: "The unique identifier of the project that the Player is associated\
-            \ with. This allows developers to organize their players by project and\
-            \ helps with tracking and reporting. Example: Player Jack is associated\
-            \ with project Fortnite."
+          example: 313a56d2-b900-456b-ae11-829c8e5661a7
+          type: string
+        game_id:
+          description: "The unique identifier of the game that the Player is associated\
+            \ with. This allows developers to organize their players by game and helps\
+            \ with tracking and reporting. Example: Player Jack is associated with\
+            \ game Fortnite."
           example: fd1895eb-6301-4107-a248-c3f2ae5bcaad
           type: string
         created_on:
@@ -2600,10 +2615,12 @@ components:
           type: string
         created_by:
           description: The Id of the user who created the player.
-          type: number
+          example: f414ea43-7afc-424f-bed4-704bafa52093
+          type: string
         modified_by:
           description: The Id of the user who last modified the player.
-          type: number
+          example: f414ea43-7afc-424f-bed4-704bafa52093
+          type: string
         is_create_wallet:
           description: Boolean value indicating whether the player has wallet or not
           example: true
@@ -2615,20 +2632,19 @@ components:
       - created_on
       - custom_props
       - email
+      - game_id
       - id
       - is_create_wallet
       - last_seen
       - modified_by
       - modified_on
       - name
-      - project_id
       - unique_id
       - username
       type: object
-    CreatePlayerDto:
+    CreatePlayerInput:
       example:
         unique_id: f811b994a31
-        project_id: 353c69f6-76a6-4baa-b68b-852c1c531953
         name: Jack
         avatar: https://example.com/avatar.png
         is_create_wallet: true
@@ -2638,6 +2654,7 @@ components:
           prop_value: "true"
         email: jack@gmail.com
         username: jack
+        game_id: 353c69f6-76a6-4baa-b68b-852c1c531953
       properties:
         unique_id:
           description: "You can send your generated unique ID for player if it's handy\
@@ -2660,9 +2677,9 @@ components:
           description: The image URL of the player avatar.
           example: https://example.com/avatar.png
           type: string
-        project_id:
-          description: "Game/project ID to create the player for. Example: Create\
-            \ player Jack for game Fortnite."
+        game_id:
+          description: "Game ID to create the player for. Example: Create player Jack\
+            \ for game Fortnite."
           example: 353c69f6-76a6-4baa-b68b-852c1c531953
           type: string
         is_create_wallet:
@@ -2679,10 +2696,10 @@ components:
             type: string
           type: array
       required:
+      - game_id
       - name
-      - project_id
       type: object
-    TokenDto:
+    TokenInput:
       properties:
         token_id:
           description: Token ID to mint. You can provide this or asset_id
@@ -2699,23 +2716,23 @@ components:
       required:
       - amount
       type: object
-    MintDto:
+    MintInput:
       example:
         collection_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         player_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
-        project_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         contract_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         player_address: 0x0000000000000000000000000000000000000000
         asset:
           token_id: 1
           amount: 1
+        game_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
       properties:
         contract_id:
           description: Contract ID
           example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
           type: string
-        project_id:
-          description: "Game/project ID. Example: Call of Duty"
+        game_id:
+          description: "Game ID. Example: Call of Duty"
           example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
           type: string
         collection_id:
@@ -2732,22 +2749,22 @@ components:
           example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
           type: string
         asset:
-          $ref: '#/components/schemas/MintDto_asset'
+          $ref: '#/components/schemas/MintInput_asset'
       required:
       - asset
       - collection_id
-      - project_id
+      - game_id
       type: object
-    MintBatchDto:
+    MintBatchInput:
       example:
         collection_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         player_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         assets: "[]"
-        project_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         player_address: 0x0000000000000000000000000000000000000000
+        game_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
       properties:
-        project_id:
-          description: Project Id
+        game_id:
+          description: Game Id
           example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
           type: string
         collection_id:
@@ -2771,13 +2788,13 @@ components:
       required:
       - assets
       - collection_id
+      - game_id
       - player_address
       - player_id
-      - project_id
       type: object
-    MintDto_asset:
+    MintInput_asset:
       allOf:
-      - $ref: '#/components/schemas/TokenDto'
+      - $ref: '#/components/schemas/TokenInput'
       description: Asset to mint. You need to provide token ID or asset ID and amount
         to mint
       example:

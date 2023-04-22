@@ -31,29 +31,29 @@ namespace L3vels.Sdk.Api
         /// Collection size
         /// </summary>
         /// <remarks>
-        /// Get size of collection
+        /// Count total contract in game.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="collectionId"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void ContractControllerCollectionSize(string authorization, string collectionId, string projectId, int operationIndex = 0);
+        void CountContractsByGameId(string authorization, string collectionId, string gameId, int operationIndex = 0);
 
         /// <summary>
         /// Collection size
         /// </summary>
         /// <remarks>
-        /// Get size of collection
+        /// Count total contract in game.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="collectionId"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ContractControllerCollectionSizeWithHttpInfo(string authorization, string collectionId, string projectId, int operationIndex = 0);
+        ApiResponse<Object> CountContractsByGameIdWithHttpInfo(string authorization, string collectionId, string gameId, int operationIndex = 0);
         /// <summary>
         /// Get Contract URI
         /// </summary>
@@ -61,12 +61,12 @@ namespace L3vels.Sdk.Api
         /// Gets contract uri of contract
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="collectionId"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void ContractControllerContractUri(string authorization, string collectionId, string projectId, int operationIndex = 0);
+        void GetContractURI(string authorization, string collectionId, string gameId, int operationIndex = 0);
 
         /// <summary>
         /// Get Contract URI
@@ -75,12 +75,12 @@ namespace L3vels.Sdk.Api
         /// Gets contract uri of contract
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="collectionId"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ContractControllerContractUriWithHttpInfo(string authorization, string collectionId, string projectId, int operationIndex = 0);
+        ApiResponse<Object> GetContractURIWithHttpInfo(string authorization, string collectionId, string gameId, int operationIndex = 0);
         /// <summary>
         /// Update Contract URI
         /// </summary>
@@ -88,11 +88,11 @@ namespace L3vels.Sdk.Api
         /// Update Contract URI
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="setContractUriDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="setContractUriInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void ContractControllerSetContractUri(string authorization, SetContractUriDto setContractUriDto, int operationIndex = 0);
+        void SetContractURI(string authorization, SetContractUriInput setContractUriInput, int operationIndex = 0);
 
         /// <summary>
         /// Update Contract URI
@@ -101,11 +101,11 @@ namespace L3vels.Sdk.Api
         /// Update Contract URI
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="setContractUriDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="setContractUriInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ContractControllerSetContractUriWithHttpInfo(string authorization, SetContractUriDto setContractUriDto, int operationIndex = 0);
+        ApiResponse<Object> SetContractURIWithHttpInfo(string authorization, SetContractUriInput setContractUriInput, int operationIndex = 0);
         /// <summary>
         /// Update Sale status
         /// </summary>
@@ -113,11 +113,11 @@ namespace L3vels.Sdk.Api
         /// Update Sale status to PAUSED, PRE_SALE or PUBLIC
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="setSaleStatusDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="setSaleStatusInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void ContractControllerSetSaleStatus(string authorization, SetSaleStatusDto setSaleStatusDto, int operationIndex = 0);
+        void UpdateSaleStatus(string authorization, SetSaleStatusInput setSaleStatusInput, int operationIndex = 0);
 
         /// <summary>
         /// Update Sale status
@@ -126,11 +126,11 @@ namespace L3vels.Sdk.Api
         /// Update Sale status to PAUSED, PRE_SALE or PUBLIC
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="setSaleStatusDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="setSaleStatusInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ContractControllerSetSaleStatusWithHttpInfo(string authorization, SetSaleStatusDto setSaleStatusDto, int operationIndex = 0);
+        ApiResponse<Object> UpdateSaleStatusWithHttpInfo(string authorization, SetSaleStatusInput setSaleStatusInput, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -144,31 +144,31 @@ namespace L3vels.Sdk.Api
         /// Collection size
         /// </summary>
         /// <remarks>
-        /// Get size of collection
+        /// Count total contract in game.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="collectionId"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ContractControllerCollectionSizeAsync(string authorization, string collectionId, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task CountContractsByGameIdAsync(string authorization, string collectionId, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Collection size
         /// </summary>
         /// <remarks>
-        /// Get size of collection
+        /// Count total contract in game.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="collectionId"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ContractControllerCollectionSizeWithHttpInfoAsync(string authorization, string collectionId, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> CountContractsByGameIdWithHttpInfoAsync(string authorization, string collectionId, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get Contract URI
         /// </summary>
@@ -176,13 +176,13 @@ namespace L3vels.Sdk.Api
         /// Gets contract uri of contract
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="collectionId"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ContractControllerContractUriAsync(string authorization, string collectionId, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task GetContractURIAsync(string authorization, string collectionId, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get Contract URI
@@ -191,13 +191,13 @@ namespace L3vels.Sdk.Api
         /// Gets contract uri of contract
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="collectionId"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ContractControllerContractUriWithHttpInfoAsync(string authorization, string collectionId, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GetContractURIWithHttpInfoAsync(string authorization, string collectionId, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update Contract URI
         /// </summary>
@@ -205,12 +205,12 @@ namespace L3vels.Sdk.Api
         /// Update Contract URI
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="setContractUriDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="setContractUriInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ContractControllerSetContractUriAsync(string authorization, SetContractUriDto setContractUriDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task SetContractURIAsync(string authorization, SetContractUriInput setContractUriInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Contract URI
@@ -219,12 +219,12 @@ namespace L3vels.Sdk.Api
         /// Update Contract URI
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="setContractUriDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="setContractUriInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ContractControllerSetContractUriWithHttpInfoAsync(string authorization, SetContractUriDto setContractUriDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> SetContractURIWithHttpInfoAsync(string authorization, SetContractUriInput setContractUriInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update Sale status
         /// </summary>
@@ -232,12 +232,12 @@ namespace L3vels.Sdk.Api
         /// Update Sale status to PAUSED, PRE_SALE or PUBLIC
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="setSaleStatusDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="setSaleStatusInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task ContractControllerSetSaleStatusAsync(string authorization, SetSaleStatusDto setSaleStatusDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task UpdateSaleStatusAsync(string authorization, SetSaleStatusInput setSaleStatusInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update Sale status
@@ -246,12 +246,12 @@ namespace L3vels.Sdk.Api
         /// Update Sale status to PAUSED, PRE_SALE or PUBLIC
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="setSaleStatusDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="setSaleStatusInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ContractControllerSetSaleStatusWithHttpInfoAsync(string authorization, SetSaleStatusDto setSaleStatusDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateSaleStatusWithHttpInfoAsync(string authorization, SetSaleStatusInput setSaleStatusInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -373,46 +373,46 @@ namespace L3vels.Sdk.Api
         }
 
         /// <summary>
-        /// Collection size Get size of collection
+        /// Collection size Count total contract in game.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="collectionId"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void ContractControllerCollectionSize(string authorization, string collectionId, string projectId, int operationIndex = 0)
+        public void CountContractsByGameId(string authorization, string collectionId, string gameId, int operationIndex = 0)
         {
-            ContractControllerCollectionSizeWithHttpInfo(authorization, collectionId, projectId);
+            CountContractsByGameIdWithHttpInfo(authorization, collectionId, gameId);
         }
 
         /// <summary>
-        /// Collection size Get size of collection
+        /// Collection size Count total contract in game.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="collectionId"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public L3vels.Sdk.Client.ApiResponse<Object> ContractControllerCollectionSizeWithHttpInfo(string authorization, string collectionId, string projectId, int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<Object> CountContractsByGameIdWithHttpInfo(string authorization, string collectionId, string gameId, int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling ContractApi->ContractControllerCollectionSize");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling ContractApi->CountContractsByGameId");
             }
 
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling ContractApi->ContractControllerCollectionSize");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling ContractApi->CountContractsByGameId");
             }
 
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling ContractApi->ContractControllerCollectionSize");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling ContractApi->CountContractsByGameId");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -437,10 +437,10 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "collection_id", collectionId));
-            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "project_id", projectId));
+            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "game_id", gameId));
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
-            localVarRequestOptions.Operation = "ContractApi.ContractControllerCollectionSize";
+            localVarRequestOptions.Operation = "ContractApi.CountContractsByGameId";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -448,7 +448,7 @@ namespace L3vels.Sdk.Api
             var localVarResponse = this.Client.Get<Object>("/v1/contract/collection-size", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ContractControllerCollectionSize", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CountContractsByGameId", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -459,48 +459,48 @@ namespace L3vels.Sdk.Api
         }
 
         /// <summary>
-        /// Collection size Get size of collection
+        /// Collection size Count total contract in game.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="collectionId"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ContractControllerCollectionSizeAsync(string authorization, string collectionId, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task CountContractsByGameIdAsync(string authorization, string collectionId, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await ContractControllerCollectionSizeWithHttpInfoAsync(authorization, collectionId, projectId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await CountContractsByGameIdWithHttpInfoAsync(authorization, collectionId, gameId, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// Collection size Get size of collection
+        /// Collection size Count total contract in game.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="collectionId"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> ContractControllerCollectionSizeWithHttpInfoAsync(string authorization, string collectionId, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> CountContractsByGameIdWithHttpInfoAsync(string authorization, string collectionId, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling ContractApi->ContractControllerCollectionSize");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling ContractApi->CountContractsByGameId");
             }
 
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling ContractApi->ContractControllerCollectionSize");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling ContractApi->CountContractsByGameId");
             }
 
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling ContractApi->ContractControllerCollectionSize");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling ContractApi->CountContractsByGameId");
             }
 
 
@@ -526,10 +526,10 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "collection_id", collectionId));
-            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "project_id", projectId));
+            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "game_id", gameId));
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
-            localVarRequestOptions.Operation = "ContractApi.ContractControllerCollectionSize";
+            localVarRequestOptions.Operation = "ContractApi.CountContractsByGameId";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -538,7 +538,7 @@ namespace L3vels.Sdk.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ContractControllerCollectionSize", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CountContractsByGameId", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -552,43 +552,43 @@ namespace L3vels.Sdk.Api
         /// Get Contract URI Gets contract uri of contract
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="collectionId"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void ContractControllerContractUri(string authorization, string collectionId, string projectId, int operationIndex = 0)
+        public void GetContractURI(string authorization, string collectionId, string gameId, int operationIndex = 0)
         {
-            ContractControllerContractUriWithHttpInfo(authorization, collectionId, projectId);
+            GetContractURIWithHttpInfo(authorization, collectionId, gameId);
         }
 
         /// <summary>
         /// Get Contract URI Gets contract uri of contract
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="collectionId"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public L3vels.Sdk.Client.ApiResponse<Object> ContractControllerContractUriWithHttpInfo(string authorization, string collectionId, string projectId, int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<Object> GetContractURIWithHttpInfo(string authorization, string collectionId, string gameId, int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling ContractApi->ContractControllerContractUri");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling ContractApi->GetContractURI");
             }
 
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling ContractApi->ContractControllerContractUri");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling ContractApi->GetContractURI");
             }
 
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling ContractApi->ContractControllerContractUri");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling ContractApi->GetContractURI");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -613,10 +613,10 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "collection_id", collectionId));
-            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "project_id", projectId));
+            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "game_id", gameId));
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
-            localVarRequestOptions.Operation = "ContractApi.ContractControllerContractUri";
+            localVarRequestOptions.Operation = "ContractApi.GetContractURI";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -624,7 +624,7 @@ namespace L3vels.Sdk.Api
             var localVarResponse = this.Client.Get<Object>("/v1/contract/contract-uri", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ContractControllerContractUri", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetContractURI", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -638,45 +638,45 @@ namespace L3vels.Sdk.Api
         /// Get Contract URI Gets contract uri of contract
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="collectionId"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ContractControllerContractUriAsync(string authorization, string collectionId, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task GetContractURIAsync(string authorization, string collectionId, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await ContractControllerContractUriWithHttpInfoAsync(authorization, collectionId, projectId, operationIndex, cancellationToken).ConfigureAwait(false);
+            await GetContractURIWithHttpInfoAsync(authorization, collectionId, gameId, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Get Contract URI Gets contract uri of contract
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="collectionId"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> ContractControllerContractUriWithHttpInfoAsync(string authorization, string collectionId, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> GetContractURIWithHttpInfoAsync(string authorization, string collectionId, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling ContractApi->ContractControllerContractUri");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling ContractApi->GetContractURI");
             }
 
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling ContractApi->ContractControllerContractUri");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling ContractApi->GetContractURI");
             }
 
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling ContractApi->ContractControllerContractUri");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling ContractApi->GetContractURI");
             }
 
 
@@ -702,10 +702,10 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "collection_id", collectionId));
-            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "project_id", projectId));
+            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "game_id", gameId));
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
-            localVarRequestOptions.Operation = "ContractApi.ContractControllerContractUri";
+            localVarRequestOptions.Operation = "ContractApi.GetContractURI";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -714,7 +714,7 @@ namespace L3vels.Sdk.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ContractControllerContractUri", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetContractURI", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -728,35 +728,35 @@ namespace L3vels.Sdk.Api
         /// Update Contract URI Update Contract URI
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="setContractUriDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="setContractUriInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void ContractControllerSetContractUri(string authorization, SetContractUriDto setContractUriDto, int operationIndex = 0)
+        public void SetContractURI(string authorization, SetContractUriInput setContractUriInput, int operationIndex = 0)
         {
-            ContractControllerSetContractUriWithHttpInfo(authorization, setContractUriDto);
+            SetContractURIWithHttpInfo(authorization, setContractUriInput);
         }
 
         /// <summary>
         /// Update Contract URI Update Contract URI
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="setContractUriDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="setContractUriInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public L3vels.Sdk.Client.ApiResponse<Object> ContractControllerSetContractUriWithHttpInfo(string authorization, SetContractUriDto setContractUriDto, int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<Object> SetContractURIWithHttpInfo(string authorization, SetContractUriInput setContractUriInput, int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling ContractApi->ContractControllerSetContractUri");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling ContractApi->SetContractURI");
             }
 
-            // verify the required parameter 'setContractUriDto' is set
-            if (setContractUriDto == null)
+            // verify the required parameter 'setContractUriInput' is set
+            if (setContractUriInput == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'setContractUriDto' when calling ContractApi->ContractControllerSetContractUri");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'setContractUriInput' when calling ContractApi->SetContractURI");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -782,9 +782,9 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = setContractUriDto;
+            localVarRequestOptions.Data = setContractUriInput;
 
-            localVarRequestOptions.Operation = "ContractApi.ContractControllerSetContractUri";
+            localVarRequestOptions.Operation = "ContractApi.SetContractURI";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -792,7 +792,7 @@ namespace L3vels.Sdk.Api
             var localVarResponse = this.Client.Put<Object>("/v1/contract/contract-uri", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ContractControllerSetContractUri", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SetContractURI", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -806,37 +806,37 @@ namespace L3vels.Sdk.Api
         /// Update Contract URI Update Contract URI
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="setContractUriDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="setContractUriInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ContractControllerSetContractUriAsync(string authorization, SetContractUriDto setContractUriDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task SetContractURIAsync(string authorization, SetContractUriInput setContractUriInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await ContractControllerSetContractUriWithHttpInfoAsync(authorization, setContractUriDto, operationIndex, cancellationToken).ConfigureAwait(false);
+            await SetContractURIWithHttpInfoAsync(authorization, setContractUriInput, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Update Contract URI Update Contract URI
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="setContractUriDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="setContractUriInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> ContractControllerSetContractUriWithHttpInfoAsync(string authorization, SetContractUriDto setContractUriDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> SetContractURIWithHttpInfoAsync(string authorization, SetContractUriInput setContractUriInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling ContractApi->ContractControllerSetContractUri");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling ContractApi->SetContractURI");
             }
 
-            // verify the required parameter 'setContractUriDto' is set
-            if (setContractUriDto == null)
+            // verify the required parameter 'setContractUriInput' is set
+            if (setContractUriInput == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'setContractUriDto' when calling ContractApi->ContractControllerSetContractUri");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'setContractUriInput' when calling ContractApi->SetContractURI");
             }
 
 
@@ -863,9 +863,9 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = setContractUriDto;
+            localVarRequestOptions.Data = setContractUriInput;
 
-            localVarRequestOptions.Operation = "ContractApi.ContractControllerSetContractUri";
+            localVarRequestOptions.Operation = "ContractApi.SetContractURI";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -874,7 +874,7 @@ namespace L3vels.Sdk.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ContractControllerSetContractUri", localVarResponse);
+                Exception _exception = this.ExceptionFactory("SetContractURI", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -888,35 +888,35 @@ namespace L3vels.Sdk.Api
         /// Update Sale status Update Sale status to PAUSED, PRE_SALE or PUBLIC
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="setSaleStatusDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="setSaleStatusInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void ContractControllerSetSaleStatus(string authorization, SetSaleStatusDto setSaleStatusDto, int operationIndex = 0)
+        public void UpdateSaleStatus(string authorization, SetSaleStatusInput setSaleStatusInput, int operationIndex = 0)
         {
-            ContractControllerSetSaleStatusWithHttpInfo(authorization, setSaleStatusDto);
+            UpdateSaleStatusWithHttpInfo(authorization, setSaleStatusInput);
         }
 
         /// <summary>
         /// Update Sale status Update Sale status to PAUSED, PRE_SALE or PUBLIC
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="setSaleStatusDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="setSaleStatusInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public L3vels.Sdk.Client.ApiResponse<Object> ContractControllerSetSaleStatusWithHttpInfo(string authorization, SetSaleStatusDto setSaleStatusDto, int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<Object> UpdateSaleStatusWithHttpInfo(string authorization, SetSaleStatusInput setSaleStatusInput, int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling ContractApi->ContractControllerSetSaleStatus");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling ContractApi->UpdateSaleStatus");
             }
 
-            // verify the required parameter 'setSaleStatusDto' is set
-            if (setSaleStatusDto == null)
+            // verify the required parameter 'setSaleStatusInput' is set
+            if (setSaleStatusInput == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'setSaleStatusDto' when calling ContractApi->ContractControllerSetSaleStatus");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'setSaleStatusInput' when calling ContractApi->UpdateSaleStatus");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -942,9 +942,9 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = setSaleStatusDto;
+            localVarRequestOptions.Data = setSaleStatusInput;
 
-            localVarRequestOptions.Operation = "ContractApi.ContractControllerSetSaleStatus";
+            localVarRequestOptions.Operation = "ContractApi.UpdateSaleStatus";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -952,7 +952,7 @@ namespace L3vels.Sdk.Api
             var localVarResponse = this.Client.Put<Object>("/v1/contract/sale-status", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ContractControllerSetSaleStatus", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateSaleStatus", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -966,37 +966,37 @@ namespace L3vels.Sdk.Api
         /// Update Sale status Update Sale status to PAUSED, PRE_SALE or PUBLIC
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="setSaleStatusDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="setSaleStatusInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task ContractControllerSetSaleStatusAsync(string authorization, SetSaleStatusDto setSaleStatusDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UpdateSaleStatusAsync(string authorization, SetSaleStatusInput setSaleStatusInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await ContractControllerSetSaleStatusWithHttpInfoAsync(authorization, setSaleStatusDto, operationIndex, cancellationToken).ConfigureAwait(false);
+            await UpdateSaleStatusWithHttpInfoAsync(authorization, setSaleStatusInput, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Update Sale status Update Sale status to PAUSED, PRE_SALE or PUBLIC
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="setSaleStatusDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="setSaleStatusInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> ContractControllerSetSaleStatusWithHttpInfoAsync(string authorization, SetSaleStatusDto setSaleStatusDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> UpdateSaleStatusWithHttpInfoAsync(string authorization, SetSaleStatusInput setSaleStatusInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling ContractApi->ContractControllerSetSaleStatus");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling ContractApi->UpdateSaleStatus");
             }
 
-            // verify the required parameter 'setSaleStatusDto' is set
-            if (setSaleStatusDto == null)
+            // verify the required parameter 'setSaleStatusInput' is set
+            if (setSaleStatusInput == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'setSaleStatusDto' when calling ContractApi->ContractControllerSetSaleStatus");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'setSaleStatusInput' when calling ContractApi->UpdateSaleStatus");
             }
 
 
@@ -1023,9 +1023,9 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = setSaleStatusDto;
+            localVarRequestOptions.Data = setSaleStatusInput;
 
-            localVarRequestOptions.Operation = "ContractApi.ContractControllerSetSaleStatus";
+            localVarRequestOptions.Operation = "ContractApi.UpdateSaleStatus";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -1034,7 +1034,7 @@ namespace L3vels.Sdk.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ContractControllerSetSaleStatus", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateSaleStatus", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

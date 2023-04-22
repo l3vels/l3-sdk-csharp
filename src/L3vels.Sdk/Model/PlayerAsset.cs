@@ -46,12 +46,12 @@ namespace L3vels.Sdk.Model
         /// <param name="assetId">The unique identifier of the asset that the asset is associated with. (required).</param>
         /// <param name="collectionId">The unique identifier of the collection that the Player asset is associated with. (required).</param>
         /// <param name="accountId">The unique identifier of the account that the Player belongs to. (required).</param>
-        /// <param name="projectId">The unique identifier of the project that the Player is associated with. This allows developers to organize their players by project and helps with tracking and reporting. (required).</param>
+        /// <param name="gameId">The unique identifier of the game that the Player is associated with. This allows developers to organize their players by game and helps with tracking and reporting. (required).</param>
         /// <param name="createdOn">The date when the player was created. (required).</param>
         /// <param name="modifiedOn">The date when the player was last modified. (required).</param>
         /// <param name="createdBy">The Id of the user who created the player. (required).</param>
         /// <param name="modifiedBy">The Id of the user who last modified the player. (required).</param>
-        public PlayerAsset(string id = default(string), decimal amount = default(decimal), string playerId = default(string), string assetId = default(string), string collectionId = default(string), decimal accountId = default(decimal), string projectId = default(string), DateTimeOffset createdOn = default(DateTimeOffset), DateTimeOffset modifiedOn = default(DateTimeOffset), decimal createdBy = default(decimal), decimal modifiedBy = default(decimal))
+        public PlayerAsset(string id = default(string), decimal amount = default(decimal), string playerId = default(string), string assetId = default(string), string collectionId = default(string), string accountId = default(string), string gameId = default(string), DateTimeOffset createdOn = default(DateTimeOffset), DateTimeOffset modifiedOn = default(DateTimeOffset), string createdBy = default(string), string modifiedBy = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -78,16 +78,31 @@ namespace L3vels.Sdk.Model
                 throw new ArgumentNullException("collectionId is a required property for PlayerAsset and cannot be null");
             }
             this.CollectionId = collectionId;
-            this.AccountId = accountId;
-            // to ensure "projectId" is required (not null)
-            if (projectId == null)
+            // to ensure "accountId" is required (not null)
+            if (accountId == null)
             {
-                throw new ArgumentNullException("projectId is a required property for PlayerAsset and cannot be null");
+                throw new ArgumentNullException("accountId is a required property for PlayerAsset and cannot be null");
             }
-            this.ProjectId = projectId;
+            this.AccountId = accountId;
+            // to ensure "gameId" is required (not null)
+            if (gameId == null)
+            {
+                throw new ArgumentNullException("gameId is a required property for PlayerAsset and cannot be null");
+            }
+            this.GameId = gameId;
             this.CreatedOn = createdOn;
             this.ModifiedOn = modifiedOn;
+            // to ensure "createdBy" is required (not null)
+            if (createdBy == null)
+            {
+                throw new ArgumentNullException("createdBy is a required property for PlayerAsset and cannot be null");
+            }
             this.CreatedBy = createdBy;
+            // to ensure "modifiedBy" is required (not null)
+            if (modifiedBy == null)
+            {
+                throw new ArgumentNullException("modifiedBy is a required property for PlayerAsset and cannot be null");
+            }
             this.ModifiedBy = modifiedBy;
         }
 
@@ -135,16 +150,17 @@ namespace L3vels.Sdk.Model
         /// The unique identifier of the account that the Player belongs to.
         /// </summary>
         /// <value>The unique identifier of the account that the Player belongs to.</value>
+        /// <example>&quot;313a56d2-b900-456b-ae11-829c8e5661a7&quot;</example>
         [DataMember(Name = "account_id", IsRequired = true, EmitDefaultValue = true)]
-        public decimal AccountId { get; set; }
+        public string AccountId { get; set; }
 
         /// <summary>
-        /// The unique identifier of the project that the Player is associated with. This allows developers to organize their players by project and helps with tracking and reporting.
+        /// The unique identifier of the game that the Player is associated with. This allows developers to organize their players by game and helps with tracking and reporting.
         /// </summary>
-        /// <value>The unique identifier of the project that the Player is associated with. This allows developers to organize their players by project and helps with tracking and reporting.</value>
+        /// <value>The unique identifier of the game that the Player is associated with. This allows developers to organize their players by game and helps with tracking and reporting.</value>
         /// <example>&quot;fd1895eb-6301-4107-a248-c3f2ae5bcaad&quot;</example>
-        [DataMember(Name = "project_id", IsRequired = true, EmitDefaultValue = true)]
-        public string ProjectId { get; set; }
+        [DataMember(Name = "game_id", IsRequired = true, EmitDefaultValue = true)]
+        public string GameId { get; set; }
 
         /// <summary>
         /// The date when the player was created.
@@ -164,15 +180,17 @@ namespace L3vels.Sdk.Model
         /// The Id of the user who created the player.
         /// </summary>
         /// <value>The Id of the user who created the player.</value>
+        /// <example>&quot;f414ea43-7afc-424f-bed4-704bafa52093&quot;</example>
         [DataMember(Name = "created_by", IsRequired = true, EmitDefaultValue = true)]
-        public decimal CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
 
         /// <summary>
         /// The Id of the user who last modified the player.
         /// </summary>
         /// <value>The Id of the user who last modified the player.</value>
+        /// <example>&quot;f414ea43-7afc-424f-bed4-704bafa52093&quot;</example>
         [DataMember(Name = "modified_by", IsRequired = true, EmitDefaultValue = true)]
-        public decimal ModifiedBy { get; set; }
+        public string ModifiedBy { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -188,7 +206,7 @@ namespace L3vels.Sdk.Model
             sb.Append("  AssetId: ").Append(AssetId).Append("\n");
             sb.Append("  CollectionId: ").Append(CollectionId).Append("\n");
             sb.Append("  AccountId: ").Append(AccountId).Append("\n");
-            sb.Append("  ProjectId: ").Append(ProjectId).Append("\n");
+            sb.Append("  GameId: ").Append(GameId).Append("\n");
             sb.Append("  CreatedOn: ").Append(CreatedOn).Append("\n");
             sb.Append("  ModifiedOn: ").Append(ModifiedOn).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
@@ -254,12 +272,13 @@ namespace L3vels.Sdk.Model
                 ) && 
                 (
                     this.AccountId == input.AccountId ||
-                    this.AccountId.Equals(input.AccountId)
+                    (this.AccountId != null &&
+                    this.AccountId.Equals(input.AccountId))
                 ) && 
                 (
-                    this.ProjectId == input.ProjectId ||
-                    (this.ProjectId != null &&
-                    this.ProjectId.Equals(input.ProjectId))
+                    this.GameId == input.GameId ||
+                    (this.GameId != null &&
+                    this.GameId.Equals(input.GameId))
                 ) && 
                 (
                     this.CreatedOn == input.CreatedOn ||
@@ -273,11 +292,13 @@ namespace L3vels.Sdk.Model
                 ) && 
                 (
                     this.CreatedBy == input.CreatedBy ||
-                    this.CreatedBy.Equals(input.CreatedBy)
+                    (this.CreatedBy != null &&
+                    this.CreatedBy.Equals(input.CreatedBy))
                 ) && 
                 (
                     this.ModifiedBy == input.ModifiedBy ||
-                    this.ModifiedBy.Equals(input.ModifiedBy)
+                    (this.ModifiedBy != null &&
+                    this.ModifiedBy.Equals(input.ModifiedBy))
                 );
         }
 
@@ -307,10 +328,13 @@ namespace L3vels.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.CollectionId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.AccountId.GetHashCode();
-                if (this.ProjectId != null)
+                if (this.AccountId != null)
                 {
-                    hashCode = (hashCode * 59) + this.ProjectId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.AccountId.GetHashCode();
+                }
+                if (this.GameId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GameId.GetHashCode();
                 }
                 if (this.CreatedOn != null)
                 {
@@ -320,8 +344,14 @@ namespace L3vels.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ModifiedOn.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.CreatedBy.GetHashCode();
-                hashCode = (hashCode * 59) + this.ModifiedBy.GetHashCode();
+                if (this.CreatedBy != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedBy.GetHashCode();
+                }
+                if (this.ModifiedBy != null)
+                {
+                    hashCode = (hashCode * 59) + this.ModifiedBy.GetHashCode();
+                }
                 return hashCode;
             }
         }

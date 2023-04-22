@@ -55,14 +55,14 @@ namespace L3vels.Sdk.Model
         /// <param name="type">Transaction type: Mint, Transfer, Award, Airdrop, etc. (required).</param>
         /// <param name="method">Function method name that was called in smart contract (required).</param>
         /// <param name="events">List of events that were emitted in the transaction (required).</param>
-        /// <param name="projectId">The unique identifier of the project that the transaction is associated with. This allows developers to organize their transactions by project and helps with tracking and reporting. (required).</param>
-        /// <param name="collectionId">The unique identifier of the collection that the transaction is associated with. This allows developers to organize their transactions by project and helps with tracking and reporting. (required).</param>
+        /// <param name="gameId">The unique identifier of the game that the transaction is associated with. This allows developers to organize their transactions by game and helps with tracking and reporting. (required).</param>
+        /// <param name="collectionId">The unique identifier of the collection that the transaction is associated with. This allows developers to organize their transactions by game and helps with tracking and reporting. (required).</param>
         /// <param name="accountId">The unique identifier of the account that the transaction belongs to. (required).</param>
         /// <param name="createdOn">The date when the collection was created. (required).</param>
         /// <param name="modifiedOn">The date when the collection was last modified. (required).</param>
         /// <param name="createdBy">The Id of the user who created the collection. (required).</param>
         /// <param name="modifiedBy">The Id of the user who last modified the collection. (required).</param>
-        public Transaction(string id = default(string), string status = default(string), string from = default(string), string to = default(string), string contractId = default(string), string contractAddress = default(string), string blockchain = default(string), string chainName = default(string), decimal chainId = default(decimal), string environment = default(string), string transactionHash = default(string), decimal blockNumber = default(decimal), string type = default(string), string method = default(string), List<string> events = default(List<string>), string projectId = default(string), string collectionId = default(string), decimal accountId = default(decimal), DateTimeOffset createdOn = default(DateTimeOffset), DateTimeOffset modifiedOn = default(DateTimeOffset), decimal createdBy = default(decimal), decimal modifiedBy = default(decimal))
+        public Transaction(string id = default(string), string status = default(string), string from = default(string), string to = default(string), string contractId = default(string), string contractAddress = default(string), string blockchain = default(string), string chainName = default(string), decimal chainId = default(decimal), string environment = default(string), string transactionHash = default(string), decimal blockNumber = default(decimal), string type = default(string), string method = default(string), List<string> events = default(List<string>), string gameId = default(string), string collectionId = default(string), string accountId = default(string), DateTimeOffset createdOn = default(DateTimeOffset), DateTimeOffset modifiedOn = default(DateTimeOffset), string createdBy = default(string), string modifiedBy = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -144,22 +144,37 @@ namespace L3vels.Sdk.Model
                 throw new ArgumentNullException("events is a required property for Transaction and cannot be null");
             }
             this.Events = events;
-            // to ensure "projectId" is required (not null)
-            if (projectId == null)
+            // to ensure "gameId" is required (not null)
+            if (gameId == null)
             {
-                throw new ArgumentNullException("projectId is a required property for Transaction and cannot be null");
+                throw new ArgumentNullException("gameId is a required property for Transaction and cannot be null");
             }
-            this.ProjectId = projectId;
+            this.GameId = gameId;
             // to ensure "collectionId" is required (not null)
             if (collectionId == null)
             {
                 throw new ArgumentNullException("collectionId is a required property for Transaction and cannot be null");
             }
             this.CollectionId = collectionId;
+            // to ensure "accountId" is required (not null)
+            if (accountId == null)
+            {
+                throw new ArgumentNullException("accountId is a required property for Transaction and cannot be null");
+            }
             this.AccountId = accountId;
             this.CreatedOn = createdOn;
             this.ModifiedOn = modifiedOn;
+            // to ensure "createdBy" is required (not null)
+            if (createdBy == null)
+            {
+                throw new ArgumentNullException("createdBy is a required property for Transaction and cannot be null");
+            }
             this.CreatedBy = createdBy;
+            // to ensure "modifiedBy" is required (not null)
+            if (modifiedBy == null)
+            {
+                throw new ArgumentNullException("modifiedBy is a required property for Transaction and cannot be null");
+            }
             this.ModifiedBy = modifiedBy;
         }
 
@@ -283,17 +298,17 @@ namespace L3vels.Sdk.Model
         public List<string> Events { get; set; }
 
         /// <summary>
-        /// The unique identifier of the project that the transaction is associated with. This allows developers to organize their transactions by project and helps with tracking and reporting.
+        /// The unique identifier of the game that the transaction is associated with. This allows developers to organize their transactions by game and helps with tracking and reporting.
         /// </summary>
-        /// <value>The unique identifier of the project that the transaction is associated with. This allows developers to organize their transactions by project and helps with tracking and reporting.</value>
+        /// <value>The unique identifier of the game that the transaction is associated with. This allows developers to organize their transactions by game and helps with tracking and reporting.</value>
         /// <example>&quot;fd1895eb-6301-4107-a248-c3f2ae5bcaad&quot;</example>
-        [DataMember(Name = "project_id", IsRequired = true, EmitDefaultValue = true)]
-        public string ProjectId { get; set; }
+        [DataMember(Name = "game_id", IsRequired = true, EmitDefaultValue = true)]
+        public string GameId { get; set; }
 
         /// <summary>
-        /// The unique identifier of the collection that the transaction is associated with. This allows developers to organize their transactions by project and helps with tracking and reporting.
+        /// The unique identifier of the collection that the transaction is associated with. This allows developers to organize their transactions by game and helps with tracking and reporting.
         /// </summary>
-        /// <value>The unique identifier of the collection that the transaction is associated with. This allows developers to organize their transactions by project and helps with tracking and reporting.</value>
+        /// <value>The unique identifier of the collection that the transaction is associated with. This allows developers to organize their transactions by game and helps with tracking and reporting.</value>
         /// <example>&quot;fd1895eb-6301-4107-a248-c3f2ae5bcaad&quot;</example>
         [DataMember(Name = "collection_id", IsRequired = true, EmitDefaultValue = true)]
         public string CollectionId { get; set; }
@@ -302,8 +317,9 @@ namespace L3vels.Sdk.Model
         /// The unique identifier of the account that the transaction belongs to.
         /// </summary>
         /// <value>The unique identifier of the account that the transaction belongs to.</value>
+        /// <example>&quot;313a56d2-b900-456b-ae11-829c8e5661a7&quot;</example>
         [DataMember(Name = "account_id", IsRequired = true, EmitDefaultValue = true)]
-        public decimal AccountId { get; set; }
+        public string AccountId { get; set; }
 
         /// <summary>
         /// The date when the collection was created.
@@ -323,15 +339,17 @@ namespace L3vels.Sdk.Model
         /// The Id of the user who created the collection.
         /// </summary>
         /// <value>The Id of the user who created the collection.</value>
+        /// <example>&quot;f414ea43-7afc-424f-bed4-704bafa52093&quot;</example>
         [DataMember(Name = "created_by", IsRequired = true, EmitDefaultValue = true)]
-        public decimal CreatedBy { get; set; }
+        public string CreatedBy { get; set; }
 
         /// <summary>
         /// The Id of the user who last modified the collection.
         /// </summary>
         /// <value>The Id of the user who last modified the collection.</value>
+        /// <example>&quot;f414ea43-7afc-424f-bed4-704bafa52093&quot;</example>
         [DataMember(Name = "modified_by", IsRequired = true, EmitDefaultValue = true)]
-        public decimal ModifiedBy { get; set; }
+        public string ModifiedBy { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -356,7 +374,7 @@ namespace L3vels.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Method: ").Append(Method).Append("\n");
             sb.Append("  Events: ").Append(Events).Append("\n");
-            sb.Append("  ProjectId: ").Append(ProjectId).Append("\n");
+            sb.Append("  GameId: ").Append(GameId).Append("\n");
             sb.Append("  CollectionId: ").Append(CollectionId).Append("\n");
             sb.Append("  AccountId: ").Append(AccountId).Append("\n");
             sb.Append("  CreatedOn: ").Append(CreatedOn).Append("\n");
@@ -473,9 +491,9 @@ namespace L3vels.Sdk.Model
                     this.Events.SequenceEqual(input.Events)
                 ) && 
                 (
-                    this.ProjectId == input.ProjectId ||
-                    (this.ProjectId != null &&
-                    this.ProjectId.Equals(input.ProjectId))
+                    this.GameId == input.GameId ||
+                    (this.GameId != null &&
+                    this.GameId.Equals(input.GameId))
                 ) && 
                 (
                     this.CollectionId == input.CollectionId ||
@@ -484,7 +502,8 @@ namespace L3vels.Sdk.Model
                 ) && 
                 (
                     this.AccountId == input.AccountId ||
-                    this.AccountId.Equals(input.AccountId)
+                    (this.AccountId != null &&
+                    this.AccountId.Equals(input.AccountId))
                 ) && 
                 (
                     this.CreatedOn == input.CreatedOn ||
@@ -498,11 +517,13 @@ namespace L3vels.Sdk.Model
                 ) && 
                 (
                     this.CreatedBy == input.CreatedBy ||
-                    this.CreatedBy.Equals(input.CreatedBy)
+                    (this.CreatedBy != null &&
+                    this.CreatedBy.Equals(input.CreatedBy))
                 ) && 
                 (
                     this.ModifiedBy == input.ModifiedBy ||
-                    this.ModifiedBy.Equals(input.ModifiedBy)
+                    (this.ModifiedBy != null &&
+                    this.ModifiedBy.Equals(input.ModifiedBy))
                 );
         }
 
@@ -569,15 +590,18 @@ namespace L3vels.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Events.GetHashCode();
                 }
-                if (this.ProjectId != null)
+                if (this.GameId != null)
                 {
-                    hashCode = (hashCode * 59) + this.ProjectId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.GameId.GetHashCode();
                 }
                 if (this.CollectionId != null)
                 {
                     hashCode = (hashCode * 59) + this.CollectionId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.AccountId.GetHashCode();
+                if (this.AccountId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccountId.GetHashCode();
+                }
                 if (this.CreatedOn != null)
                 {
                     hashCode = (hashCode * 59) + this.CreatedOn.GetHashCode();
@@ -586,8 +610,14 @@ namespace L3vels.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ModifiedOn.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.CreatedBy.GetHashCode();
-                hashCode = (hashCode * 59) + this.ModifiedBy.GetHashCode();
+                if (this.CreatedBy != null)
+                {
+                    hashCode = (hashCode * 59) + this.CreatedBy.GetHashCode();
+                }
+                if (this.ModifiedBy != null)
+                {
+                    hashCode = (hashCode * 59) + this.ModifiedBy.GetHashCode();
+                }
                 return hashCode;
             }
         }

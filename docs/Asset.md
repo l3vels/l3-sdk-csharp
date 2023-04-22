@@ -19,13 +19,13 @@ Name | Type | Description | Notes
 **AssetUrl** | **string** | The asset URL. | 
 **Medias** | **List&lt;string&gt;** | Additional images associated with the asset, such as screenshots or promotional images. | 
 **MainMedia** | **string** | The main or featured image associated with the asset. You can set it from the Dashboard as main image. | 
-**AccountId** | **decimal** | The unique identifier of the account that the Collection belongs to. | 
-**ProjectId** | **string** | The unique identifier of the project that the asset is associated with. This allows developers to organize their assets by project and helps with tracking and reporting. | 
-**CollectionId** | **string** | The unique identifier of the collection that the asset is associated with. This allows developers to organize their collections by project and helps with tracking and reporting. | 
+**AccountId** | **string** | The unique identifier of the account that the Collection belongs to. | 
+**GameId** | **string** | The unique identifier of the game that the asset is associated with. This allows developers to organize their assets by game and helps with tracking and reporting. | 
+**CollectionId** | **string** | The unique identifier of the collection that the asset is associated with. This allows developers to organize their collections by game and helps with tracking and reporting. | 
 **CreatedOn** | **DateTimeOffset** | The date when the collection was created. | 
 **ModifiedOn** | **DateTimeOffset** | The date when the collection was last modified. | 
-**CreatedBy** | **decimal** | The Id of the user who created the collection. | 
-**ModifiedBy** | **decimal** | The Id of the user who last modified the collection. | 
+**CreatedBy** | **string** | The Id of the user who created the collection. | 
+**ModifiedBy** | **string** | The Id of the user who last modified the collection. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

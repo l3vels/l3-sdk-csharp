@@ -34,11 +34,11 @@ namespace L3vels.Sdk.Api
         /// Airdrop asset to player
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void MintControllerAirdrop(string authorization, MintDto mintDto, int operationIndex = 0);
+        void AirdropAssetToPlayer(string authorization, MintInput mintInput, int operationIndex = 0);
 
         /// <summary>
         /// Airdrop asset to player
@@ -47,11 +47,11 @@ namespace L3vels.Sdk.Api
         /// Airdrop asset to player
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> MintControllerAirdropWithHttpInfo(string authorization, MintDto mintDto, int operationIndex = 0);
+        ApiResponse<Object> AirdropAssetToPlayerWithHttpInfo(string authorization, MintInput mintInput, int operationIndex = 0);
         /// <summary>
         /// Award asset to player
         /// </summary>
@@ -59,11 +59,11 @@ namespace L3vels.Sdk.Api
         /// Award asset to player
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void MintControllerAward(string authorization, MintDto mintDto, int operationIndex = 0);
+        void AwardAssetToPlayer(string authorization, MintInput mintInput, int operationIndex = 0);
 
         /// <summary>
         /// Award asset to player
@@ -72,86 +72,11 @@ namespace L3vels.Sdk.Api
         /// Award asset to player
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> MintControllerAwardWithHttpInfo(string authorization, MintDto mintDto, int operationIndex = 0);
-        /// <summary>
-        /// Mint asset
-        /// </summary>
-        /// <remarks>
-        /// Mint an asset by admin to player
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        void MintControllerMint(string authorization, MintDto mintDto, int operationIndex = 0);
-
-        /// <summary>
-        /// Mint asset
-        /// </summary>
-        /// <remarks>
-        /// Mint an asset by admin to player
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> MintControllerMintWithHttpInfo(string authorization, MintDto mintDto, int operationIndex = 0);
-        /// <summary>
-        /// Batch mint assets
-        /// </summary>
-        /// <remarks>
-        /// Batch mint assets by admin to player
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintBatchDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        void MintControllerMintBatch(string authorization, MintBatchDto mintBatchDto, int operationIndex = 0);
-
-        /// <summary>
-        /// Batch mint assets
-        /// </summary>
-        /// <remarks>
-        /// Batch mint assets by admin to player
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintBatchDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> MintControllerMintBatchWithHttpInfo(string authorization, MintBatchDto mintBatchDto, int operationIndex = 0);
-        /// <summary>
-        /// Mint asset by player
-        /// </summary>
-        /// <remarks>
-        /// Mint asset by player. Player must have enough balance to mint.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        void MintControllerPlayerMint(string authorization, MintDto mintDto, int operationIndex = 0);
-
-        /// <summary>
-        /// Mint asset by player
-        /// </summary>
-        /// <remarks>
-        /// Mint asset by player. Player must have enough balance to mint.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> MintControllerPlayerMintWithHttpInfo(string authorization, MintDto mintDto, int operationIndex = 0);
+        ApiResponse<Object> AwardAssetToPlayerWithHttpInfo(string authorization, MintInput mintInput, int operationIndex = 0);
         /// <summary>
         /// Batch mint assets by player
         /// </summary>
@@ -159,11 +84,11 @@ namespace L3vels.Sdk.Api
         /// Batch mint assets by player. Player must have enough balance to mint.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintBatchDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintBatchInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        void MintControllerPlayerMintBatch(string authorization, MintBatchDto mintBatchDto, int operationIndex = 0);
+        void BatchMintAssetByPlayer(string authorization, MintBatchInput mintBatchInput, int operationIndex = 0);
 
         /// <summary>
         /// Batch mint assets by player
@@ -172,11 +97,86 @@ namespace L3vels.Sdk.Api
         /// Batch mint assets by player. Player must have enough balance to mint.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintBatchDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintBatchInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> MintControllerPlayerMintBatchWithHttpInfo(string authorization, MintBatchDto mintBatchDto, int operationIndex = 0);
+        ApiResponse<Object> BatchMintAssetByPlayerWithHttpInfo(string authorization, MintBatchInput mintBatchInput, int operationIndex = 0);
+        /// <summary>
+        /// Mint asset
+        /// </summary>
+        /// <remarks>
+        /// Mint an asset by admin to player
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns></returns>
+        void MintAsset(string authorization, MintInput mintInput, int operationIndex = 0);
+
+        /// <summary>
+        /// Mint asset
+        /// </summary>
+        /// <remarks>
+        /// Mint an asset by admin to player
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> MintAssetWithHttpInfo(string authorization, MintInput mintInput, int operationIndex = 0);
+        /// <summary>
+        /// Mint asset by player
+        /// </summary>
+        /// <remarks>
+        /// Mint asset by player. Player must have enough balance to mint.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns></returns>
+        void MintAssetByPlayer(string authorization, MintInput mintInput, int operationIndex = 0);
+
+        /// <summary>
+        /// Mint asset by player
+        /// </summary>
+        /// <remarks>
+        /// Mint asset by player. Player must have enough balance to mint.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> MintAssetByPlayerWithHttpInfo(string authorization, MintInput mintInput, int operationIndex = 0);
+        /// <summary>
+        /// Batch mint assets
+        /// </summary>
+        /// <remarks>
+        /// Batch mint assets by admin to player
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintBatchInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns></returns>
+        void MintBatchAsset(string authorization, MintBatchInput mintBatchInput, int operationIndex = 0);
+
+        /// <summary>
+        /// Batch mint assets
+        /// </summary>
+        /// <remarks>
+        /// Batch mint assets by admin to player
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintBatchInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> MintBatchAssetWithHttpInfo(string authorization, MintBatchInput mintBatchInput, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -193,12 +193,12 @@ namespace L3vels.Sdk.Api
         /// Airdrop asset to player
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task MintControllerAirdropAsync(string authorization, MintDto mintDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task AirdropAssetToPlayerAsync(string authorization, MintInput mintInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Airdrop asset to player
@@ -207,12 +207,12 @@ namespace L3vels.Sdk.Api
         /// Airdrop asset to player
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> MintControllerAirdropWithHttpInfoAsync(string authorization, MintDto mintDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> AirdropAssetToPlayerWithHttpInfoAsync(string authorization, MintInput mintInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Award asset to player
         /// </summary>
@@ -220,12 +220,12 @@ namespace L3vels.Sdk.Api
         /// Award asset to player
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task MintControllerAwardAsync(string authorization, MintDto mintDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task AwardAssetToPlayerAsync(string authorization, MintInput mintInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Award asset to player
@@ -234,93 +234,12 @@ namespace L3vels.Sdk.Api
         /// Award asset to player
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> MintControllerAwardWithHttpInfoAsync(string authorization, MintDto mintDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Mint asset
-        /// </summary>
-        /// <remarks>
-        /// Mint an asset by admin to player
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task MintControllerMintAsync(string authorization, MintDto mintDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Mint asset
-        /// </summary>
-        /// <remarks>
-        /// Mint an asset by admin to player
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> MintControllerMintWithHttpInfoAsync(string authorization, MintDto mintDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Batch mint assets
-        /// </summary>
-        /// <remarks>
-        /// Batch mint assets by admin to player
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintBatchDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task MintControllerMintBatchAsync(string authorization, MintBatchDto mintBatchDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Batch mint assets
-        /// </summary>
-        /// <remarks>
-        /// Batch mint assets by admin to player
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintBatchDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> MintControllerMintBatchWithHttpInfoAsync(string authorization, MintBatchDto mintBatchDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// Mint asset by player
-        /// </summary>
-        /// <remarks>
-        /// Mint asset by player. Player must have enough balance to mint.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task MintControllerPlayerMintAsync(string authorization, MintDto mintDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Mint asset by player
-        /// </summary>
-        /// <remarks>
-        /// Mint asset by player. Player must have enough balance to mint.
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> MintControllerPlayerMintWithHttpInfoAsync(string authorization, MintDto mintDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> AwardAssetToPlayerWithHttpInfoAsync(string authorization, MintInput mintInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Batch mint assets by player
         /// </summary>
@@ -328,12 +247,12 @@ namespace L3vels.Sdk.Api
         /// Batch mint assets by player. Player must have enough balance to mint.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintBatchDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintBatchInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task MintControllerPlayerMintBatchAsync(string authorization, MintBatchDto mintBatchDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task BatchMintAssetByPlayerAsync(string authorization, MintBatchInput mintBatchInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Batch mint assets by player
@@ -342,12 +261,93 @@ namespace L3vels.Sdk.Api
         /// Batch mint assets by player. Player must have enough balance to mint.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintBatchDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintBatchInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> MintControllerPlayerMintBatchWithHttpInfoAsync(string authorization, MintBatchDto mintBatchDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> BatchMintAssetByPlayerWithHttpInfoAsync(string authorization, MintBatchInput mintBatchInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Mint asset
+        /// </summary>
+        /// <remarks>
+        /// Mint an asset by admin to player
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task MintAssetAsync(string authorization, MintInput mintInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Mint asset
+        /// </summary>
+        /// <remarks>
+        /// Mint an asset by admin to player
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> MintAssetWithHttpInfoAsync(string authorization, MintInput mintInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Mint asset by player
+        /// </summary>
+        /// <remarks>
+        /// Mint asset by player. Player must have enough balance to mint.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task MintAssetByPlayerAsync(string authorization, MintInput mintInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Mint asset by player
+        /// </summary>
+        /// <remarks>
+        /// Mint asset by player. Player must have enough balance to mint.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> MintAssetByPlayerWithHttpInfoAsync(string authorization, MintInput mintInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Batch mint assets
+        /// </summary>
+        /// <remarks>
+        /// Batch mint assets by admin to player
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintBatchInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task MintBatchAssetAsync(string authorization, MintBatchInput mintBatchInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Batch mint assets
+        /// </summary>
+        /// <remarks>
+        /// Batch mint assets by admin to player
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintBatchInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> MintBatchAssetWithHttpInfoAsync(string authorization, MintBatchInput mintBatchInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -472,35 +472,35 @@ namespace L3vels.Sdk.Api
         /// Airdrop asset to player Airdrop asset to player
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void MintControllerAirdrop(string authorization, MintDto mintDto, int operationIndex = 0)
+        public void AirdropAssetToPlayer(string authorization, MintInput mintInput, int operationIndex = 0)
         {
-            MintControllerAirdropWithHttpInfo(authorization, mintDto);
+            AirdropAssetToPlayerWithHttpInfo(authorization, mintInput);
         }
 
         /// <summary>
         /// Airdrop asset to player Airdrop asset to player
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public L3vels.Sdk.Client.ApiResponse<Object> MintControllerAirdropWithHttpInfo(string authorization, MintDto mintDto, int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<Object> AirdropAssetToPlayerWithHttpInfo(string authorization, MintInput mintInput, int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintControllerAirdrop");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->AirdropAssetToPlayer");
             }
 
-            // verify the required parameter 'mintDto' is set
-            if (mintDto == null)
+            // verify the required parameter 'mintInput' is set
+            if (mintInput == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintDto' when calling MintApi->MintControllerAirdrop");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintInput' when calling MintApi->AirdropAssetToPlayer");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -526,9 +526,9 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = mintDto;
+            localVarRequestOptions.Data = mintInput;
 
-            localVarRequestOptions.Operation = "MintApi.MintControllerAirdrop";
+            localVarRequestOptions.Operation = "MintApi.AirdropAssetToPlayer";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -536,7 +536,7 @@ namespace L3vels.Sdk.Api
             var localVarResponse = this.Client.Post<Object>("/v1/mint/airdrop", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MintControllerAirdrop", localVarResponse);
+                Exception _exception = this.ExceptionFactory("AirdropAssetToPlayer", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -550,37 +550,37 @@ namespace L3vels.Sdk.Api
         /// Airdrop asset to player Airdrop asset to player
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task MintControllerAirdropAsync(string authorization, MintDto mintDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task AirdropAssetToPlayerAsync(string authorization, MintInput mintInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await MintControllerAirdropWithHttpInfoAsync(authorization, mintDto, operationIndex, cancellationToken).ConfigureAwait(false);
+            await AirdropAssetToPlayerWithHttpInfoAsync(authorization, mintInput, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Airdrop asset to player Airdrop asset to player
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> MintControllerAirdropWithHttpInfoAsync(string authorization, MintDto mintDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> AirdropAssetToPlayerWithHttpInfoAsync(string authorization, MintInput mintInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintControllerAirdrop");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->AirdropAssetToPlayer");
             }
 
-            // verify the required parameter 'mintDto' is set
-            if (mintDto == null)
+            // verify the required parameter 'mintInput' is set
+            if (mintInput == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintDto' when calling MintApi->MintControllerAirdrop");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintInput' when calling MintApi->AirdropAssetToPlayer");
             }
 
 
@@ -607,9 +607,9 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = mintDto;
+            localVarRequestOptions.Data = mintInput;
 
-            localVarRequestOptions.Operation = "MintApi.MintControllerAirdrop";
+            localVarRequestOptions.Operation = "MintApi.AirdropAssetToPlayer";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -618,7 +618,7 @@ namespace L3vels.Sdk.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MintControllerAirdrop", localVarResponse);
+                Exception _exception = this.ExceptionFactory("AirdropAssetToPlayer", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -632,35 +632,35 @@ namespace L3vels.Sdk.Api
         /// Award asset to player Award asset to player
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void MintControllerAward(string authorization, MintDto mintDto, int operationIndex = 0)
+        public void AwardAssetToPlayer(string authorization, MintInput mintInput, int operationIndex = 0)
         {
-            MintControllerAwardWithHttpInfo(authorization, mintDto);
+            AwardAssetToPlayerWithHttpInfo(authorization, mintInput);
         }
 
         /// <summary>
         /// Award asset to player Award asset to player
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public L3vels.Sdk.Client.ApiResponse<Object> MintControllerAwardWithHttpInfo(string authorization, MintDto mintDto, int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<Object> AwardAssetToPlayerWithHttpInfo(string authorization, MintInput mintInput, int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintControllerAward");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->AwardAssetToPlayer");
             }
 
-            // verify the required parameter 'mintDto' is set
-            if (mintDto == null)
+            // verify the required parameter 'mintInput' is set
+            if (mintInput == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintDto' when calling MintApi->MintControllerAward");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintInput' when calling MintApi->AwardAssetToPlayer");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -686,9 +686,9 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = mintDto;
+            localVarRequestOptions.Data = mintInput;
 
-            localVarRequestOptions.Operation = "MintApi.MintControllerAward";
+            localVarRequestOptions.Operation = "MintApi.AwardAssetToPlayer";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -696,7 +696,7 @@ namespace L3vels.Sdk.Api
             var localVarResponse = this.Client.Post<Object>("/v1/mint/award", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MintControllerAward", localVarResponse);
+                Exception _exception = this.ExceptionFactory("AwardAssetToPlayer", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -710,37 +710,37 @@ namespace L3vels.Sdk.Api
         /// Award asset to player Award asset to player
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task MintControllerAwardAsync(string authorization, MintDto mintDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task AwardAssetToPlayerAsync(string authorization, MintInput mintInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await MintControllerAwardWithHttpInfoAsync(authorization, mintDto, operationIndex, cancellationToken).ConfigureAwait(false);
+            await AwardAssetToPlayerWithHttpInfoAsync(authorization, mintInput, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Award asset to player Award asset to player
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> MintControllerAwardWithHttpInfoAsync(string authorization, MintDto mintDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> AwardAssetToPlayerWithHttpInfoAsync(string authorization, MintInput mintInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintControllerAward");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->AwardAssetToPlayer");
             }
 
-            // verify the required parameter 'mintDto' is set
-            if (mintDto == null)
+            // verify the required parameter 'mintInput' is set
+            if (mintInput == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintDto' when calling MintApi->MintControllerAward");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintInput' when calling MintApi->AwardAssetToPlayer");
             }
 
 
@@ -767,9 +767,9 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = mintDto;
+            localVarRequestOptions.Data = mintInput;
 
-            localVarRequestOptions.Operation = "MintApi.MintControllerAward";
+            localVarRequestOptions.Operation = "MintApi.AwardAssetToPlayer";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -778,487 +778,7 @@ namespace L3vels.Sdk.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MintControllerAward", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Mint asset Mint an asset by admin to player
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        public void MintControllerMint(string authorization, MintDto mintDto, int operationIndex = 0)
-        {
-            MintControllerMintWithHttpInfo(authorization, mintDto);
-        }
-
-        /// <summary>
-        /// Mint asset Mint an asset by admin to player
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public L3vels.Sdk.Client.ApiResponse<Object> MintControllerMintWithHttpInfo(string authorization, MintDto mintDto, int operationIndex = 0)
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintControllerMint");
-            }
-
-            // verify the required parameter 'mintDto' is set
-            if (mintDto == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintDto' when calling MintApi->MintControllerMint");
-            }
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = mintDto;
-
-            localVarRequestOptions.Operation = "MintApi.MintControllerMint";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/v1/mint", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("MintControllerMint", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Mint asset Mint an asset by admin to player
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task MintControllerMintAsync(string authorization, MintDto mintDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await MintControllerMintWithHttpInfoAsync(authorization, mintDto, operationIndex, cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Mint asset Mint an asset by admin to player
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> MintControllerMintWithHttpInfoAsync(string authorization, MintDto mintDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintControllerMint");
-            }
-
-            // verify the required parameter 'mintDto' is set
-            if (mintDto == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintDto' when calling MintApi->MintControllerMint");
-            }
-
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = mintDto;
-
-            localVarRequestOptions.Operation = "MintApi.MintControllerMint";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/v1/mint", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("MintControllerMint", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Batch mint assets Batch mint assets by admin to player
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintBatchDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        public void MintControllerMintBatch(string authorization, MintBatchDto mintBatchDto, int operationIndex = 0)
-        {
-            MintControllerMintBatchWithHttpInfo(authorization, mintBatchDto);
-        }
-
-        /// <summary>
-        /// Batch mint assets Batch mint assets by admin to player
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintBatchDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public L3vels.Sdk.Client.ApiResponse<Object> MintControllerMintBatchWithHttpInfo(string authorization, MintBatchDto mintBatchDto, int operationIndex = 0)
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintControllerMintBatch");
-            }
-
-            // verify the required parameter 'mintBatchDto' is set
-            if (mintBatchDto == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintBatchDto' when calling MintApi->MintControllerMintBatch");
-            }
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = mintBatchDto;
-
-            localVarRequestOptions.Operation = "MintApi.MintControllerMintBatch";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/v1/mint/batch", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("MintControllerMintBatch", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Batch mint assets Batch mint assets by admin to player
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintBatchDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task MintControllerMintBatchAsync(string authorization, MintBatchDto mintBatchDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await MintControllerMintBatchWithHttpInfoAsync(authorization, mintBatchDto, operationIndex, cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Batch mint assets Batch mint assets by admin to player
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintBatchDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> MintControllerMintBatchWithHttpInfoAsync(string authorization, MintBatchDto mintBatchDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintControllerMintBatch");
-            }
-
-            // verify the required parameter 'mintBatchDto' is set
-            if (mintBatchDto == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintBatchDto' when calling MintApi->MintControllerMintBatch");
-            }
-
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = mintBatchDto;
-
-            localVarRequestOptions.Operation = "MintApi.MintControllerMintBatch";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/v1/mint/batch", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("MintControllerMintBatch", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Mint asset by player Mint asset by player. Player must have enough balance to mint.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        public void MintControllerPlayerMint(string authorization, MintDto mintDto, int operationIndex = 0)
-        {
-            MintControllerPlayerMintWithHttpInfo(authorization, mintDto);
-        }
-
-        /// <summary>
-        /// Mint asset by player Mint asset by player. Player must have enough balance to mint.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public L3vels.Sdk.Client.ApiResponse<Object> MintControllerPlayerMintWithHttpInfo(string authorization, MintDto mintDto, int operationIndex = 0)
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintControllerPlayerMint");
-            }
-
-            // verify the required parameter 'mintDto' is set
-            if (mintDto == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintDto' when calling MintApi->MintControllerPlayerMint");
-            }
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = mintDto;
-
-            localVarRequestOptions.Operation = "MintApi.MintControllerPlayerMint";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/v1/mint/player", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("MintControllerPlayerMint", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Mint asset by player Mint asset by player. Player must have enough balance to mint.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task MintControllerPlayerMintAsync(string authorization, MintDto mintDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await MintControllerPlayerMintWithHttpInfoAsync(authorization, mintDto, operationIndex, cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        /// Mint asset by player Mint asset by player. Player must have enough balance to mint.
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintDto"></param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> MintControllerPlayerMintWithHttpInfoAsync(string authorization, MintDto mintDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintControllerPlayerMint");
-            }
-
-            // verify the required parameter 'mintDto' is set
-            if (mintDto == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintDto' when calling MintApi->MintControllerPlayerMint");
-            }
-
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = mintDto;
-
-            localVarRequestOptions.Operation = "MintApi.MintControllerPlayerMint";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/v1/mint/player", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("MintControllerPlayerMint", localVarResponse);
+                Exception _exception = this.ExceptionFactory("AwardAssetToPlayer", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1272,35 +792,35 @@ namespace L3vels.Sdk.Api
         /// Batch mint assets by player Batch mint assets by player. Player must have enough balance to mint.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintBatchDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintBatchInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
-        public void MintControllerPlayerMintBatch(string authorization, MintBatchDto mintBatchDto, int operationIndex = 0)
+        public void BatchMintAssetByPlayer(string authorization, MintBatchInput mintBatchInput, int operationIndex = 0)
         {
-            MintControllerPlayerMintBatchWithHttpInfo(authorization, mintBatchDto);
+            BatchMintAssetByPlayerWithHttpInfo(authorization, mintBatchInput);
         }
 
         /// <summary>
         /// Batch mint assets by player Batch mint assets by player. Player must have enough balance to mint.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintBatchDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintBatchInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public L3vels.Sdk.Client.ApiResponse<Object> MintControllerPlayerMintBatchWithHttpInfo(string authorization, MintBatchDto mintBatchDto, int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<Object> BatchMintAssetByPlayerWithHttpInfo(string authorization, MintBatchInput mintBatchInput, int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintControllerPlayerMintBatch");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->BatchMintAssetByPlayer");
             }
 
-            // verify the required parameter 'mintBatchDto' is set
-            if (mintBatchDto == null)
+            // verify the required parameter 'mintBatchInput' is set
+            if (mintBatchInput == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintBatchDto' when calling MintApi->MintControllerPlayerMintBatch");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintBatchInput' when calling MintApi->BatchMintAssetByPlayer");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -1326,9 +846,9 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = mintBatchDto;
+            localVarRequestOptions.Data = mintBatchInput;
 
-            localVarRequestOptions.Operation = "MintApi.MintControllerPlayerMintBatch";
+            localVarRequestOptions.Operation = "MintApi.BatchMintAssetByPlayer";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -1336,7 +856,7 @@ namespace L3vels.Sdk.Api
             var localVarResponse = this.Client.Post<Object>("/v1/mint/batch-player", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MintControllerPlayerMintBatch", localVarResponse);
+                Exception _exception = this.ExceptionFactory("BatchMintAssetByPlayer", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1350,37 +870,37 @@ namespace L3vels.Sdk.Api
         /// Batch mint assets by player Batch mint assets by player. Player must have enough balance to mint.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintBatchDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintBatchInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task MintControllerPlayerMintBatchAsync(string authorization, MintBatchDto mintBatchDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task BatchMintAssetByPlayerAsync(string authorization, MintBatchInput mintBatchInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            await MintControllerPlayerMintBatchWithHttpInfoAsync(authorization, mintBatchDto, operationIndex, cancellationToken).ConfigureAwait(false);
+            await BatchMintAssetByPlayerWithHttpInfoAsync(authorization, mintBatchInput, operationIndex, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// Batch mint assets by player Batch mint assets by player. Player must have enough balance to mint.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="mintBatchDto"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintBatchInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> MintControllerPlayerMintBatchWithHttpInfoAsync(string authorization, MintBatchDto mintBatchDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> BatchMintAssetByPlayerWithHttpInfoAsync(string authorization, MintBatchInput mintBatchInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintControllerPlayerMintBatch");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->BatchMintAssetByPlayer");
             }
 
-            // verify the required parameter 'mintBatchDto' is set
-            if (mintBatchDto == null)
+            // verify the required parameter 'mintBatchInput' is set
+            if (mintBatchInput == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintBatchDto' when calling MintApi->MintControllerPlayerMintBatch");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintBatchInput' when calling MintApi->BatchMintAssetByPlayer");
             }
 
 
@@ -1407,9 +927,9 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = mintBatchDto;
+            localVarRequestOptions.Data = mintBatchInput;
 
-            localVarRequestOptions.Operation = "MintApi.MintControllerPlayerMintBatch";
+            localVarRequestOptions.Operation = "MintApi.BatchMintAssetByPlayer";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -1418,7 +938,487 @@ namespace L3vels.Sdk.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("MintControllerPlayerMintBatch", localVarResponse);
+                Exception _exception = this.ExceptionFactory("BatchMintAssetByPlayer", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Mint asset Mint an asset by admin to player
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns></returns>
+        public void MintAsset(string authorization, MintInput mintInput, int operationIndex = 0)
+        {
+            MintAssetWithHttpInfo(authorization, mintInput);
+        }
+
+        /// <summary>
+        /// Mint asset Mint an asset by admin to player
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public L3vels.Sdk.Client.ApiResponse<Object> MintAssetWithHttpInfo(string authorization, MintInput mintInput, int operationIndex = 0)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintAsset");
+            }
+
+            // verify the required parameter 'mintInput' is set
+            if (mintInput == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintInput' when calling MintApi->MintAsset");
+            }
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+            localVarRequestOptions.Data = mintInput;
+
+            localVarRequestOptions.Operation = "MintApi.MintAsset";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/v1/mint", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MintAsset", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Mint asset Mint an asset by admin to player
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task MintAssetAsync(string authorization, MintInput mintInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await MintAssetWithHttpInfoAsync(authorization, mintInput, operationIndex, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Mint asset Mint an asset by admin to player
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> MintAssetWithHttpInfoAsync(string authorization, MintInput mintInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintAsset");
+            }
+
+            // verify the required parameter 'mintInput' is set
+            if (mintInput == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintInput' when calling MintApi->MintAsset");
+            }
+
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+            localVarRequestOptions.Data = mintInput;
+
+            localVarRequestOptions.Operation = "MintApi.MintAsset";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/v1/mint", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MintAsset", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Mint asset by player Mint asset by player. Player must have enough balance to mint.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns></returns>
+        public void MintAssetByPlayer(string authorization, MintInput mintInput, int operationIndex = 0)
+        {
+            MintAssetByPlayerWithHttpInfo(authorization, mintInput);
+        }
+
+        /// <summary>
+        /// Mint asset by player Mint asset by player. Player must have enough balance to mint.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public L3vels.Sdk.Client.ApiResponse<Object> MintAssetByPlayerWithHttpInfo(string authorization, MintInput mintInput, int operationIndex = 0)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintAssetByPlayer");
+            }
+
+            // verify the required parameter 'mintInput' is set
+            if (mintInput == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintInput' when calling MintApi->MintAssetByPlayer");
+            }
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+            localVarRequestOptions.Data = mintInput;
+
+            localVarRequestOptions.Operation = "MintApi.MintAssetByPlayer";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/v1/mint/player", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MintAssetByPlayer", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Mint asset by player Mint asset by player. Player must have enough balance to mint.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task MintAssetByPlayerAsync(string authorization, MintInput mintInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await MintAssetByPlayerWithHttpInfoAsync(authorization, mintInput, operationIndex, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Mint asset by player Mint asset by player. Player must have enough balance to mint.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> MintAssetByPlayerWithHttpInfoAsync(string authorization, MintInput mintInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintAssetByPlayer");
+            }
+
+            // verify the required parameter 'mintInput' is set
+            if (mintInput == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintInput' when calling MintApi->MintAssetByPlayer");
+            }
+
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+            localVarRequestOptions.Data = mintInput;
+
+            localVarRequestOptions.Operation = "MintApi.MintAssetByPlayer";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/v1/mint/player", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MintAssetByPlayer", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Batch mint assets Batch mint assets by admin to player
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintBatchInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns></returns>
+        public void MintBatchAsset(string authorization, MintBatchInput mintBatchInput, int operationIndex = 0)
+        {
+            MintBatchAssetWithHttpInfo(authorization, mintBatchInput);
+        }
+
+        /// <summary>
+        /// Batch mint assets Batch mint assets by admin to player
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintBatchInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public L3vels.Sdk.Client.ApiResponse<Object> MintBatchAssetWithHttpInfo(string authorization, MintBatchInput mintBatchInput, int operationIndex = 0)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintBatchAsset");
+            }
+
+            // verify the required parameter 'mintBatchInput' is set
+            if (mintBatchInput == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintBatchInput' when calling MintApi->MintBatchAsset");
+            }
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+            localVarRequestOptions.Data = mintBatchInput;
+
+            localVarRequestOptions.Operation = "MintApi.MintBatchAsset";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/v1/mint/batch", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MintBatchAsset", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Batch mint assets Batch mint assets by admin to player
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintBatchInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task MintBatchAssetAsync(string authorization, MintBatchInput mintBatchInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            await MintBatchAssetWithHttpInfoAsync(authorization, mintBatchInput, operationIndex, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Batch mint assets Batch mint assets by admin to player
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="mintBatchInput"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> MintBatchAssetWithHttpInfoAsync(string authorization, MintBatchInput mintBatchInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling MintApi->MintBatchAsset");
+            }
+
+            // verify the required parameter 'mintBatchInput' is set
+            if (mintBatchInput == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'mintBatchInput' when calling MintApi->MintBatchAsset");
+            }
+
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+            localVarRequestOptions.Data = mintBatchInput;
+
+            localVarRequestOptions.Operation = "MintApi.MintBatchAsset";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/v1/mint/batch", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("MintBatchAsset", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

@@ -34,11 +34,11 @@ namespace L3vels.Sdk.Api
         /// Counts total assets in game.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>decimal</returns>
-        decimal CountByGame(string authorization, string projectId, int operationIndex = 0);
+        decimal CountByGame(string authorization, string gameId, int operationIndex = 0);
 
         /// <summary>
         /// Count assets
@@ -47,38 +47,38 @@ namespace L3vels.Sdk.Api
         /// Counts total assets in game.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of decimal</returns>
-        ApiResponse<decimal> CountByGameWithHttpInfo(string authorization, string projectId, int operationIndex = 0);
+        ApiResponse<decimal> CountByGameWithHttpInfo(string authorization, string gameId, int operationIndex = 0);
         /// <summary>
         /// Retrieve asset by ID
         /// </summary>
         /// <remarks>
-        /// Retrieve asset by ID in specific game/project. Example: Find asset AK-47 in game Call of Duty
+        /// Retrieve asset by ID in specific Game. Example: Find asset AK-47 in game Call of Duty
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id">Asset ID to find</param>
-        /// <param name="projectId">Game/project ID to find asset in</param>
+        /// <param name="gameId">Game ID to find asset in</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Asset</returns>
-        Asset GetAssetById(string authorization, string id, string projectId, int operationIndex = 0);
+        Asset GetAssetById(string authorization, string id, string gameId, int operationIndex = 0);
 
         /// <summary>
         /// Retrieve asset by ID
         /// </summary>
         /// <remarks>
-        /// Retrieve asset by ID in specific game/project. Example: Find asset AK-47 in game Call of Duty
+        /// Retrieve asset by ID in specific Game. Example: Find asset AK-47 in game Call of Duty
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id">Asset ID to find</param>
-        /// <param name="projectId">Game/project ID to find asset in</param>
+        /// <param name="gameId">Game ID to find asset in</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Asset</returns>
-        ApiResponse<Asset> GetAssetByIdWithHttpInfo(string authorization, string id, string projectId, int operationIndex = 0);
+        ApiResponse<Asset> GetAssetByIdWithHttpInfo(string authorization, string id, string gameId, int operationIndex = 0);
         /// <summary>
         /// Retrieve assets
         /// </summary>
@@ -86,8 +86,8 @@ namespace L3vels.Sdk.Api
         /// This API method retrieves a list of assets that match the specified filter criteria. Developers can use this method to retrieve assets by name, description or other properties
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find assets in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID to find assets in your game. Example: Fortnite, Minecraft, etc.</param>
         /// <param name="collectionId">Filter assets by collection. Example: Get assets only from Weapons collection. (optional)</param>
         /// <param name="sort">Asset field to sort by. You can sort by name, created_on and etc. (optional)</param>
         /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
@@ -95,8 +95,8 @@ namespace L3vels.Sdk.Api
         /// <param name="limit">Number of assets to return per page (optional)</param>
         /// <param name="page">Page number (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>AssetsResponseDto</returns>
-        AssetsResponseDto GetAssets(string authorization, string projectId, string collectionId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
+        /// <returns>AssetsResponse</returns>
+        AssetsResponse GetAssets(string authorization, string gameId, string collectionId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
 
         /// <summary>
         /// Retrieve assets
@@ -105,8 +105,8 @@ namespace L3vels.Sdk.Api
         /// This API method retrieves a list of assets that match the specified filter criteria. Developers can use this method to retrieve assets by name, description or other properties
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find assets in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID to find assets in your game. Example: Fortnite, Minecraft, etc.</param>
         /// <param name="collectionId">Filter assets by collection. Example: Get assets only from Weapons collection. (optional)</param>
         /// <param name="sort">Asset field to sort by. You can sort by name, created_on and etc. (optional)</param>
         /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
@@ -114,8 +114,8 @@ namespace L3vels.Sdk.Api
         /// <param name="limit">Number of assets to return per page (optional)</param>
         /// <param name="page">Page number (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of AssetsResponseDto</returns>
-        ApiResponse<AssetsResponseDto> GetAssetsWithHttpInfo(string authorization, string projectId, string collectionId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
+        /// <returns>ApiResponse of AssetsResponse</returns>
+        ApiResponse<AssetsResponse> GetAssetsWithHttpInfo(string authorization, string gameId, string collectionId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
         /// <summary>
         /// Update asset
         /// </summary>
@@ -123,12 +123,12 @@ namespace L3vels.Sdk.Api
         /// Update asset by ID in specific collection. Example: Update asset AK-47 in collection Weapons
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id">Asset ID to update</param>
-        /// <param name="updateAssetDto"></param>
+        /// <param name="updateAssetInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Asset</returns>
-        Asset UpdateAsset(string authorization, string id, UpdateAssetDto updateAssetDto, int operationIndex = 0);
+        Asset UpdateAsset(string authorization, string id, UpdateAssetInput updateAssetInput, int operationIndex = 0);
 
         /// <summary>
         /// Update asset
@@ -137,12 +137,12 @@ namespace L3vels.Sdk.Api
         /// Update asset by ID in specific collection. Example: Update asset AK-47 in collection Weapons
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id">Asset ID to update</param>
-        /// <param name="updateAssetDto"></param>
+        /// <param name="updateAssetInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Asset</returns>
-        ApiResponse<Asset> UpdateAssetWithHttpInfo(string authorization, string id, UpdateAssetDto updateAssetDto, int operationIndex = 0);
+        ApiResponse<Asset> UpdateAssetWithHttpInfo(string authorization, string id, UpdateAssetInput updateAssetInput, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -159,12 +159,12 @@ namespace L3vels.Sdk.Api
         /// Counts total assets in game.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of decimal</returns>
-        System.Threading.Tasks.Task<decimal> CountByGameAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<decimal> CountByGameAsync(string authorization, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Count assets
@@ -173,41 +173,41 @@ namespace L3vels.Sdk.Api
         /// Counts total assets in game.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (decimal)</returns>
-        System.Threading.Tasks.Task<ApiResponse<decimal>> CountByGameWithHttpInfoAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<decimal>> CountByGameWithHttpInfoAsync(string authorization, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve asset by ID
         /// </summary>
         /// <remarks>
-        /// Retrieve asset by ID in specific game/project. Example: Find asset AK-47 in game Call of Duty
+        /// Retrieve asset by ID in specific Game. Example: Find asset AK-47 in game Call of Duty
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id">Asset ID to find</param>
-        /// <param name="projectId">Game/project ID to find asset in</param>
+        /// <param name="gameId">Game ID to find asset in</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Asset</returns>
-        System.Threading.Tasks.Task<Asset> GetAssetByIdAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Asset> GetAssetByIdAsync(string authorization, string id, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve asset by ID
         /// </summary>
         /// <remarks>
-        /// Retrieve asset by ID in specific game/project. Example: Find asset AK-47 in game Call of Duty
+        /// Retrieve asset by ID in specific Game. Example: Find asset AK-47 in game Call of Duty
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id">Asset ID to find</param>
-        /// <param name="projectId">Game/project ID to find asset in</param>
+        /// <param name="gameId">Game ID to find asset in</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Asset)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Asset>> GetAssetByIdWithHttpInfoAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Asset>> GetAssetByIdWithHttpInfoAsync(string authorization, string id, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve assets
         /// </summary>
@@ -215,8 +215,8 @@ namespace L3vels.Sdk.Api
         /// This API method retrieves a list of assets that match the specified filter criteria. Developers can use this method to retrieve assets by name, description or other properties
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find assets in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID to find assets in your game. Example: Fortnite, Minecraft, etc.</param>
         /// <param name="collectionId">Filter assets by collection. Example: Get assets only from Weapons collection. (optional)</param>
         /// <param name="sort">Asset field to sort by. You can sort by name, created_on and etc. (optional)</param>
         /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
@@ -225,8 +225,8 @@ namespace L3vels.Sdk.Api
         /// <param name="page">Page number (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of AssetsResponseDto</returns>
-        System.Threading.Tasks.Task<AssetsResponseDto> GetAssetsAsync(string authorization, string projectId, string collectionId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of AssetsResponse</returns>
+        System.Threading.Tasks.Task<AssetsResponse> GetAssetsAsync(string authorization, string gameId, string collectionId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve assets
@@ -235,8 +235,8 @@ namespace L3vels.Sdk.Api
         /// This API method retrieves a list of assets that match the specified filter criteria. Developers can use this method to retrieve assets by name, description or other properties
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find assets in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID to find assets in your game. Example: Fortnite, Minecraft, etc.</param>
         /// <param name="collectionId">Filter assets by collection. Example: Get assets only from Weapons collection. (optional)</param>
         /// <param name="sort">Asset field to sort by. You can sort by name, created_on and etc. (optional)</param>
         /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
@@ -245,8 +245,8 @@ namespace L3vels.Sdk.Api
         /// <param name="page">Page number (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (AssetsResponseDto)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AssetsResponseDto>> GetAssetsWithHttpInfoAsync(string authorization, string projectId, string collectionId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (AssetsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AssetsResponse>> GetAssetsWithHttpInfoAsync(string authorization, string gameId, string collectionId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update asset
         /// </summary>
@@ -254,13 +254,13 @@ namespace L3vels.Sdk.Api
         /// Update asset by ID in specific collection. Example: Update asset AK-47 in collection Weapons
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id">Asset ID to update</param>
-        /// <param name="updateAssetDto"></param>
+        /// <param name="updateAssetInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Asset</returns>
-        System.Threading.Tasks.Task<Asset> UpdateAssetAsync(string authorization, string id, UpdateAssetDto updateAssetDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Asset> UpdateAssetAsync(string authorization, string id, UpdateAssetInput updateAssetInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update asset
@@ -269,13 +269,13 @@ namespace L3vels.Sdk.Api
         /// Update asset by ID in specific collection. Example: Update asset AK-47 in collection Weapons
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id">Asset ID to update</param>
-        /// <param name="updateAssetDto"></param>
+        /// <param name="updateAssetInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Asset)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Asset>> UpdateAssetWithHttpInfoAsync(string authorization, string id, UpdateAssetDto updateAssetDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Asset>> UpdateAssetWithHttpInfoAsync(string authorization, string id, UpdateAssetInput updateAssetInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -400,13 +400,13 @@ namespace L3vels.Sdk.Api
         /// Count assets Counts total assets in game.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>decimal</returns>
-        public decimal CountByGame(string authorization, string projectId, int operationIndex = 0)
+        public decimal CountByGame(string authorization, string gameId, int operationIndex = 0)
         {
-            L3vels.Sdk.Client.ApiResponse<decimal> localVarResponse = CountByGameWithHttpInfo(authorization, projectId);
+            L3vels.Sdk.Client.ApiResponse<decimal> localVarResponse = CountByGameWithHttpInfo(authorization, gameId);
             return localVarResponse.Data;
         }
 
@@ -414,11 +414,11 @@ namespace L3vels.Sdk.Api
         /// Count assets Counts total assets in game.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of decimal</returns>
-        public L3vels.Sdk.Client.ApiResponse<decimal> CountByGameWithHttpInfo(string authorization, string projectId, int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<decimal> CountByGameWithHttpInfo(string authorization, string gameId, int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -426,10 +426,10 @@ namespace L3vels.Sdk.Api
                 throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling AssetApi->CountByGame");
             }
 
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling AssetApi->CountByGame");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling AssetApi->CountByGame");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -454,7 +454,7 @@ namespace L3vels.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("game_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(gameId)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
             localVarRequestOptions.Operation = "AssetApi.CountByGame";
@@ -462,7 +462,7 @@ namespace L3vels.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<decimal>("/v1/asset/count/{project_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<decimal>("/v1/asset/count/{game_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CountByGame", localVarResponse);
@@ -479,14 +479,14 @@ namespace L3vels.Sdk.Api
         /// Count assets Counts total assets in game.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of decimal</returns>
-        public async System.Threading.Tasks.Task<decimal> CountByGameAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<decimal> CountByGameAsync(string authorization, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            L3vels.Sdk.Client.ApiResponse<decimal> localVarResponse = await CountByGameWithHttpInfoAsync(authorization, projectId, operationIndex, cancellationToken).ConfigureAwait(false);
+            L3vels.Sdk.Client.ApiResponse<decimal> localVarResponse = await CountByGameWithHttpInfoAsync(authorization, gameId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -494,12 +494,12 @@ namespace L3vels.Sdk.Api
         /// Count assets Counts total assets in game.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId"></param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (decimal)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<decimal>> CountByGameWithHttpInfoAsync(string authorization, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<decimal>> CountByGameWithHttpInfoAsync(string authorization, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -507,10 +507,10 @@ namespace L3vels.Sdk.Api
                 throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling AssetApi->CountByGame");
             }
 
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling AssetApi->CountByGame");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling AssetApi->CountByGame");
             }
 
 
@@ -536,7 +536,7 @@ namespace L3vels.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("game_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(gameId)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
             localVarRequestOptions.Operation = "AssetApi.CountByGame";
@@ -544,7 +544,7 @@ namespace L3vels.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<decimal>("/v1/asset/count/{project_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<decimal>("/v1/asset/count/{game_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -559,30 +559,30 @@ namespace L3vels.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve asset by ID Retrieve asset by ID in specific game/project. Example: Find asset AK-47 in game Call of Duty
+        /// Retrieve asset by ID Retrieve asset by ID in specific Game. Example: Find asset AK-47 in game Call of Duty
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id">Asset ID to find</param>
-        /// <param name="projectId">Game/project ID to find asset in</param>
+        /// <param name="gameId">Game ID to find asset in</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Asset</returns>
-        public Asset GetAssetById(string authorization, string id, string projectId, int operationIndex = 0)
+        public Asset GetAssetById(string authorization, string id, string gameId, int operationIndex = 0)
         {
-            L3vels.Sdk.Client.ApiResponse<Asset> localVarResponse = GetAssetByIdWithHttpInfo(authorization, id, projectId);
+            L3vels.Sdk.Client.ApiResponse<Asset> localVarResponse = GetAssetByIdWithHttpInfo(authorization, id, gameId);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve asset by ID Retrieve asset by ID in specific game/project. Example: Find asset AK-47 in game Call of Duty
+        /// Retrieve asset by ID Retrieve asset by ID in specific Game. Example: Find asset AK-47 in game Call of Duty
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id">Asset ID to find</param>
-        /// <param name="projectId">Game/project ID to find asset in</param>
+        /// <param name="gameId">Game ID to find asset in</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Asset</returns>
-        public L3vels.Sdk.Client.ApiResponse<Asset> GetAssetByIdWithHttpInfo(string authorization, string id, string projectId, int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<Asset> GetAssetByIdWithHttpInfo(string authorization, string id, string gameId, int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -596,10 +596,10 @@ namespace L3vels.Sdk.Api
                 throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling AssetApi->GetAssetById");
             }
 
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling AssetApi->GetAssetById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling AssetApi->GetAssetById");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -625,7 +625,7 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", L3vels.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("game_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(gameId)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
             localVarRequestOptions.Operation = "AssetApi.GetAssetById";
@@ -633,7 +633,7 @@ namespace L3vels.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Asset>("/v1/asset/{project_id}/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Asset>("/v1/asset/{game_id}/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAssetById", localVarResponse);
@@ -647,32 +647,32 @@ namespace L3vels.Sdk.Api
         }
 
         /// <summary>
-        /// Retrieve asset by ID Retrieve asset by ID in specific game/project. Example: Find asset AK-47 in game Call of Duty
+        /// Retrieve asset by ID Retrieve asset by ID in specific Game. Example: Find asset AK-47 in game Call of Duty
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id">Asset ID to find</param>
-        /// <param name="projectId">Game/project ID to find asset in</param>
+        /// <param name="gameId">Game ID to find asset in</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Asset</returns>
-        public async System.Threading.Tasks.Task<Asset> GetAssetByIdAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Asset> GetAssetByIdAsync(string authorization, string id, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            L3vels.Sdk.Client.ApiResponse<Asset> localVarResponse = await GetAssetByIdWithHttpInfoAsync(authorization, id, projectId, operationIndex, cancellationToken).ConfigureAwait(false);
+            L3vels.Sdk.Client.ApiResponse<Asset> localVarResponse = await GetAssetByIdWithHttpInfoAsync(authorization, id, gameId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Retrieve asset by ID Retrieve asset by ID in specific game/project. Example: Find asset AK-47 in game Call of Duty
+        /// Retrieve asset by ID Retrieve asset by ID in specific Game. Example: Find asset AK-47 in game Call of Duty
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id">Asset ID to find</param>
-        /// <param name="projectId">Game/project ID to find asset in</param>
+        /// <param name="gameId">Game ID to find asset in</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Asset)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Asset>> GetAssetByIdWithHttpInfoAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Asset>> GetAssetByIdWithHttpInfoAsync(string authorization, string id, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -686,10 +686,10 @@ namespace L3vels.Sdk.Api
                 throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling AssetApi->GetAssetById");
             }
 
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling AssetApi->GetAssetById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling AssetApi->GetAssetById");
             }
 
 
@@ -716,7 +716,7 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", L3vels.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("game_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(gameId)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
             localVarRequestOptions.Operation = "AssetApi.GetAssetById";
@@ -724,7 +724,7 @@ namespace L3vels.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Asset>("/v1/asset/{project_id}/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Asset>("/v1/asset/{game_id}/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -742,8 +742,8 @@ namespace L3vels.Sdk.Api
         /// Retrieve assets This API method retrieves a list of assets that match the specified filter criteria. Developers can use this method to retrieve assets by name, description or other properties
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find assets in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID to find assets in your game. Example: Fortnite, Minecraft, etc.</param>
         /// <param name="collectionId">Filter assets by collection. Example: Get assets only from Weapons collection. (optional)</param>
         /// <param name="sort">Asset field to sort by. You can sort by name, created_on and etc. (optional)</param>
         /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
@@ -751,10 +751,10 @@ namespace L3vels.Sdk.Api
         /// <param name="limit">Number of assets to return per page (optional)</param>
         /// <param name="page">Page number (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>AssetsResponseDto</returns>
-        public AssetsResponseDto GetAssets(string authorization, string projectId, string collectionId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
+        /// <returns>AssetsResponse</returns>
+        public AssetsResponse GetAssets(string authorization, string gameId, string collectionId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
         {
-            L3vels.Sdk.Client.ApiResponse<AssetsResponseDto> localVarResponse = GetAssetsWithHttpInfo(authorization, projectId, collectionId, sort, order, searchText, limit, page);
+            L3vels.Sdk.Client.ApiResponse<AssetsResponse> localVarResponse = GetAssetsWithHttpInfo(authorization, gameId, collectionId, sort, order, searchText, limit, page);
             return localVarResponse.Data;
         }
 
@@ -762,8 +762,8 @@ namespace L3vels.Sdk.Api
         /// Retrieve assets This API method retrieves a list of assets that match the specified filter criteria. Developers can use this method to retrieve assets by name, description or other properties
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find assets in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID to find assets in your game. Example: Fortnite, Minecraft, etc.</param>
         /// <param name="collectionId">Filter assets by collection. Example: Get assets only from Weapons collection. (optional)</param>
         /// <param name="sort">Asset field to sort by. You can sort by name, created_on and etc. (optional)</param>
         /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
@@ -771,8 +771,8 @@ namespace L3vels.Sdk.Api
         /// <param name="limit">Number of assets to return per page (optional)</param>
         /// <param name="page">Page number (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of AssetsResponseDto</returns>
-        public L3vels.Sdk.Client.ApiResponse<AssetsResponseDto> GetAssetsWithHttpInfo(string authorization, string projectId, string collectionId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
+        /// <returns>ApiResponse of AssetsResponse</returns>
+        public L3vels.Sdk.Client.ApiResponse<AssetsResponse> GetAssetsWithHttpInfo(string authorization, string gameId, string collectionId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -780,10 +780,10 @@ namespace L3vels.Sdk.Api
                 throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling AssetApi->GetAssets");
             }
 
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling AssetApi->GetAssets");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling AssetApi->GetAssets");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -808,7 +808,7 @@ namespace L3vels.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "project_id", projectId));
+            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "game_id", gameId));
             if (collectionId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "collection_id", collectionId));
@@ -840,7 +840,7 @@ namespace L3vels.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<AssetsResponseDto>("/v1/asset", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<AssetsResponse>("/v1/asset", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAssets", localVarResponse);
@@ -857,8 +857,8 @@ namespace L3vels.Sdk.Api
         /// Retrieve assets This API method retrieves a list of assets that match the specified filter criteria. Developers can use this method to retrieve assets by name, description or other properties
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find assets in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID to find assets in your game. Example: Fortnite, Minecraft, etc.</param>
         /// <param name="collectionId">Filter assets by collection. Example: Get assets only from Weapons collection. (optional)</param>
         /// <param name="sort">Asset field to sort by. You can sort by name, created_on and etc. (optional)</param>
         /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
@@ -867,10 +867,10 @@ namespace L3vels.Sdk.Api
         /// <param name="page">Page number (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of AssetsResponseDto</returns>
-        public async System.Threading.Tasks.Task<AssetsResponseDto> GetAssetsAsync(string authorization, string projectId, string collectionId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of AssetsResponse</returns>
+        public async System.Threading.Tasks.Task<AssetsResponse> GetAssetsAsync(string authorization, string gameId, string collectionId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            L3vels.Sdk.Client.ApiResponse<AssetsResponseDto> localVarResponse = await GetAssetsWithHttpInfoAsync(authorization, projectId, collectionId, sort, order, searchText, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            L3vels.Sdk.Client.ApiResponse<AssetsResponse> localVarResponse = await GetAssetsWithHttpInfoAsync(authorization, gameId, collectionId, sort, order, searchText, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -878,8 +878,8 @@ namespace L3vels.Sdk.Api
         /// Retrieve assets This API method retrieves a list of assets that match the specified filter criteria. Developers can use this method to retrieve assets by name, description or other properties
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find assets in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID to find assets in your game. Example: Fortnite, Minecraft, etc.</param>
         /// <param name="collectionId">Filter assets by collection. Example: Get assets only from Weapons collection. (optional)</param>
         /// <param name="sort">Asset field to sort by. You can sort by name, created_on and etc. (optional)</param>
         /// <param name="order">Sort order (ASC for ascending or DESC for descending) (optional)</param>
@@ -888,8 +888,8 @@ namespace L3vels.Sdk.Api
         /// <param name="page">Page number (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (AssetsResponseDto)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<AssetsResponseDto>> GetAssetsWithHttpInfoAsync(string authorization, string projectId, string collectionId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (AssetsResponse)</returns>
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<AssetsResponse>> GetAssetsWithHttpInfoAsync(string authorization, string gameId, string collectionId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -897,10 +897,10 @@ namespace L3vels.Sdk.Api
                 throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling AssetApi->GetAssets");
             }
 
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling AssetApi->GetAssets");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling AssetApi->GetAssets");
             }
 
 
@@ -926,7 +926,7 @@ namespace L3vels.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "project_id", projectId));
+            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "game_id", gameId));
             if (collectionId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "collection_id", collectionId));
@@ -958,7 +958,7 @@ namespace L3vels.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<AssetsResponseDto>("/v1/asset", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<AssetsResponse>("/v1/asset", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -976,14 +976,14 @@ namespace L3vels.Sdk.Api
         /// Update asset Update asset by ID in specific collection. Example: Update asset AK-47 in collection Weapons
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id">Asset ID to update</param>
-        /// <param name="updateAssetDto"></param>
+        /// <param name="updateAssetInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Asset</returns>
-        public Asset UpdateAsset(string authorization, string id, UpdateAssetDto updateAssetDto, int operationIndex = 0)
+        public Asset UpdateAsset(string authorization, string id, UpdateAssetInput updateAssetInput, int operationIndex = 0)
         {
-            L3vels.Sdk.Client.ApiResponse<Asset> localVarResponse = UpdateAssetWithHttpInfo(authorization, id, updateAssetDto);
+            L3vels.Sdk.Client.ApiResponse<Asset> localVarResponse = UpdateAssetWithHttpInfo(authorization, id, updateAssetInput);
             return localVarResponse.Data;
         }
 
@@ -991,12 +991,12 @@ namespace L3vels.Sdk.Api
         /// Update asset Update asset by ID in specific collection. Example: Update asset AK-47 in collection Weapons
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id">Asset ID to update</param>
-        /// <param name="updateAssetDto"></param>
+        /// <param name="updateAssetInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Asset</returns>
-        public L3vels.Sdk.Client.ApiResponse<Asset> UpdateAssetWithHttpInfo(string authorization, string id, UpdateAssetDto updateAssetDto, int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<Asset> UpdateAssetWithHttpInfo(string authorization, string id, UpdateAssetInput updateAssetInput, int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -1010,10 +1010,10 @@ namespace L3vels.Sdk.Api
                 throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling AssetApi->UpdateAsset");
             }
 
-            // verify the required parameter 'updateAssetDto' is set
-            if (updateAssetDto == null)
+            // verify the required parameter 'updateAssetInput' is set
+            if (updateAssetInput == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'updateAssetDto' when calling AssetApi->UpdateAsset");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'updateAssetInput' when calling AssetApi->UpdateAsset");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -1041,7 +1041,7 @@ namespace L3vels.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("id", L3vels.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = updateAssetDto;
+            localVarRequestOptions.Data = updateAssetInput;
 
             localVarRequestOptions.Operation = "AssetApi.UpdateAsset";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1065,15 +1065,15 @@ namespace L3vels.Sdk.Api
         /// Update asset Update asset by ID in specific collection. Example: Update asset AK-47 in collection Weapons
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id">Asset ID to update</param>
-        /// <param name="updateAssetDto"></param>
+        /// <param name="updateAssetInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Asset</returns>
-        public async System.Threading.Tasks.Task<Asset> UpdateAssetAsync(string authorization, string id, UpdateAssetDto updateAssetDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Asset> UpdateAssetAsync(string authorization, string id, UpdateAssetInput updateAssetInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            L3vels.Sdk.Client.ApiResponse<Asset> localVarResponse = await UpdateAssetWithHttpInfoAsync(authorization, id, updateAssetDto, operationIndex, cancellationToken).ConfigureAwait(false);
+            L3vels.Sdk.Client.ApiResponse<Asset> localVarResponse = await UpdateAssetWithHttpInfoAsync(authorization, id, updateAssetInput, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1081,13 +1081,13 @@ namespace L3vels.Sdk.Api
         /// Update asset Update asset by ID in specific collection. Example: Update asset AK-47 in collection Weapons
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id">Asset ID to update</param>
-        /// <param name="updateAssetDto"></param>
+        /// <param name="updateAssetInput"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Asset)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Asset>> UpdateAssetWithHttpInfoAsync(string authorization, string id, UpdateAssetDto updateAssetDto, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Asset>> UpdateAssetWithHttpInfoAsync(string authorization, string id, UpdateAssetInput updateAssetInput, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -1101,10 +1101,10 @@ namespace L3vels.Sdk.Api
                 throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling AssetApi->UpdateAsset");
             }
 
-            // verify the required parameter 'updateAssetDto' is set
-            if (updateAssetDto == null)
+            // verify the required parameter 'updateAssetInput' is set
+            if (updateAssetInput == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'updateAssetDto' when calling AssetApi->UpdateAsset");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'updateAssetInput' when calling AssetApi->UpdateAsset");
             }
 
 
@@ -1133,7 +1133,7 @@ namespace L3vels.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("id", L3vels.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-            localVarRequestOptions.Data = updateAssetDto;
+            localVarRequestOptions.Data = updateAssetInput;
 
             localVarRequestOptions.Operation = "AssetApi.UpdateAsset";
             localVarRequestOptions.OperationIndex = operationIndex;

@@ -4,13 +4,13 @@ All URIs are relative to *https://api-dev.l3vels.xyz*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CountCollectionsByGameId**](CollectionApi.md#countcollectionsbygameid) | **GET** /v1/collection/count/{project_id} | Count collections |
-| [**GetCollectionById**](CollectionApi.md#getcollectionbyid) | **GET** /v1/collection/{project_id}/{id} | Retrieve collection by ID |
+| [**CountCollectionsByGameId**](CollectionApi.md#countcollectionsbygameid) | **GET** /v1/collection/count/{game_id} | Count collections |
+| [**GetCollectionById**](CollectionApi.md#getcollectionbyid) | **GET** /v1/collection/{game_id}/{id} | Retrieve collection by ID |
 | [**GetCollections**](CollectionApi.md#getcollections) | **GET** /v1/collection | Retrieve collections |
 
 <a name="countcollectionsbygameid"></a>
 # **CountCollectionsByGameId**
-> decimal CountCollectionsByGameId (string authorization, string projectId)
+> decimal CountCollectionsByGameId (string authorization, string gameId)
 
 Count collections
 
@@ -33,13 +33,13 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api-dev.l3vels.xyz";
             var apiInstance = new CollectionApi(config);
-            var authorization = "authorization_example";  // string | API key is associated with multiple projects. Please include it in to use developers API.
-            var projectId = a44b646a-ae14-4e05-ae09-b12d5e7269bf;  // string | Game/project ID to count collections in
+            var authorization = "authorization_example";  // string | API key is associated with multiple games. Please include it in to use developers API.
+            var gameId = a44b646a-ae14-4e05-ae09-b12d5e7269bf;  // string | Game ID to count collections in
 
             try
             {
                 // Count collections
-                decimal result = apiInstance.CountCollectionsByGameId(authorization, projectId);
+                decimal result = apiInstance.CountCollectionsByGameId(authorization, gameId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -60,7 +60,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Count collections
-    ApiResponse<decimal> response = apiInstance.CountCollectionsByGameIdWithHttpInfo(authorization, projectId);
+    ApiResponse<decimal> response = apiInstance.CountCollectionsByGameIdWithHttpInfo(authorization, gameId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -77,8 +77,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **authorization** | **string** | API key is associated with multiple projects. Please include it in to use developers API. |  |
-| **projectId** | **string** | Game/project ID to count collections in |  |
+| **authorization** | **string** | API key is associated with multiple games. Please include it in to use developers API. |  |
+| **gameId** | **string** | Game ID to count collections in |  |
 
 ### Return type
 
@@ -110,7 +110,7 @@ No authorization required
 
 <a name="getcollectionbyid"></a>
 # **GetCollectionById**
-> Collection GetCollectionById (string authorization, string id, string projectId)
+> Collection GetCollectionById (string authorization, string id, string gameId)
 
 Retrieve collection by ID
 
@@ -133,14 +133,14 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api-dev.l3vels.xyz";
             var apiInstance = new CollectionApi(config);
-            var authorization = "authorization_example";  // string | API key is associated with multiple projects. Please include it in to use developers API.
+            var authorization = "authorization_example";  // string | API key is associated with multiple games. Please include it in to use developers API.
             var id = 229fd9e0-b51f-4b20-9203-9db60995e6b1;  // string | Collection ID to find
-            var projectId = a44b646a-ae14-4e05-ae09-b12d5e7269bf;  // string | Game/project ID to find collection in
+            var gameId = a44b646a-ae14-4e05-ae09-b12d5e7269bf;  // string | Game ID to find collection in
 
             try
             {
                 // Retrieve collection by ID
-                Collection result = apiInstance.GetCollectionById(authorization, id, projectId);
+                Collection result = apiInstance.GetCollectionById(authorization, id, gameId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -161,7 +161,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Retrieve collection by ID
-    ApiResponse<Collection> response = apiInstance.GetCollectionByIdWithHttpInfo(authorization, id, projectId);
+    ApiResponse<Collection> response = apiInstance.GetCollectionByIdWithHttpInfo(authorization, id, gameId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -178,9 +178,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **authorization** | **string** | API key is associated with multiple projects. Please include it in to use developers API. |  |
+| **authorization** | **string** | API key is associated with multiple games. Please include it in to use developers API. |  |
 | **id** | **string** | Collection ID to find |  |
-| **projectId** | **string** | Game/project ID to find collection in |  |
+| **gameId** | **string** | Game ID to find collection in |  |
 
 ### Return type
 
@@ -212,7 +212,7 @@ No authorization required
 
 <a name="getcollections"></a>
 # **GetCollections**
-> List&lt;Collection&gt; GetCollections (string authorization, string projectId, string sort = null, string order = null, string searchText = null, decimal? limit = null, decimal? page = null)
+> List&lt;Collection&gt; GetCollections (string authorization, string gameId, string sort = null, string order = null, string searchText = null, decimal? limit = null, decimal? page = null)
 
 Retrieve collections
 
@@ -235,8 +235,8 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api-dev.l3vels.xyz";
             var apiInstance = new CollectionApi(config);
-            var authorization = "authorization_example";  // string | API key is associated with multiple projects. Please include it in to use developers API.
-            var projectId = a44b646a-ae14-4e05-ae09-b12d5e7269bf;  // string | Game/project ID to find collections in your game. Example: Fortnite, Minecraft, etc.
+            var authorization = "authorization_example";  // string | API key is associated with multiple games. Please include it in to use developers API.
+            var gameId = a44b646a-ae14-4e05-ae09-b12d5e7269bf;  // string | Game ID to find collections in your game. Example: Fortnite, Minecraft, etc.
             var sort = name;  // string | Collection field to sort by. You can sort by name, created_on and etc. (optional) 
             var order = ASC;  // string | Sort order (ASC for ascending or DESC for descending) (optional) 
             var searchText = Weapons;  // string | Search collections by name (optional) 
@@ -246,7 +246,7 @@ namespace Example
             try
             {
                 // Retrieve collections
-                List<Collection> result = apiInstance.GetCollections(authorization, projectId, sort, order, searchText, limit, page);
+                List<Collection> result = apiInstance.GetCollections(authorization, gameId, sort, order, searchText, limit, page);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -267,7 +267,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Retrieve collections
-    ApiResponse<List<Collection>> response = apiInstance.GetCollectionsWithHttpInfo(authorization, projectId, sort, order, searchText, limit, page);
+    ApiResponse<List<Collection>> response = apiInstance.GetCollectionsWithHttpInfo(authorization, gameId, sort, order, searchText, limit, page);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -284,8 +284,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **authorization** | **string** | API key is associated with multiple projects. Please include it in to use developers API. |  |
-| **projectId** | **string** | Game/project ID to find collections in your game. Example: Fortnite, Minecraft, etc. |  |
+| **authorization** | **string** | API key is associated with multiple games. Please include it in to use developers API. |  |
+| **gameId** | **string** | Game ID to find collections in your game. Example: Fortnite, Minecraft, etc. |  |
 | **sort** | **string** | Collection field to sort by. You can sort by name, created_on and etc. | [optional]  |
 | **order** | **string** | Sort order (ASC for ascending or DESC for descending) | [optional]  |
 | **searchText** | **string** | Search collections by name | [optional]  |

@@ -4,18 +4,18 @@ All URIs are relative to *https://api-dev.l3vels.xyz*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ContractControllerCollectionSize**](ContractApi.md#contractcontrollercollectionsize) | **GET** /v1/contract/collection-size | Collection size |
-| [**ContractControllerContractUri**](ContractApi.md#contractcontrollercontracturi) | **GET** /v1/contract/contract-uri | Get Contract URI |
-| [**ContractControllerSetContractUri**](ContractApi.md#contractcontrollersetcontracturi) | **PUT** /v1/contract/contract-uri | Update Contract URI |
-| [**ContractControllerSetSaleStatus**](ContractApi.md#contractcontrollersetsalestatus) | **PUT** /v1/contract/sale-status | Update Sale status |
+| [**CountContractsByGameId**](ContractApi.md#countcontractsbygameid) | **GET** /v1/contract/collection-size | Collection size |
+| [**GetContractURI**](ContractApi.md#getcontracturi) | **GET** /v1/contract/contract-uri | Get Contract URI |
+| [**SetContractURI**](ContractApi.md#setcontracturi) | **PUT** /v1/contract/contract-uri | Update Contract URI |
+| [**UpdateSaleStatus**](ContractApi.md#updatesalestatus) | **PUT** /v1/contract/sale-status | Update Sale status |
 
-<a name="contractcontrollercollectionsize"></a>
-# **ContractControllerCollectionSize**
-> void ContractControllerCollectionSize (string authorization, string collectionId, string projectId)
+<a name="countcontractsbygameid"></a>
+# **CountContractsByGameId**
+> void CountContractsByGameId (string authorization, string collectionId, string gameId)
 
 Collection size
 
-Get size of collection
+Count total contract in game.
 
 ### Example
 ```csharp
@@ -27,25 +27,25 @@ using L3vels.Sdk.Model;
 
 namespace Example
 {
-    public class ContractControllerCollectionSizeExample
+    public class CountContractsByGameIdExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api-dev.l3vels.xyz";
             var apiInstance = new ContractApi(config);
-            var authorization = "authorization_example";  // string | API key is associated with multiple projects. Please include it in to use developers API.
+            var authorization = "authorization_example";  // string | API key is associated with multiple games. Please include it in to use developers API.
             var collectionId = "collectionId_example";  // string | 
-            var projectId = "projectId_example";  // string | 
+            var gameId = "gameId_example";  // string | 
 
             try
             {
                 // Collection size
-                apiInstance.ContractControllerCollectionSize(authorization, collectionId, projectId);
+                apiInstance.CountContractsByGameId(authorization, collectionId, gameId);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ContractApi.ContractControllerCollectionSize: " + e.Message);
+                Debug.Print("Exception when calling ContractApi.CountContractsByGameId: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -54,18 +54,18 @@ namespace Example
 }
 ```
 
-#### Using the ContractControllerCollectionSizeWithHttpInfo variant
+#### Using the CountContractsByGameIdWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Collection size
-    apiInstance.ContractControllerCollectionSizeWithHttpInfo(authorization, collectionId, projectId);
+    apiInstance.CountContractsByGameIdWithHttpInfo(authorization, collectionId, gameId);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ContractApi.ContractControllerCollectionSizeWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ContractApi.CountContractsByGameIdWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -75,9 +75,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **authorization** | **string** | API key is associated with multiple projects. Please include it in to use developers API. |  |
+| **authorization** | **string** | API key is associated with multiple games. Please include it in to use developers API. |  |
 | **collectionId** | **string** |  |  |
-| **projectId** | **string** |  |  |
+| **gameId** | **string** |  |  |
 
 ### Return type
 
@@ -96,7 +96,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Collection size |  -  |
+| **200** | Contract size |  -  |
 | **400** | Bad Request, The request was unacceptable, often due to missing a required parameter. |  -  |
 | **401** | Unauthorized, No valid API key provided. |  -  |
 | **404** | Not Found, The requested resource doesn&#39;t exist. |  -  |
@@ -107,9 +107,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="contractcontrollercontracturi"></a>
-# **ContractControllerContractUri**
-> void ContractControllerContractUri (string authorization, string collectionId, string projectId)
+<a name="getcontracturi"></a>
+# **GetContractURI**
+> void GetContractURI (string authorization, string collectionId, string gameId)
 
 Get Contract URI
 
@@ -125,25 +125,25 @@ using L3vels.Sdk.Model;
 
 namespace Example
 {
-    public class ContractControllerContractUriExample
+    public class GetContractURIExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api-dev.l3vels.xyz";
             var apiInstance = new ContractApi(config);
-            var authorization = "authorization_example";  // string | API key is associated with multiple projects. Please include it in to use developers API.
+            var authorization = "authorization_example";  // string | API key is associated with multiple games. Please include it in to use developers API.
             var collectionId = "collectionId_example";  // string | 
-            var projectId = "projectId_example";  // string | 
+            var gameId = "gameId_example";  // string | 
 
             try
             {
                 // Get Contract URI
-                apiInstance.ContractControllerContractUri(authorization, collectionId, projectId);
+                apiInstance.GetContractURI(authorization, collectionId, gameId);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ContractApi.ContractControllerContractUri: " + e.Message);
+                Debug.Print("Exception when calling ContractApi.GetContractURI: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -152,18 +152,18 @@ namespace Example
 }
 ```
 
-#### Using the ContractControllerContractUriWithHttpInfo variant
+#### Using the GetContractURIWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get Contract URI
-    apiInstance.ContractControllerContractUriWithHttpInfo(authorization, collectionId, projectId);
+    apiInstance.GetContractURIWithHttpInfo(authorization, collectionId, gameId);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ContractApi.ContractControllerContractUriWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ContractApi.GetContractURIWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -173,9 +173,9 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **authorization** | **string** | API key is associated with multiple projects. Please include it in to use developers API. |  |
+| **authorization** | **string** | API key is associated with multiple games. Please include it in to use developers API. |  |
 | **collectionId** | **string** |  |  |
-| **projectId** | **string** |  |  |
+| **gameId** | **string** |  |  |
 
 ### Return type
 
@@ -205,9 +205,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="contractcontrollersetcontracturi"></a>
-# **ContractControllerSetContractUri**
-> void ContractControllerSetContractUri (string authorization, SetContractUriDto setContractUriDto)
+<a name="setcontracturi"></a>
+# **SetContractURI**
+> void SetContractURI (string authorization, SetContractUriInput setContractUriInput)
 
 Update Contract URI
 
@@ -223,24 +223,24 @@ using L3vels.Sdk.Model;
 
 namespace Example
 {
-    public class ContractControllerSetContractUriExample
+    public class SetContractURIExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api-dev.l3vels.xyz";
             var apiInstance = new ContractApi(config);
-            var authorization = "authorization_example";  // string | API key is associated with multiple projects. Please include it in to use developers API.
-            var setContractUriDto = new SetContractUriDto(); // SetContractUriDto | 
+            var authorization = "authorization_example";  // string | API key is associated with multiple games. Please include it in to use developers API.
+            var setContractUriInput = new SetContractUriInput(); // SetContractUriInput | 
 
             try
             {
                 // Update Contract URI
-                apiInstance.ContractControllerSetContractUri(authorization, setContractUriDto);
+                apiInstance.SetContractURI(authorization, setContractUriInput);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ContractApi.ContractControllerSetContractUri: " + e.Message);
+                Debug.Print("Exception when calling ContractApi.SetContractURI: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -249,18 +249,18 @@ namespace Example
 }
 ```
 
-#### Using the ContractControllerSetContractUriWithHttpInfo variant
+#### Using the SetContractURIWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Update Contract URI
-    apiInstance.ContractControllerSetContractUriWithHttpInfo(authorization, setContractUriDto);
+    apiInstance.SetContractURIWithHttpInfo(authorization, setContractUriInput);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ContractApi.ContractControllerSetContractUriWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ContractApi.SetContractURIWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -270,8 +270,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **authorization** | **string** | API key is associated with multiple projects. Please include it in to use developers API. |  |
-| **setContractUriDto** | [**SetContractUriDto**](SetContractUriDto.md) |  |  |
+| **authorization** | **string** | API key is associated with multiple games. Please include it in to use developers API. |  |
+| **setContractUriInput** | [**SetContractUriInput**](SetContractUriInput.md) |  |  |
 
 ### Return type
 
@@ -301,9 +301,9 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="contractcontrollersetsalestatus"></a>
-# **ContractControllerSetSaleStatus**
-> void ContractControllerSetSaleStatus (string authorization, SetSaleStatusDto setSaleStatusDto)
+<a name="updatesalestatus"></a>
+# **UpdateSaleStatus**
+> void UpdateSaleStatus (string authorization, SetSaleStatusInput setSaleStatusInput)
 
 Update Sale status
 
@@ -319,24 +319,24 @@ using L3vels.Sdk.Model;
 
 namespace Example
 {
-    public class ContractControllerSetSaleStatusExample
+    public class UpdateSaleStatusExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
             config.BasePath = "https://api-dev.l3vels.xyz";
             var apiInstance = new ContractApi(config);
-            var authorization = "authorization_example";  // string | API key is associated with multiple projects. Please include it in to use developers API.
-            var setSaleStatusDto = new SetSaleStatusDto(); // SetSaleStatusDto | 
+            var authorization = "authorization_example";  // string | API key is associated with multiple games. Please include it in to use developers API.
+            var setSaleStatusInput = new SetSaleStatusInput(); // SetSaleStatusInput | 
 
             try
             {
                 // Update Sale status
-                apiInstance.ContractControllerSetSaleStatus(authorization, setSaleStatusDto);
+                apiInstance.UpdateSaleStatus(authorization, setSaleStatusInput);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ContractApi.ContractControllerSetSaleStatus: " + e.Message);
+                Debug.Print("Exception when calling ContractApi.UpdateSaleStatus: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -345,18 +345,18 @@ namespace Example
 }
 ```
 
-#### Using the ContractControllerSetSaleStatusWithHttpInfo variant
+#### Using the UpdateSaleStatusWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Update Sale status
-    apiInstance.ContractControllerSetSaleStatusWithHttpInfo(authorization, setSaleStatusDto);
+    apiInstance.UpdateSaleStatusWithHttpInfo(authorization, setSaleStatusInput);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ContractApi.ContractControllerSetSaleStatusWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ContractApi.UpdateSaleStatusWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -366,8 +366,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **authorization** | **string** | API key is associated with multiple projects. Please include it in to use developers API. |  |
-| **setSaleStatusDto** | [**SetSaleStatusDto**](SetSaleStatusDto.md) |  |  |
+| **authorization** | **string** | API key is associated with multiple games. Please include it in to use developers API. |  |
+| **setSaleStatusInput** | [**SetSaleStatusInput**](SetSaleStatusInput.md) |  |  |
 
 ### Return type
 

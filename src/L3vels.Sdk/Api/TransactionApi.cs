@@ -34,12 +34,12 @@ namespace L3vels.Sdk.Api
         /// Retrieve transaction by ID
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Transaction</returns>
-        Transaction TransactionControllerTransactionById(string authorization, string id, string projectId, int operationIndex = 0);
+        Transaction GetTransactionById(string authorization, string id, string gameId, int operationIndex = 0);
 
         /// <summary>
         /// Retrieve Transaction by ID
@@ -48,12 +48,12 @@ namespace L3vels.Sdk.Api
         /// Retrieve transaction by ID
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Transaction</returns>
-        ApiResponse<Transaction> TransactionControllerTransactionByIdWithHttpInfo(string authorization, string id, string projectId, int operationIndex = 0);
+        ApiResponse<Transaction> GetTransactionByIdWithHttpInfo(string authorization, string id, string gameId, int operationIndex = 0);
         /// <summary>
         /// Retrieve transactions
         /// </summary>
@@ -61,8 +61,8 @@ namespace L3vels.Sdk.Api
         /// Retrieve all transactions.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find transactions in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID to find transactions in your game. Example: Fortnite, Minecraft, etc.</param>
         /// <param name="collectionId">Filter transactions by collection. Example: Get transactions only from Weapons collection. (optional)</param>
         /// <param name="playerId">Player ID to mint to. You can provide player ID or player address (optional)</param>
         /// <param name="sort">Asset field to sort by. You can sort by name, created_on and etc. (optional)</param>
@@ -72,7 +72,7 @@ namespace L3vels.Sdk.Api
         /// <param name="page">Page number (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Transaction</returns>
-        Transaction TransactionControllerTransactions(string authorization, string projectId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
+        Transaction GetTransactions(string authorization, string gameId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
 
         /// <summary>
         /// Retrieve transactions
@@ -81,8 +81,8 @@ namespace L3vels.Sdk.Api
         /// Retrieve all transactions.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find transactions in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID to find transactions in your game. Example: Fortnite, Minecraft, etc.</param>
         /// <param name="collectionId">Filter transactions by collection. Example: Get transactions only from Weapons collection. (optional)</param>
         /// <param name="playerId">Player ID to mint to. You can provide player ID or player address (optional)</param>
         /// <param name="sort">Asset field to sort by. You can sort by name, created_on and etc. (optional)</param>
@@ -92,12 +92,12 @@ namespace L3vels.Sdk.Api
         /// <param name="page">Page number (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Transaction</returns>
-        ApiResponse<Transaction> TransactionControllerTransactionsWithHttpInfo(string authorization, string projectId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
+        ApiResponse<Transaction> GetTransactionsWithHttpInfo(string authorization, string gameId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
         void TransactionControllerWebhook(string authorization, int operationIndex = 0);
@@ -109,7 +109,7 @@ namespace L3vels.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> TransactionControllerWebhookWithHttpInfo(string authorization, int operationIndex = 0);
@@ -129,13 +129,13 @@ namespace L3vels.Sdk.Api
         /// Retrieve transaction by ID
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Transaction</returns>
-        System.Threading.Tasks.Task<Transaction> TransactionControllerTransactionByIdAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Transaction> GetTransactionByIdAsync(string authorization, string id, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve Transaction by ID
@@ -144,13 +144,13 @@ namespace L3vels.Sdk.Api
         /// Retrieve transaction by ID
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Transaction)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Transaction>> TransactionControllerTransactionByIdWithHttpInfoAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Transaction>> GetTransactionByIdWithHttpInfoAsync(string authorization, string id, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve transactions
         /// </summary>
@@ -158,8 +158,8 @@ namespace L3vels.Sdk.Api
         /// Retrieve all transactions.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find transactions in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID to find transactions in your game. Example: Fortnite, Minecraft, etc.</param>
         /// <param name="collectionId">Filter transactions by collection. Example: Get transactions only from Weapons collection. (optional)</param>
         /// <param name="playerId">Player ID to mint to. You can provide player ID or player address (optional)</param>
         /// <param name="sort">Asset field to sort by. You can sort by name, created_on and etc. (optional)</param>
@@ -170,7 +170,7 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Transaction</returns>
-        System.Threading.Tasks.Task<Transaction> TransactionControllerTransactionsAsync(string authorization, string projectId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Transaction> GetTransactionsAsync(string authorization, string gameId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve transactions
@@ -179,8 +179,8 @@ namespace L3vels.Sdk.Api
         /// Retrieve all transactions.
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find transactions in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID to find transactions in your game. Example: Fortnite, Minecraft, etc.</param>
         /// <param name="collectionId">Filter transactions by collection. Example: Get transactions only from Weapons collection. (optional)</param>
         /// <param name="playerId">Player ID to mint to. You can provide player ID or player address (optional)</param>
         /// <param name="sort">Asset field to sort by. You can sort by name, created_on and etc. (optional)</param>
@@ -191,7 +191,7 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Transaction)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Transaction>> TransactionControllerTransactionsWithHttpInfoAsync(string authorization, string projectId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Transaction>> GetTransactionsWithHttpInfoAsync(string authorization, string gameId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// 
         /// </summary>
@@ -199,7 +199,7 @@ namespace L3vels.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
@@ -212,7 +212,7 @@ namespace L3vels.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
@@ -341,14 +341,14 @@ namespace L3vels.Sdk.Api
         /// Retrieve Transaction by ID Retrieve transaction by ID
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Transaction</returns>
-        public Transaction TransactionControllerTransactionById(string authorization, string id, string projectId, int operationIndex = 0)
+        public Transaction GetTransactionById(string authorization, string id, string gameId, int operationIndex = 0)
         {
-            L3vels.Sdk.Client.ApiResponse<Transaction> localVarResponse = TransactionControllerTransactionByIdWithHttpInfo(authorization, id, projectId);
+            L3vels.Sdk.Client.ApiResponse<Transaction> localVarResponse = GetTransactionByIdWithHttpInfo(authorization, id, gameId);
             return localVarResponse.Data;
         }
 
@@ -356,29 +356,29 @@ namespace L3vels.Sdk.Api
         /// Retrieve Transaction by ID Retrieve transaction by ID
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Transaction</returns>
-        public L3vels.Sdk.Client.ApiResponse<Transaction> TransactionControllerTransactionByIdWithHttpInfo(string authorization, string id, string projectId, int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<Transaction> GetTransactionByIdWithHttpInfo(string authorization, string id, string gameId, int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling TransactionApi->TransactionControllerTransactionById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling TransactionApi->GetTransactionById");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling TransactionApi->TransactionControllerTransactionById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling TransactionApi->GetTransactionById");
             }
 
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling TransactionApi->TransactionControllerTransactionById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling TransactionApi->GetTransactionById");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -404,18 +404,18 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", L3vels.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("game_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(gameId)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
-            localVarRequestOptions.Operation = "TransactionApi.TransactionControllerTransactionById";
+            localVarRequestOptions.Operation = "TransactionApi.GetTransactionById";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Transaction>("/v1/transaction/{project_id}/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Transaction>("/v1/transaction/{game_id}/{id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TransactionControllerTransactionById", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetTransactionById", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -429,15 +429,15 @@ namespace L3vels.Sdk.Api
         /// Retrieve Transaction by ID Retrieve transaction by ID
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Transaction</returns>
-        public async System.Threading.Tasks.Task<Transaction> TransactionControllerTransactionByIdAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Transaction> GetTransactionByIdAsync(string authorization, string id, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            L3vels.Sdk.Client.ApiResponse<Transaction> localVarResponse = await TransactionControllerTransactionByIdWithHttpInfoAsync(authorization, id, projectId, operationIndex, cancellationToken).ConfigureAwait(false);
+            L3vels.Sdk.Client.ApiResponse<Transaction> localVarResponse = await GetTransactionByIdWithHttpInfoAsync(authorization, id, gameId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -445,30 +445,30 @@ namespace L3vels.Sdk.Api
         /// Retrieve Transaction by ID Retrieve transaction by ID
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="id"></param>
-        /// <param name="projectId"></param>
+        /// <param name="gameId"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Transaction)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Transaction>> TransactionControllerTransactionByIdWithHttpInfoAsync(string authorization, string id, string projectId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Transaction>> GetTransactionByIdWithHttpInfoAsync(string authorization, string id, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling TransactionApi->TransactionControllerTransactionById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling TransactionApi->GetTransactionById");
             }
 
             // verify the required parameter 'id' is set
             if (id == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling TransactionApi->TransactionControllerTransactionById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling TransactionApi->GetTransactionById");
             }
 
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling TransactionApi->TransactionControllerTransactionById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling TransactionApi->GetTransactionById");
             }
 
 
@@ -495,19 +495,19 @@ namespace L3vels.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("id", L3vels.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
-            localVarRequestOptions.PathParameters.Add("project_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(projectId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("game_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(gameId)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
-            localVarRequestOptions.Operation = "TransactionApi.TransactionControllerTransactionById";
+            localVarRequestOptions.Operation = "TransactionApi.GetTransactionById";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Transaction>("/v1/transaction/{project_id}/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Transaction>("/v1/transaction/{game_id}/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TransactionControllerTransactionById", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetTransactionById", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -521,8 +521,8 @@ namespace L3vels.Sdk.Api
         /// Retrieve transactions Retrieve all transactions.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find transactions in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID to find transactions in your game. Example: Fortnite, Minecraft, etc.</param>
         /// <param name="collectionId">Filter transactions by collection. Example: Get transactions only from Weapons collection. (optional)</param>
         /// <param name="playerId">Player ID to mint to. You can provide player ID or player address (optional)</param>
         /// <param name="sort">Asset field to sort by. You can sort by name, created_on and etc. (optional)</param>
@@ -532,9 +532,9 @@ namespace L3vels.Sdk.Api
         /// <param name="page">Page number (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Transaction</returns>
-        public Transaction TransactionControllerTransactions(string authorization, string projectId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
+        public Transaction GetTransactions(string authorization, string gameId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
         {
-            L3vels.Sdk.Client.ApiResponse<Transaction> localVarResponse = TransactionControllerTransactionsWithHttpInfo(authorization, projectId, collectionId, playerId, sort, order, searchText, limit, page);
+            L3vels.Sdk.Client.ApiResponse<Transaction> localVarResponse = GetTransactionsWithHttpInfo(authorization, gameId, collectionId, playerId, sort, order, searchText, limit, page);
             return localVarResponse.Data;
         }
 
@@ -542,8 +542,8 @@ namespace L3vels.Sdk.Api
         /// Retrieve transactions Retrieve all transactions.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find transactions in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID to find transactions in your game. Example: Fortnite, Minecraft, etc.</param>
         /// <param name="collectionId">Filter transactions by collection. Example: Get transactions only from Weapons collection. (optional)</param>
         /// <param name="playerId">Player ID to mint to. You can provide player ID or player address (optional)</param>
         /// <param name="sort">Asset field to sort by. You can sort by name, created_on and etc. (optional)</param>
@@ -553,18 +553,18 @@ namespace L3vels.Sdk.Api
         /// <param name="page">Page number (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Transaction</returns>
-        public L3vels.Sdk.Client.ApiResponse<Transaction> TransactionControllerTransactionsWithHttpInfo(string authorization, string projectId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<Transaction> GetTransactionsWithHttpInfo(string authorization, string gameId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling TransactionApi->TransactionControllerTransactions");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling TransactionApi->GetTransactions");
             }
 
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling TransactionApi->TransactionControllerTransactions");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling TransactionApi->GetTransactions");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -589,7 +589,7 @@ namespace L3vels.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "project_id", projectId));
+            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "game_id", gameId));
             if (collectionId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "collection_id", collectionId));
@@ -620,7 +620,7 @@ namespace L3vels.Sdk.Api
             }
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
-            localVarRequestOptions.Operation = "TransactionApi.TransactionControllerTransactions";
+            localVarRequestOptions.Operation = "TransactionApi.GetTransactions";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -628,7 +628,7 @@ namespace L3vels.Sdk.Api
             var localVarResponse = this.Client.Get<Transaction>("/v1/transaction", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TransactionControllerTransactions", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetTransactions", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -642,8 +642,8 @@ namespace L3vels.Sdk.Api
         /// Retrieve transactions Retrieve all transactions.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find transactions in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID to find transactions in your game. Example: Fortnite, Minecraft, etc.</param>
         /// <param name="collectionId">Filter transactions by collection. Example: Get transactions only from Weapons collection. (optional)</param>
         /// <param name="playerId">Player ID to mint to. You can provide player ID or player address (optional)</param>
         /// <param name="sort">Asset field to sort by. You can sort by name, created_on and etc. (optional)</param>
@@ -654,9 +654,9 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Transaction</returns>
-        public async System.Threading.Tasks.Task<Transaction> TransactionControllerTransactionsAsync(string authorization, string projectId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Transaction> GetTransactionsAsync(string authorization, string gameId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            L3vels.Sdk.Client.ApiResponse<Transaction> localVarResponse = await TransactionControllerTransactionsWithHttpInfoAsync(authorization, projectId, collectionId, playerId, sort, order, searchText, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            L3vels.Sdk.Client.ApiResponse<Transaction> localVarResponse = await GetTransactionsWithHttpInfoAsync(authorization, gameId, collectionId, playerId, sort, order, searchText, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -664,8 +664,8 @@ namespace L3vels.Sdk.Api
         /// Retrieve transactions Retrieve all transactions.
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
-        /// <param name="projectId">Game/project ID to find transactions in your game. Example: Fortnite, Minecraft, etc.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID to find transactions in your game. Example: Fortnite, Minecraft, etc.</param>
         /// <param name="collectionId">Filter transactions by collection. Example: Get transactions only from Weapons collection. (optional)</param>
         /// <param name="playerId">Player ID to mint to. You can provide player ID or player address (optional)</param>
         /// <param name="sort">Asset field to sort by. You can sort by name, created_on and etc. (optional)</param>
@@ -676,18 +676,18 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Transaction)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Transaction>> TransactionControllerTransactionsWithHttpInfoAsync(string authorization, string projectId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Transaction>> GetTransactionsWithHttpInfoAsync(string authorization, string gameId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling TransactionApi->TransactionControllerTransactions");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling TransactionApi->GetTransactions");
             }
 
-            // verify the required parameter 'projectId' is set
-            if (projectId == null)
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'projectId' when calling TransactionApi->TransactionControllerTransactions");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling TransactionApi->GetTransactions");
             }
 
 
@@ -713,7 +713,7 @@ namespace L3vels.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "project_id", projectId));
+            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "game_id", gameId));
             if (collectionId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "collection_id", collectionId));
@@ -744,7 +744,7 @@ namespace L3vels.Sdk.Api
             }
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
-            localVarRequestOptions.Operation = "TransactionApi.TransactionControllerTransactions";
+            localVarRequestOptions.Operation = "TransactionApi.GetTransactions";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
@@ -753,7 +753,7 @@ namespace L3vels.Sdk.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TransactionControllerTransactions", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetTransactions", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -767,7 +767,7 @@ namespace L3vels.Sdk.Api
         ///  
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns></returns>
         public void TransactionControllerWebhook(string authorization, int operationIndex = 0)
@@ -779,7 +779,7 @@ namespace L3vels.Sdk.Api
         ///  
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         public L3vels.Sdk.Client.ApiResponse<Object> TransactionControllerWebhookWithHttpInfo(string authorization, int operationIndex = 0)
@@ -835,7 +835,7 @@ namespace L3vels.Sdk.Api
         ///  
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
@@ -848,7 +848,7 @@ namespace L3vels.Sdk.Api
         ///  
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple projects. Please include it in to use developers API.</param>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>

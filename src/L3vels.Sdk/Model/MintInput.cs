@@ -40,13 +40,12 @@ namespace L3vels.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MintInput" /> class.
         /// </summary>
-        /// <param name="contractId">Contract ID.</param>
         /// <param name="gameId">Game ID. Example: Call of Duty (required).</param>
         /// <param name="collectionId">Collection ID to use. Example: Characters, Weapons, etc. (required).</param>
         /// <param name="playerAddress">Player address to mint token to. You can provide player ID or player address.</param>
         /// <param name="playerId">Player ID to mint to. You can provide player ID or player address.</param>
         /// <param name="asset">asset (required).</param>
-        public MintInput(string contractId = default(string), string gameId = default(string), string collectionId = default(string), string playerAddress = default(string), string playerId = default(string), MintInputAsset asset = default(MintInputAsset))
+        public MintInput(string gameId = default(string), string collectionId = default(string), string playerAddress = default(string), string playerId = default(string), MintInputAsset asset = default(MintInputAsset))
         {
             // to ensure "gameId" is required (not null)
             if (gameId == null)
@@ -66,18 +65,9 @@ namespace L3vels.Sdk.Model
                 throw new ArgumentNullException("asset is a required property for MintInput and cannot be null");
             }
             this.Asset = asset;
-            this.ContractId = contractId;
             this.PlayerAddress = playerAddress;
             this.PlayerId = playerId;
         }
-
-        /// <summary>
-        /// Contract ID
-        /// </summary>
-        /// <value>Contract ID</value>
-        /// <example>&quot;a44b646a-ae14-4e05-ae09-b12d5e7269bf&quot;</example>
-        [DataMember(Name = "contract_id", EmitDefaultValue = false)]
-        public string ContractId { get; set; }
 
         /// <summary>
         /// Game ID. Example: Call of Duty
@@ -125,7 +115,6 @@ namespace L3vels.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class MintInput {\n");
-            sb.Append("  ContractId: ").Append(ContractId).Append("\n");
             sb.Append("  GameId: ").Append(GameId).Append("\n");
             sb.Append("  CollectionId: ").Append(CollectionId).Append("\n");
             sb.Append("  PlayerAddress: ").Append(PlayerAddress).Append("\n");
@@ -167,11 +156,6 @@ namespace L3vels.Sdk.Model
             }
             return 
                 (
-                    this.ContractId == input.ContractId ||
-                    (this.ContractId != null &&
-                    this.ContractId.Equals(input.ContractId))
-                ) && 
-                (
                     this.GameId == input.GameId ||
                     (this.GameId != null &&
                     this.GameId.Equals(input.GameId))
@@ -207,10 +191,6 @@ namespace L3vels.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ContractId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContractId.GetHashCode();
-                }
                 if (this.GameId != null)
                 {
                     hashCode = (hashCode * 59) + this.GameId.GetHashCode();

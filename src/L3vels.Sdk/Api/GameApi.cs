@@ -35,10 +35,10 @@ namespace L3vels.Sdk.Api
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
-        /// <param name="id">Game or Game Id</param>
+        /// <param name="gameId">Game ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Game</returns>
-        Game GetGameById(string authorization, string id, int operationIndex = 0);
+        Game GetGameById(string authorization, string gameId, int operationIndex = 0);
 
         /// <summary>
         /// Retrieve Game
@@ -48,10 +48,10 @@ namespace L3vels.Sdk.Api
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
-        /// <param name="id">Game or Game Id</param>
+        /// <param name="gameId">Game ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Game</returns>
-        ApiResponse<Game> GetGameByIdWithHttpInfo(string authorization, string id, int operationIndex = 0);
+        ApiResponse<Game> GetGameByIdWithHttpInfo(string authorization, string gameId, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -69,11 +69,11 @@ namespace L3vels.Sdk.Api
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
-        /// <param name="id">Game or Game Id</param>
+        /// <param name="gameId">Game ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Game</returns>
-        System.Threading.Tasks.Task<Game> GetGameByIdAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Game> GetGameByIdAsync(string authorization, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Retrieve Game
@@ -83,11 +83,11 @@ namespace L3vels.Sdk.Api
         /// </remarks>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
-        /// <param name="id">Game or Game Id</param>
+        /// <param name="gameId">Game ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Game)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Game>> GetGameByIdWithHttpInfoAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Game>> GetGameByIdWithHttpInfoAsync(string authorization, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -213,12 +213,12 @@ namespace L3vels.Sdk.Api
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
-        /// <param name="id">Game or Game Id</param>
+        /// <param name="gameId">Game ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>Game</returns>
-        public Game GetGameById(string authorization, string id, int operationIndex = 0)
+        public Game GetGameById(string authorization, string gameId, int operationIndex = 0)
         {
-            L3vels.Sdk.Client.ApiResponse<Game> localVarResponse = GetGameByIdWithHttpInfo(authorization, id);
+            L3vels.Sdk.Client.ApiResponse<Game> localVarResponse = GetGameByIdWithHttpInfo(authorization, gameId);
             return localVarResponse.Data;
         }
 
@@ -227,10 +227,10 @@ namespace L3vels.Sdk.Api
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
-        /// <param name="id">Game or Game Id</param>
+        /// <param name="gameId">Game ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Game</returns>
-        public L3vels.Sdk.Client.ApiResponse<Game> GetGameByIdWithHttpInfo(string authorization, string id, int operationIndex = 0)
+        public L3vels.Sdk.Client.ApiResponse<Game> GetGameByIdWithHttpInfo(string authorization, string gameId, int operationIndex = 0)
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -238,10 +238,10 @@ namespace L3vels.Sdk.Api
                 throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling GameApi->GetGameById");
             }
 
-            // verify the required parameter 'id' is set
-            if (id == null)
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling GameApi->GetGameById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling GameApi->GetGameById");
             }
 
             L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
@@ -266,7 +266,7 @@ namespace L3vels.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("id", L3vels.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("game_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(gameId)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
             localVarRequestOptions.Operation = "GameApi.GetGameById";
@@ -274,7 +274,7 @@ namespace L3vels.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Game>("/v1/game/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Game>("/v1/game/{game_id}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGameById", localVarResponse);
@@ -292,13 +292,13 @@ namespace L3vels.Sdk.Api
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
-        /// <param name="id">Game or Game Id</param>
+        /// <param name="gameId">Game ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Game</returns>
-        public async System.Threading.Tasks.Task<Game> GetGameByIdAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Game> GetGameByIdAsync(string authorization, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            L3vels.Sdk.Client.ApiResponse<Game> localVarResponse = await GetGameByIdWithHttpInfoAsync(authorization, id, operationIndex, cancellationToken).ConfigureAwait(false);
+            L3vels.Sdk.Client.ApiResponse<Game> localVarResponse = await GetGameByIdWithHttpInfoAsync(authorization, gameId, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -307,11 +307,11 @@ namespace L3vels.Sdk.Api
         /// </summary>
         /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
-        /// <param name="id">Game or Game Id</param>
+        /// <param name="gameId">Game ID</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Game)</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Game>> GetGameByIdWithHttpInfoAsync(string authorization, string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Game>> GetGameByIdWithHttpInfoAsync(string authorization, string gameId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'authorization' is set
             if (authorization == null)
@@ -319,10 +319,10 @@ namespace L3vels.Sdk.Api
                 throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling GameApi->GetGameById");
             }
 
-            // verify the required parameter 'id' is set
-            if (id == null)
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
             {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling GameApi->GetGameById");
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling GameApi->GetGameById");
             }
 
 
@@ -348,7 +348,7 @@ namespace L3vels.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("id", L3vels.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("game_id", L3vels.Sdk.Client.ClientUtils.ParameterToString(gameId)); // path parameter
             localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
 
             localVarRequestOptions.Operation = "GameApi.GetGameById";
@@ -356,7 +356,7 @@ namespace L3vels.Sdk.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Game>("/v1/game/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Game>("/v1/game/{game_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

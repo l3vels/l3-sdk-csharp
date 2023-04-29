@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ContractId** | **string** | Contract ID | [optional] 
 **GameId** | **string** | Game ID. Example: Call of Duty | 
 **CollectionId** | **string** | Collection ID to use. Example: Characters, Weapons, etc. | 
 **PlayerAddress** | **string** | Player address to mint token to. You can provide player ID or player address | [optional] 

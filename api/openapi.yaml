@@ -31,7 +31,7 @@ paths:
           description: 'Forbidden. Session is closed  or expired '
       tags:
       - Utilities
-  /v1/game/{id}:
+  /v1/game/{game_id}:
     get:
       description: Get Game by ID created on the platform.
       operationId: getGameById
@@ -45,11 +45,11 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Game or Game Id
+      - description: Game ID
         example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         explode: false
         in: path
-        name: id
+        name: game_id
         required: true
         schema:
           type: string
@@ -2720,17 +2720,12 @@ components:
       example:
         collection_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         player_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
-        contract_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
         player_address: 0x0000000000000000000000000000000000000000
         asset:
           token_id: 1
           amount: 1
         game_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
       properties:
-        contract_id:
-          description: Contract ID
-          example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
-          type: string
         game_id:
           description: "Game ID. Example: Call of Duty"
           example: a44b646a-ae14-4e05-ae09-b12d5e7269bf

@@ -4,11 +4,11 @@ All URIs are relative to *https://api-dev.l3vels.xyz*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetGameById**](GameApi.md#getgamebyid) | **GET** /v1/game/{id} | Retrieve Game |
+| [**GetGameById**](GameApi.md#getgamebyid) | **GET** /v1/game/{game_id} | Retrieve Game |
 
 <a name="getgamebyid"></a>
 # **GetGameById**
-> Game GetGameById (string authorization, string id)
+> Game GetGameById (string authorization, string gameId)
 
 Retrieve Game
 
@@ -32,12 +32,12 @@ namespace Example
             config.BasePath = "https://api-dev.l3vels.xyz";
             var apiInstance = new GameApi(config);
             var authorization = "authorization_example";  // string | API key is associated with multiple games. Please include it in to use developers API.
-            var id = a44b646a-ae14-4e05-ae09-b12d5e7269bf;  // string | Game or Game Id
+            var gameId = a44b646a-ae14-4e05-ae09-b12d5e7269bf;  // string | Game ID
 
             try
             {
                 // Retrieve Game
-                Game result = apiInstance.GetGameById(authorization, id);
+                Game result = apiInstance.GetGameById(authorization, gameId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -58,7 +58,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Retrieve Game
-    ApiResponse<Game> response = apiInstance.GetGameByIdWithHttpInfo(authorization, id);
+    ApiResponse<Game> response = apiInstance.GetGameByIdWithHttpInfo(authorization, gameId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -76,7 +76,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **authorization** | **string** | API key is associated with multiple games. Please include it in to use developers API. |  |
-| **id** | **string** | Game or Game Id |  |
+| **gameId** | **string** | Game ID |  |
 
 ### Return type
 

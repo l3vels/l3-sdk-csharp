@@ -2034,6 +2034,7 @@ components:
     Asset:
       example:
         modified_on: 2000-01-23T04:56:07.000+00:00
+        achievements: ""
         minted_amount: 15
         description: Assault rifle operated by gas pressure. Developed in the Soviet
           Union.
@@ -2054,6 +2055,7 @@ components:
         attributes: ""
         id: 05450af0-4522-4e79-9acc-c1c09aae9152
         properties: ""
+        rewards: ""
         status: Available
         game_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
       properties:
@@ -2076,11 +2078,23 @@ components:
         properties:
           description: Custom properties of the asset.
           example: ""
-          type: object
+          type: string
         attributes:
           description: Custom attributes of the asset.
           example: ""
           type: object
+        achievements:
+          description: Achievements of the asset.
+          example: ""
+          items:
+            type: string
+          type: array
+        rewards:
+          description: Rewards of the asset.
+          example: ""
+          items:
+            type: string
+          type: array
         description:
           description: The description of the asset.
           example: Assault rifle operated by gas pressure. Developed in the Soviet
@@ -2157,6 +2171,7 @@ components:
           type: string
       required:
       - account_id
+      - achievements
       - asset_type
       - asset_url
       - attributes
@@ -2175,6 +2190,7 @@ components:
       - parent_id
       - price
       - properties
+      - rewards
       - status
       - supply
       - token_id
@@ -2186,6 +2202,7 @@ components:
         page: 1
         items:
         - modified_on: 2000-01-23T04:56:07.000+00:00
+          achievements: ""
           minted_amount: 15
           description: Assault rifle operated by gas pressure. Developed in the Soviet
             Union.
@@ -2206,9 +2223,11 @@ components:
           attributes: ""
           id: 05450af0-4522-4e79-9acc-c1c09aae9152
           properties: ""
+          rewards: ""
           status: Available
           game_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
         - modified_on: 2000-01-23T04:56:07.000+00:00
+          achievements: ""
           minted_amount: 15
           description: Assault rifle operated by gas pressure. Developed in the Soviet
             Union.
@@ -2229,6 +2248,7 @@ components:
           attributes: ""
           id: 05450af0-4522-4e79-9acc-c1c09aae9152
           properties: ""
+          rewards: ""
           status: Available
           game_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
       properties:

@@ -46,6 +46,8 @@ namespace L3vels.Sdk.Model
         /// <param name="parentId">ID of the parent asset. (required).</param>
         /// <param name="properties">Custom properties of the asset. (required).</param>
         /// <param name="attributes">Custom attributes of the asset. (required).</param>
+        /// <param name="achievements">Achievements of the asset. (required).</param>
+        /// <param name="rewards">Rewards of the asset. (required).</param>
         /// <param name="description">The description of the asset. (required).</param>
         /// <param name="status">The status of the asset. (required).</param>
         /// <param name="price">The price of the asset. (required).</param>
@@ -62,7 +64,7 @@ namespace L3vels.Sdk.Model
         /// <param name="modifiedOn">The date when the collection was last modified. (required).</param>
         /// <param name="createdBy">The Id of the user who created the collection. (required).</param>
         /// <param name="modifiedBy">The Id of the user who last modified the collection. (required).</param>
-        public Asset(string id = default(string), decimal tokenId = default(decimal), string name = default(string), string parentId = default(string), Object properties = default(Object), Object attributes = default(Object), string description = default(string), string status = default(string), decimal price = default(decimal), decimal supply = default(decimal), decimal mintedAmount = default(decimal), string assetType = default(string), string assetUrl = default(string), List<string> medias = default(List<string>), string mainMedia = default(string), string accountId = default(string), string gameId = default(string), string collectionId = default(string), DateTimeOffset createdOn = default(DateTimeOffset), DateTimeOffset modifiedOn = default(DateTimeOffset), string createdBy = default(string), string modifiedBy = default(string))
+        public Asset(string id = default(string), decimal tokenId = default(decimal), string name = default(string), string parentId = default(string), string properties = default(string), Object attributes = default(Object), List<string> achievements = default(List<string>), List<string> rewards = default(List<string>), string description = default(string), string status = default(string), decimal price = default(decimal), decimal supply = default(decimal), decimal mintedAmount = default(decimal), string assetType = default(string), string assetUrl = default(string), List<string> medias = default(List<string>), string mainMedia = default(string), string accountId = default(string), string gameId = default(string), string collectionId = default(string), DateTimeOffset createdOn = default(DateTimeOffset), DateTimeOffset modifiedOn = default(DateTimeOffset), string createdBy = default(string), string modifiedBy = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -95,6 +97,18 @@ namespace L3vels.Sdk.Model
                 throw new ArgumentNullException("attributes is a required property for Asset and cannot be null");
             }
             this.Attributes = attributes;
+            // to ensure "achievements" is required (not null)
+            if (achievements == null)
+            {
+                throw new ArgumentNullException("achievements is a required property for Asset and cannot be null");
+            }
+            this.Achievements = achievements;
+            // to ensure "rewards" is required (not null)
+            if (rewards == null)
+            {
+                throw new ArgumentNullException("rewards is a required property for Asset and cannot be null");
+            }
+            this.Rewards = rewards;
             // to ensure "description" is required (not null)
             if (description == null)
             {
@@ -204,8 +218,9 @@ namespace L3vels.Sdk.Model
         /// Custom properties of the asset.
         /// </summary>
         /// <value>Custom properties of the asset.</value>
+        /// <example>&quot;&quot;</example>
         [DataMember(Name = "properties", IsRequired = true, EmitDefaultValue = true)]
-        public Object Properties { get; set; }
+        public string Properties { get; set; }
 
         /// <summary>
         /// Custom attributes of the asset.
@@ -213,6 +228,20 @@ namespace L3vels.Sdk.Model
         /// <value>Custom attributes of the asset.</value>
         [DataMember(Name = "attributes", IsRequired = true, EmitDefaultValue = true)]
         public Object Attributes { get; set; }
+
+        /// <summary>
+        /// Achievements of the asset.
+        /// </summary>
+        /// <value>Achievements of the asset.</value>
+        [DataMember(Name = "achievements", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> Achievements { get; set; }
+
+        /// <summary>
+        /// Rewards of the asset.
+        /// </summary>
+        /// <value>Rewards of the asset.</value>
+        [DataMember(Name = "rewards", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> Rewards { get; set; }
 
         /// <summary>
         /// The description of the asset.
@@ -353,6 +382,8 @@ namespace L3vels.Sdk.Model
             sb.Append("  ParentId: ").Append(ParentId).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  Achievements: ").Append(Achievements).Append("\n");
+            sb.Append("  Rewards: ").Append(Rewards).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
@@ -432,6 +463,18 @@ namespace L3vels.Sdk.Model
                     this.Attributes == input.Attributes ||
                     (this.Attributes != null &&
                     this.Attributes.Equals(input.Attributes))
+                ) && 
+                (
+                    this.Achievements == input.Achievements ||
+                    this.Achievements != null &&
+                    input.Achievements != null &&
+                    this.Achievements.SequenceEqual(input.Achievements)
+                ) && 
+                (
+                    this.Rewards == input.Rewards ||
+                    this.Rewards != null &&
+                    input.Rewards != null &&
+                    this.Rewards.SequenceEqual(input.Rewards)
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -542,6 +585,14 @@ namespace L3vels.Sdk.Model
                 if (this.Attributes != null)
                 {
                     hashCode = (hashCode * 59) + this.Attributes.GetHashCode();
+                }
+                if (this.Achievements != null)
+                {
+                    hashCode = (hashCode * 59) + this.Achievements.GetHashCode();
+                }
+                if (this.Rewards != null)
+                {
+                    hashCode = (hashCode * 59) + this.Rewards.GetHashCode();
                 }
                 if (this.Description != null)
                 {

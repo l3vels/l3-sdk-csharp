@@ -479,661 +479,6 @@ paths:
       summary: Retrieve collection by ID
       tags:
       - Collection
-  /v1/asset:
-    get:
-      description: "This API method retrieves a list of assets that match the specified\
-        \ filter criteria. Developers can use this method to retrieve assets by name,\
-        \ description or other properties"
-      operationId: getAssets
-      parameters:
-      - description: API key is associated with multiple games. Please include it
-          in to use developers API.
-        explode: false
-        in: header
-        name: Authorization
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: "Game ID to find assets in your game. Example: Fortnite, Minecraft,\
-          \ etc."
-        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
-        explode: true
-        in: query
-        name: game_id
-        required: true
-        schema:
-          type: string
-        style: form
-      - description: "Filter assets by collection. Example: Get assets only from Weapons\
-          \ collection."
-        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
-        explode: true
-        in: query
-        name: collection_id
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Asset field to sort by. You can sort by name, created_on and\
-          \ etc."
-        example: name
-        explode: true
-        in: query
-        name: sort
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Sort order (ASC for ascending or DESC for descending)
-        example: ASC
-        explode: true
-        in: query
-        name: order
-        required: false
-        schema:
-          enum:
-          - ASC
-          - DESC
-          type: string
-        style: form
-      - description: Search assets by name
-        example: Hammer
-        explode: true
-        in: query
-        name: search_text
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Number of assets to return per page
-        example: 10
-        explode: true
-        in: query
-        name: limit
-        required: false
-        schema:
-          type: number
-        style: form
-      - description: Page number
-        example: 1
-        explode: true
-        in: query
-        name: page
-        required: false
-        schema:
-          type: number
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AssetsResponse'
-          description: The assets has been found.
-        "400":
-          description: "Bad Request, The request was unacceptable, often due to missing\
-            \ a required parameter."
-        "401":
-          description: "Unauthorized, No valid API key provided."
-        "404":
-          description: "Not Found, The requested resource doesn't exist."
-        "409":
-          description: "Conflict, The request conflicts with another request (perhaps\
-            \ due to using the same idempotent key)."
-        "429":
-          description: "Too Many Requests, Too many requests hit the API too quickly.\
-            \ We recommend an exponential backoff of your requests."
-        "500":
-          description: "Server Errors, Something went wrong on L3vels's end."
-        "504":
-          description: "Gateway Timeout, Your request took too long."
-      summary: Retrieve assets
-      tags:
-      - Asset
-  /v1/asset/count/{game_id}:
-    get:
-      description: Counts total assets in game.
-      operationId: countByGame
-      parameters:
-      - description: API key is associated with multiple games. Please include it
-          in to use developers API.
-        explode: false
-        in: header
-        name: Authorization
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: game_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                type: number
-          description: The assets has been counted.
-        "400":
-          description: "Bad Request, The request was unacceptable, often due to missing\
-            \ a required parameter."
-        "401":
-          description: "Unauthorized, No valid API key provided."
-        "404":
-          description: "Not Found, The requested resource doesn't exist."
-        "409":
-          description: "Conflict, The request conflicts with another request (perhaps\
-            \ due to using the same idempotent key)."
-        "429":
-          description: "Too Many Requests, Too many requests hit the API too quickly.\
-            \ We recommend an exponential backoff of your requests."
-        "500":
-          description: "Server Errors, Something went wrong on L3vels's end."
-        "504":
-          description: "Gateway Timeout, Your request took too long."
-      summary: Count assets
-      tags:
-      - Asset
-  /v1/asset/{game_id}/{id}:
-    get:
-      description: "Retrieve asset by ID in specific Game. Example: Find asset AK-47\
-        \ in game Call of Duty"
-      operationId: getAssetById
-      parameters:
-      - description: API key is associated with multiple games. Please include it
-          in to use developers API.
-        explode: false
-        in: header
-        name: Authorization
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Asset ID to find
-        example: 9abd57ce-b11c-4828-ab6a-19f568a8081a
-        explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Game ID to find asset in
-        example: 556a2843-b302-4b9d-916c-cefcb5d66053
-        explode: false
-        in: path
-        name: game_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Asset'
-          description: The asset has been found.
-        "400":
-          description: "Bad Request, The request was unacceptable, often due to missing\
-            \ a required parameter."
-        "401":
-          description: "Unauthorized, No valid API key provided."
-        "404":
-          description: "Not Found, The requested resource doesn't exist."
-        "409":
-          description: "Conflict, The request conflicts with another request (perhaps\
-            \ due to using the same idempotent key)."
-        "429":
-          description: "Too Many Requests, Too many requests hit the API too quickly.\
-            \ We recommend an exponential backoff of your requests."
-        "500":
-          description: "Server Errors, Something went wrong on L3vels's end."
-        "504":
-          description: "Gateway Timeout, Your request took too long."
-      summary: Retrieve asset by ID
-      tags:
-      - Asset
-  /v1/asset/{id}:
-    patch:
-      description: "Update asset by ID in specific collection. Example: Update asset\
-        \ AK-47 in collection Weapons"
-      operationId: updateAsset
-      parameters:
-      - description: API key is associated with multiple games. Please include it
-          in to use developers API.
-        explode: false
-        in: header
-        name: Authorization
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Asset ID to update
-        example: 353c69f6-76a6-4baa-b68b-852c1c531953
-        explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UpdateAssetInput'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Asset'
-          description: The asset has been updated.
-        "400":
-          description: "Bad Request, The request was unacceptable, often due to missing\
-            \ a required parameter."
-        "401":
-          description: "Unauthorized, No valid API key provided."
-        "404":
-          description: "Not Found, The requested resource doesn't exist."
-        "409":
-          description: "Conflict, The request conflicts with another request (perhaps\
-            \ due to using the same idempotent key)."
-        "429":
-          description: "Too Many Requests, Too many requests hit the API too quickly.\
-            \ We recommend an exponential backoff of your requests."
-        "500":
-          description: "Server Errors, Something went wrong on L3vels's end."
-        "504":
-          description: "Gateway Timeout, Your request took too long."
-      summary: Update asset
-      tags:
-      - Asset
-  /v1/transaction/webhook:
-    post:
-      operationId: TransactionController_webhook
-      parameters:
-      - description: API key is associated with multiple games. Please include it
-          in to use developers API.
-        explode: false
-        in: header
-        name: Authorization
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: ""
-        "400":
-          description: "Bad Request, The request was unacceptable, often due to missing\
-            \ a required parameter."
-        "401":
-          description: "Unauthorized, No valid API key provided."
-        "404":
-          description: "Not Found, The requested resource doesn't exist."
-        "409":
-          description: "Conflict, The request conflicts with another request (perhaps\
-            \ due to using the same idempotent key)."
-        "429":
-          description: "Too Many Requests, Too many requests hit the API too quickly.\
-            \ We recommend an exponential backoff of your requests."
-        "500":
-          description: "Server Errors, Something went wrong on L3vels's end."
-        "504":
-          description: "Gateway Timeout, Your request took too long."
-      tags:
-      - Transaction
-  /v1/transaction:
-    get:
-      description: Retrieve all transactions.
-      operationId: getTransactions
-      parameters:
-      - description: API key is associated with multiple games. Please include it
-          in to use developers API.
-        explode: false
-        in: header
-        name: Authorization
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: "Game ID to find transactions in your game. Example: Fortnite,\
-          \ Minecraft, etc."
-        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
-        explode: true
-        in: query
-        name: game_id
-        required: true
-        schema:
-          type: string
-        style: form
-      - description: "Filter transactions by collection. Example: Get transactions\
-          \ only from Weapons collection."
-        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
-        explode: true
-        in: query
-        name: collection_id
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Player ID to mint to. You can provide player ID or player address
-        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
-        explode: true
-        in: query
-        name: player_id
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Asset field to sort by. You can sort by name, created_on and\
-          \ etc."
-        example: name
-        explode: true
-        in: query
-        name: sort
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Sort order (ASC for ascending or DESC for descending)
-        example: ASC
-        explode: true
-        in: query
-        name: order
-        required: false
-        schema:
-          enum:
-          - ASC
-          - DESC
-          type: string
-        style: form
-      - description: Search transactions by name
-        example: Hammer
-        explode: true
-        in: query
-        name: search_text
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Number of transactions to return per page
-        example: 10
-        explode: true
-        in: query
-        name: limit
-        required: false
-        schema:
-          type: number
-        style: form
-      - description: Page number
-        example: 1
-        explode: true
-        in: query
-        name: page
-        required: false
-        schema:
-          type: number
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Transaction'
-          description: The transactions has been found.
-        "400":
-          description: "Bad Request, The request was unacceptable, often due to missing\
-            \ a required parameter."
-        "401":
-          description: "Unauthorized, No valid API key provided."
-        "404":
-          description: "Not Found, The requested resource doesn't exist."
-        "409":
-          description: "Conflict, The request conflicts with another request (perhaps\
-            \ due to using the same idempotent key)."
-        "429":
-          description: "Too Many Requests, Too many requests hit the API too quickly.\
-            \ We recommend an exponential backoff of your requests."
-        "500":
-          description: "Server Errors, Something went wrong on L3vels's end."
-        "504":
-          description: "Gateway Timeout, Your request took too long."
-      summary: Retrieve transactions
-      tags:
-      - Transaction
-  /v1/transaction/{game_id}/{id}:
-    get:
-      description: Retrieve transaction by ID
-      operationId: getTransactionById
-      parameters:
-      - description: API key is associated with multiple games. Please include it
-          in to use developers API.
-        explode: false
-        in: header
-        name: Authorization
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: game_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Transaction'
-          description: The transaction has been found.
-        "400":
-          description: "Bad Request, The request was unacceptable, often due to missing\
-            \ a required parameter."
-        "401":
-          description: "Unauthorized, No valid API key provided."
-        "404":
-          description: "Not Found, The requested resource doesn't exist."
-        "409":
-          description: "Conflict, The request conflicts with another request (perhaps\
-            \ due to using the same idempotent key)."
-        "429":
-          description: "Too Many Requests, Too many requests hit the API too quickly.\
-            \ We recommend an exponential backoff of your requests."
-        "500":
-          description: "Server Errors, Something went wrong on L3vels's end."
-        "504":
-          description: "Gateway Timeout, Your request took too long."
-      summary: Retrieve Transaction by ID
-      tags:
-      - Transaction
-  /v1/player-asset/{game_id}/{id}:
-    get:
-      description: Retrieve player asset by ID. Player asset represents a single asset
-        that a player owns. It has amount field that represents how many of this asset
-        player owns.
-      operationId: getPlayerAssetById
-      parameters:
-      - description: API key is associated with multiple games. Please include it
-          in to use developers API.
-        explode: false
-        in: header
-        name: Authorization
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          type: string
-        style: simple
-      - explode: false
-        in: path
-        name: game_id
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PlayerAsset'
-          description: The player asset has been found.
-        "400":
-          description: "Bad Request, The request was unacceptable, often due to missing\
-            \ a required parameter."
-        "401":
-          description: "Unauthorized, No valid API key provided."
-        "404":
-          description: "Not Found, The requested resource doesn't exist."
-        "409":
-          description: "Conflict, The request conflicts with another request (perhaps\
-            \ due to using the same idempotent key)."
-        "429":
-          description: "Too Many Requests, Too many requests hit the API too quickly.\
-            \ We recommend an exponential backoff of your requests."
-        "500":
-          description: "Server Errors, Something went wrong on L3vels's end."
-        "504":
-          description: "Gateway Timeout, Your request took too long."
-      summary: Retrieve player asset by ID
-      tags:
-      - Player
-  /v1/player-asset:
-    get:
-      description: "This API method retrieves a list of Player assets that match the\
-        \ specified filter criteria. Developers can use this method to retrieve Player\
-        \ assets by player, Game or other properties."
-      operationId: playerAssets
-      parameters:
-      - description: API key is associated with multiple games. Please include it
-          in to use developers API.
-        explode: false
-        in: header
-        name: Authorization
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: "Game ID to find player assets in your game. Example: Fortnite,\
-          \ Minecraft, etc."
-        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
-        explode: true
-        in: query
-        name: game_id
-        required: true
-        schema:
-          type: string
-        style: form
-      - description: "Game ID to find player assets in your game. Example: Fortnite,\
-          \ Minecraft, etc."
-        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
-        explode: true
-        in: query
-        name: asset_id
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Game ID to find player assets in your game. Example: Fortnite,\
-          \ Minecraft, etc."
-        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
-        explode: true
-        in: query
-        name: player_id
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: "Player asset field to sort by. You can sort by name, created_on\
-          \ and etc."
-        example: name
-        explode: true
-        in: query
-        name: sort
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Sort order (ASC for ascending or DESC for descending)
-        example: ASC
-        explode: true
-        in: query
-        name: order
-        required: false
-        schema:
-          type: string
-        style: form
-      - description: Number of player assets to return per page
-        example: 10
-        explode: true
-        in: query
-        name: limit
-        required: false
-        schema:
-          type: number
-        style: form
-      - description: Page number
-        example: 1
-        explode: true
-        in: query
-        name: page
-        required: false
-        schema:
-          type: number
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/PlayerAsset'
-                type: array
-          description: The player assets has been found
-        "400":
-          description: "Bad Request, The request was unacceptable, often due to missing\
-            \ a required parameter."
-        "401":
-          description: "Unauthorized, No valid API key provided."
-        "404":
-          description: "Not Found, The requested resource doesn't exist."
-        "409":
-          description: "Conflict, The request conflicts with another request (perhaps\
-            \ due to using the same idempotent key)."
-        "429":
-          description: "Too Many Requests, Too many requests hit the API too quickly.\
-            \ We recommend an exponential backoff of your requests."
-        "500":
-          description: "Server Errors, Something went wrong on L3vels's end."
-        "504":
-          description: "Gateway Timeout, Your request took too long."
-      summary: Retrieve player assets
-      tags:
-      - Player
   /v1/player/{game_id}/{id}:
     get:
       description: "Retrieves a specific player by ID associated with Game. Example:\
@@ -1434,6 +779,661 @@ paths:
         "504":
           description: "Gateway Timeout, Your request took too long."
       summary: Count players
+      tags:
+      - Player
+  /v1/transaction/webhook:
+    post:
+      operationId: TransactionController_webhook
+      parameters:
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: ""
+        "400":
+          description: "Bad Request, The request was unacceptable, often due to missing\
+            \ a required parameter."
+        "401":
+          description: "Unauthorized, No valid API key provided."
+        "404":
+          description: "Not Found, The requested resource doesn't exist."
+        "409":
+          description: "Conflict, The request conflicts with another request (perhaps\
+            \ due to using the same idempotent key)."
+        "429":
+          description: "Too Many Requests, Too many requests hit the API too quickly.\
+            \ We recommend an exponential backoff of your requests."
+        "500":
+          description: "Server Errors, Something went wrong on L3vels's end."
+        "504":
+          description: "Gateway Timeout, Your request took too long."
+      tags:
+      - Transaction
+  /v1/transaction:
+    get:
+      description: Retrieve all transactions.
+      operationId: getTransactions
+      parameters:
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Game ID to find transactions in your game. Example: Fortnite,\
+          \ Minecraft, etc."
+        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
+        explode: true
+        in: query
+        name: game_id
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: "Filter transactions by collection. Example: Get transactions\
+          \ only from Weapons collection."
+        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
+        explode: true
+        in: query
+        name: collection_id
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Player ID to mint to. You can provide player ID or player address
+        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
+        explode: true
+        in: query
+        name: player_id
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Asset field to sort by. You can sort by name, created_on and\
+          \ etc."
+        example: name
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Sort order (ASC for ascending or DESC for descending)
+        example: ASC
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          enum:
+          - ASC
+          - DESC
+          type: string
+        style: form
+      - description: Search transactions by name
+        example: Hammer
+        explode: true
+        in: query
+        name: search_text
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Number of transactions to return per page
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: number
+        style: form
+      - description: Page number
+        example: 1
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+          description: The transactions has been found.
+        "400":
+          description: "Bad Request, The request was unacceptable, often due to missing\
+            \ a required parameter."
+        "401":
+          description: "Unauthorized, No valid API key provided."
+        "404":
+          description: "Not Found, The requested resource doesn't exist."
+        "409":
+          description: "Conflict, The request conflicts with another request (perhaps\
+            \ due to using the same idempotent key)."
+        "429":
+          description: "Too Many Requests, Too many requests hit the API too quickly.\
+            \ We recommend an exponential backoff of your requests."
+        "500":
+          description: "Server Errors, Something went wrong on L3vels's end."
+        "504":
+          description: "Gateway Timeout, Your request took too long."
+      summary: Retrieve transactions
+      tags:
+      - Transaction
+  /v1/transaction/{game_id}/{id}:
+    get:
+      description: Retrieve transaction by ID
+      operationId: getTransactionById
+      parameters:
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: game_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+          description: The transaction has been found.
+        "400":
+          description: "Bad Request, The request was unacceptable, often due to missing\
+            \ a required parameter."
+        "401":
+          description: "Unauthorized, No valid API key provided."
+        "404":
+          description: "Not Found, The requested resource doesn't exist."
+        "409":
+          description: "Conflict, The request conflicts with another request (perhaps\
+            \ due to using the same idempotent key)."
+        "429":
+          description: "Too Many Requests, Too many requests hit the API too quickly.\
+            \ We recommend an exponential backoff of your requests."
+        "500":
+          description: "Server Errors, Something went wrong on L3vels's end."
+        "504":
+          description: "Gateway Timeout, Your request took too long."
+      summary: Retrieve Transaction by ID
+      tags:
+      - Transaction
+  /v1/asset:
+    get:
+      description: "This API method retrieves a list of assets that match the specified\
+        \ filter criteria. Developers can use this method to retrieve assets by name,\
+        \ description or other properties"
+      operationId: getAssets
+      parameters:
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Game ID to find assets in your game. Example: Fortnite, Minecraft,\
+          \ etc."
+        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
+        explode: true
+        in: query
+        name: game_id
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: "Filter assets by collection. Example: Get assets only from Weapons\
+          \ collection."
+        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
+        explode: true
+        in: query
+        name: collection_id
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Asset field to sort by. You can sort by name, created_on and\
+          \ etc."
+        example: name
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Sort order (ASC for ascending or DESC for descending)
+        example: ASC
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          enum:
+          - ASC
+          - DESC
+          type: string
+        style: form
+      - description: Search assets by name
+        example: Hammer
+        explode: true
+        in: query
+        name: search_text
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Number of assets to return per page
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: number
+        style: form
+      - description: Page number
+        example: 1
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetsResponse'
+          description: The assets has been found.
+        "400":
+          description: "Bad Request, The request was unacceptable, often due to missing\
+            \ a required parameter."
+        "401":
+          description: "Unauthorized, No valid API key provided."
+        "404":
+          description: "Not Found, The requested resource doesn't exist."
+        "409":
+          description: "Conflict, The request conflicts with another request (perhaps\
+            \ due to using the same idempotent key)."
+        "429":
+          description: "Too Many Requests, Too many requests hit the API too quickly.\
+            \ We recommend an exponential backoff of your requests."
+        "500":
+          description: "Server Errors, Something went wrong on L3vels's end."
+        "504":
+          description: "Gateway Timeout, Your request took too long."
+      summary: Retrieve assets
+      tags:
+      - Asset
+  /v1/asset/count/{game_id}:
+    get:
+      description: Counts total assets in game.
+      operationId: countByGame
+      parameters:
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: game_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: number
+          description: The assets has been counted.
+        "400":
+          description: "Bad Request, The request was unacceptable, often due to missing\
+            \ a required parameter."
+        "401":
+          description: "Unauthorized, No valid API key provided."
+        "404":
+          description: "Not Found, The requested resource doesn't exist."
+        "409":
+          description: "Conflict, The request conflicts with another request (perhaps\
+            \ due to using the same idempotent key)."
+        "429":
+          description: "Too Many Requests, Too many requests hit the API too quickly.\
+            \ We recommend an exponential backoff of your requests."
+        "500":
+          description: "Server Errors, Something went wrong on L3vels's end."
+        "504":
+          description: "Gateway Timeout, Your request took too long."
+      summary: Count assets
+      tags:
+      - Asset
+  /v1/asset/{game_id}/{id}:
+    get:
+      description: "Retrieve asset by ID in specific Game. Example: Find asset AK-47\
+        \ in game Call of Duty"
+      operationId: getAssetById
+      parameters:
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Asset ID to find
+        example: 9abd57ce-b11c-4828-ab6a-19f568a8081a
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Game ID to find asset in
+        example: 556a2843-b302-4b9d-916c-cefcb5d66053
+        explode: false
+        in: path
+        name: game_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asset'
+          description: The asset has been found.
+        "400":
+          description: "Bad Request, The request was unacceptable, often due to missing\
+            \ a required parameter."
+        "401":
+          description: "Unauthorized, No valid API key provided."
+        "404":
+          description: "Not Found, The requested resource doesn't exist."
+        "409":
+          description: "Conflict, The request conflicts with another request (perhaps\
+            \ due to using the same idempotent key)."
+        "429":
+          description: "Too Many Requests, Too many requests hit the API too quickly.\
+            \ We recommend an exponential backoff of your requests."
+        "500":
+          description: "Server Errors, Something went wrong on L3vels's end."
+        "504":
+          description: "Gateway Timeout, Your request took too long."
+      summary: Retrieve asset by ID
+      tags:
+      - Asset
+  /v1/asset/{id}:
+    patch:
+      description: "Update asset by ID in specific collection. Example: Update asset\
+        \ AK-47 in collection Weapons"
+      operationId: updateAsset
+      parameters:
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Asset ID to update
+        example: 353c69f6-76a6-4baa-b68b-852c1c531953
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAssetInput'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asset'
+          description: The asset has been updated.
+        "400":
+          description: "Bad Request, The request was unacceptable, often due to missing\
+            \ a required parameter."
+        "401":
+          description: "Unauthorized, No valid API key provided."
+        "404":
+          description: "Not Found, The requested resource doesn't exist."
+        "409":
+          description: "Conflict, The request conflicts with another request (perhaps\
+            \ due to using the same idempotent key)."
+        "429":
+          description: "Too Many Requests, Too many requests hit the API too quickly.\
+            \ We recommend an exponential backoff of your requests."
+        "500":
+          description: "Server Errors, Something went wrong on L3vels's end."
+        "504":
+          description: "Gateway Timeout, Your request took too long."
+      summary: Update asset
+      tags:
+      - Asset
+  /v1/player-asset/{game_id}/{id}:
+    get:
+      description: Retrieve player asset by ID. Player asset represents a single asset
+        that a player owns. It has amount field that represents how many of this asset
+        player owns.
+      operationId: getPlayerAssetById
+      parameters:
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: game_id
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PlayerAsset'
+          description: The player asset has been found.
+        "400":
+          description: "Bad Request, The request was unacceptable, often due to missing\
+            \ a required parameter."
+        "401":
+          description: "Unauthorized, No valid API key provided."
+        "404":
+          description: "Not Found, The requested resource doesn't exist."
+        "409":
+          description: "Conflict, The request conflicts with another request (perhaps\
+            \ due to using the same idempotent key)."
+        "429":
+          description: "Too Many Requests, Too many requests hit the API too quickly.\
+            \ We recommend an exponential backoff of your requests."
+        "500":
+          description: "Server Errors, Something went wrong on L3vels's end."
+        "504":
+          description: "Gateway Timeout, Your request took too long."
+      summary: Retrieve player asset by ID
+      tags:
+      - Player
+  /v1/player-asset:
+    get:
+      description: "This API method retrieves a list of Player assets that match the\
+        \ specified filter criteria. Developers can use this method to retrieve Player\
+        \ assets by player, Game or other properties."
+      operationId: playerAssets
+      parameters:
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Game ID to find player assets in your game. Example: Fortnite,\
+          \ Minecraft, etc."
+        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
+        explode: true
+        in: query
+        name: game_id
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: "Game ID to find player assets in your game. Example: Fortnite,\
+          \ Minecraft, etc."
+        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
+        explode: true
+        in: query
+        name: asset_id
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Game ID to find player assets in your game. Example: Fortnite,\
+          \ Minecraft, etc."
+        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
+        explode: true
+        in: query
+        name: player_id
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: "Player asset field to sort by. You can sort by name, created_on\
+          \ and etc."
+        example: name
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Sort order (ASC for ascending or DESC for descending)
+        example: ASC
+        explode: true
+        in: query
+        name: order
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Number of player assets to return per page
+        example: 10
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: number
+        style: form
+      - description: Page number
+        example: 1
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PlayerAsset'
+                type: array
+          description: The player assets has been found
+        "400":
+          description: "Bad Request, The request was unacceptable, often due to missing\
+            \ a required parameter."
+        "401":
+          description: "Unauthorized, No valid API key provided."
+        "404":
+          description: "Not Found, The requested resource doesn't exist."
+        "409":
+          description: "Conflict, The request conflicts with another request (perhaps\
+            \ due to using the same idempotent key)."
+        "429":
+          description: "Too Many Requests, Too many requests hit the API too quickly.\
+            \ We recommend an exponential backoff of your requests."
+        "500":
+          description: "Server Errors, Something went wrong on L3vels's end."
+        "504":
+          description: "Gateway Timeout, Your request took too long."
+      summary: Retrieve player assets
       tags:
       - Player
   /v1/mint:
@@ -2031,6 +2031,317 @@ components:
       - url
       - web_link
       type: object
+    Player:
+      example:
+        modified_on: 2000-01-23T04:56:07.000+00:00
+        unique_id: f811b994a31
+        last_seen: 2000-01-23T04:56:07.000+00:00
+        avatar: https://example.com/avatar.png
+        is_create_wallet: true
+        created_by: f414ea43-7afc-424f-bed4-704bafa52093
+        account_id: 313a56d2-b900-456b-ae11-829c8e5661a7
+        created_on: 2000-01-23T04:56:07.000+00:00
+        name: Jack Coon
+        modified_by: f414ea43-7afc-424f-bed4-704bafa52093
+        id: 353c69f6-76a6-4baa-b68b-852c1c531953
+        custom_props: "[{\"prop_name\":\"VIP\",\"prop_type\":\"Boolean\",\"prop_value\"\
+          :\"true\"}]"
+        email: jack@coon.com
+        username: jackcoon
+        game_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
+      properties:
+        id:
+          description: The unique identifier for the Player entity.
+          example: 353c69f6-76a6-4baa-b68b-852c1c531953
+          type: string
+        unique_id:
+          description: The unique ID of the Player that can be provided by customers
+            or generated by us.
+          example: f811b994a31
+          type: string
+        name:
+          description: The name of the player
+          example: Jack Coon
+          type: string
+        username:
+          description: Username of the player
+          example: jackcoon
+          type: string
+        email:
+          description: Email of the player
+          example: jack@coon.com
+          type: string
+        avatar:
+          description: Avatar URL of the player
+          example: https://example.com/avatar.png
+          type: string
+        custom_props:
+          description: Custom props for player
+          example: "[{\"prop_name\":\"VIP\",\"prop_type\":\"Boolean\",\"prop_value\"\
+            :\"true\"}]"
+          type: object
+        last_seen:
+          description: The date when player was active last time
+          format: date-time
+          type: string
+        account_id:
+          description: The unique identifier of the account that the Player belongs
+            to.
+          example: 313a56d2-b900-456b-ae11-829c8e5661a7
+          type: string
+        game_id:
+          description: "The unique identifier of the game that the Player is associated\
+            \ with. This allows developers to organize their players by game and helps\
+            \ with tracking and reporting. Example: Player Jack is associated with\
+            \ game Fortnite."
+          example: fd1895eb-6301-4107-a248-c3f2ae5bcaad
+          type: string
+        created_on:
+          description: The date when the player was created.
+          format: date-time
+          type: string
+        modified_on:
+          description: The date when the player was last modified.
+          format: date-time
+          type: string
+        created_by:
+          description: The Id of the user who created the player.
+          example: f414ea43-7afc-424f-bed4-704bafa52093
+          type: string
+        modified_by:
+          description: The Id of the user who last modified the player.
+          example: f414ea43-7afc-424f-bed4-704bafa52093
+          type: string
+        is_create_wallet:
+          description: Boolean value indicating whether the player has wallet or not
+          example: true
+          type: boolean
+      required:
+      - account_id
+      - avatar
+      - created_by
+      - created_on
+      - custom_props
+      - email
+      - game_id
+      - id
+      - is_create_wallet
+      - last_seen
+      - modified_by
+      - modified_on
+      - name
+      - unique_id
+      - username
+      type: object
+    CreatePlayerInput:
+      example:
+        unique_id: f811b994a31
+        name: Jack
+        avatar: https://example.com/avatar.png
+        is_create_wallet: true
+        custom_props:
+        - prop_name: VIP
+          prop_type: Boolean
+          prop_value: "true"
+        email: jack@gmail.com
+        username: jack
+        game_id: 353c69f6-76a6-4baa-b68b-852c1c531953
+      properties:
+        unique_id:
+          description: "You can send your generated unique ID for player if it's handy\
+            \ for game. If field is empty, we will generate unique ID."
+          example: f811b994a31
+          type: string
+        name:
+          description: The name of the player.
+          example: Jack
+          type: string
+        username:
+          description: The username of the player.
+          example: jack
+          type: string
+        email:
+          description: The email of the player.
+          example: jack@gmail.com
+          type: string
+        avatar:
+          description: The image URL of the player avatar.
+          example: https://example.com/avatar.png
+          type: string
+        game_id:
+          description: "Game ID to create the player for. Example: Create player Jack\
+            \ for game Fortnite."
+          example: 353c69f6-76a6-4baa-b68b-852c1c531953
+          type: string
+        is_create_wallet:
+          description: Should create wallet for player or not.
+          example: true
+          type: boolean
+        custom_props:
+          description: Custom props for player.
+          example:
+          - prop_name: VIP
+            prop_type: Boolean
+            prop_value: "true"
+          items:
+            type: string
+          type: array
+      required:
+      - game_id
+      - name
+      type: object
+    Transaction:
+      example:
+        modified_on: 2000-01-23T04:56:07.000+00:00
+        chain_id: 80001
+        method: award
+        contract_id: 05450af0-4522-4e79-9acc-c1c09aae9152
+        block_number: 34609977
+        contract_address: 0xd873927250e1353ba4eae9b7de599017f3002913
+        type: Mint
+        created_by: f414ea43-7afc-424f-bed4-704bafa52093
+        collection_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
+        environment: Testnet
+        account_id: 313a56d2-b900-456b-ae11-829c8e5661a7
+        blockchain: Polygon
+        created_on: 2000-01-23T04:56:07.000+00:00
+        modified_by: f414ea43-7afc-424f-bed4-704bafa52093
+        from: 0xBd876ACF229C18A861d561a2b83B70193E659794
+        id: 05450af0-4522-4e79-9acc-c1c09aae9152
+        to: 0xd873927250e1353ba4eae9b7de599017f3002913
+        chain_name: Polygon
+        transaction_hash: 0xbd4afbce29951be8ac6b4cfe79771c0159d461e51044cebe852ddb4ead7fa166
+        events:
+        - TransferSingle
+        - Award
+        status: Success
+        game_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
+      properties:
+        id:
+          description: The unique identifier for the transaction entity.
+          example: 05450af0-4522-4e79-9acc-c1c09aae9152
+          type: string
+        status:
+          description: "Transaction status in Blockchain. Can be pending, success\
+            \ or fail"
+          example: Success
+          type: string
+        from:
+          description: Address of the sender of the transaction.
+          example: 0xBd876ACF229C18A861d561a2b83B70193E659794
+          type: string
+        to:
+          description: Address of the receiver of the transaction. It can be contract
+            address or player address if it is a transfer transaction.
+          example: 0xd873927250e1353ba4eae9b7de599017f3002913
+          type: string
+        contract_id:
+          description: Contract ID the transaction is associated with.
+          example: 05450af0-4522-4e79-9acc-c1c09aae9152
+          type: string
+        contract_address:
+          description: Contract address where the transaction happened.
+          example: 0xd873927250e1353ba4eae9b7de599017f3002913
+          type: string
+        blockchain:
+          description: "Main blockchain identifier: Ethereum, Polygon, etc."
+          example: Polygon
+          type: string
+        chain_name:
+          description: "Chain name identifier: Ethereum, Goerli, Sepolia, PolygonPoS,\
+            \ etc."
+          example: Polygon
+          type: string
+        chain_id:
+          description: "Chain ID: 1 for Ethereum, 5 for Goerli, 80001 for Polygon\
+            \ Mumbai, etc."
+          example: 80001
+          type: number
+        environment:
+          description: "Chain environment: Testnet, Mainnet, etc."
+          example: Testnet
+          type: string
+        transaction_hash:
+          description: Unique transaction hash in the blockchain.
+          example: 0xbd4afbce29951be8ac6b4cfe79771c0159d461e51044cebe852ddb4ead7fa166
+          type: string
+        block_number:
+          description: Unique block number in the blockchain.
+          example: 34609977
+          type: number
+        type:
+          description: "Transaction type: Mint, Transfer, Award, Airdrop, etc."
+          example: Mint
+          type: string
+        method:
+          description: Function method name that was called in smart contract
+          example: award
+          type: string
+        events:
+          description: List of events that were emitted in the transaction
+          example:
+          - TransferSingle
+          - Award
+          items:
+            type: string
+          type: array
+        game_id:
+          description: The unique identifier of the game that the transaction is associated
+            with. This allows developers to organize their transactions by game and
+            helps with tracking and reporting.
+          example: fd1895eb-6301-4107-a248-c3f2ae5bcaad
+          type: string
+        collection_id:
+          description: The unique identifier of the collection that the transaction
+            is associated with. This allows developers to organize their transactions
+            by game and helps with tracking and reporting.
+          example: fd1895eb-6301-4107-a248-c3f2ae5bcaad
+          type: string
+        account_id:
+          description: The unique identifier of the account that the transaction belongs
+            to.
+          example: 313a56d2-b900-456b-ae11-829c8e5661a7
+          type: string
+        created_on:
+          description: The date when the collection was created.
+          format: date-time
+          type: string
+        modified_on:
+          description: The date when the collection was last modified.
+          format: date-time
+          type: string
+        created_by:
+          description: The Id of the user who created the collection.
+          example: f414ea43-7afc-424f-bed4-704bafa52093
+          type: string
+        modified_by:
+          description: The Id of the user who last modified the collection.
+          example: f414ea43-7afc-424f-bed4-704bafa52093
+          type: string
+      required:
+      - account_id
+      - block_number
+      - blockchain
+      - chain_id
+      - chain_name
+      - collection_id
+      - contract_address
+      - contract_id
+      - created_by
+      - created_on
+      - environment
+      - events
+      - from
+      - game_id
+      - id
+      - method
+      - modified_by
+      - modified_on
+      - status
+      - to
+      - transaction_hash
+      - type
+      type: object
     Asset:
       example:
         modified_on: 2000-01-23T04:56:07.000+00:00
@@ -2331,158 +2642,6 @@ components:
       - collection_id
       - game_id
       type: object
-    Transaction:
-      example:
-        modified_on: 2000-01-23T04:56:07.000+00:00
-        chain_id: 80001
-        method: award
-        contract_id: 05450af0-4522-4e79-9acc-c1c09aae9152
-        block_number: 34609977
-        contract_address: 0xd873927250e1353ba4eae9b7de599017f3002913
-        type: Mint
-        created_by: f414ea43-7afc-424f-bed4-704bafa52093
-        collection_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
-        environment: Testnet
-        account_id: 313a56d2-b900-456b-ae11-829c8e5661a7
-        blockchain: Polygon
-        created_on: 2000-01-23T04:56:07.000+00:00
-        modified_by: f414ea43-7afc-424f-bed4-704bafa52093
-        from: 0xBd876ACF229C18A861d561a2b83B70193E659794
-        id: 05450af0-4522-4e79-9acc-c1c09aae9152
-        to: 0xd873927250e1353ba4eae9b7de599017f3002913
-        chain_name: Polygon
-        transaction_hash: 0xbd4afbce29951be8ac6b4cfe79771c0159d461e51044cebe852ddb4ead7fa166
-        events:
-        - TransferSingle
-        - Award
-        status: Success
-        game_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
-      properties:
-        id:
-          description: The unique identifier for the transaction entity.
-          example: 05450af0-4522-4e79-9acc-c1c09aae9152
-          type: string
-        status:
-          description: "Transaction status in Blockchain. Can be pending, success\
-            \ or fail"
-          example: Success
-          type: string
-        from:
-          description: Address of the sender of the transaction.
-          example: 0xBd876ACF229C18A861d561a2b83B70193E659794
-          type: string
-        to:
-          description: Address of the receiver of the transaction. It can be contract
-            address or player address if it is a transfer transaction.
-          example: 0xd873927250e1353ba4eae9b7de599017f3002913
-          type: string
-        contract_id:
-          description: Contract ID the transaction is associated with.
-          example: 05450af0-4522-4e79-9acc-c1c09aae9152
-          type: string
-        contract_address:
-          description: Contract address where the transaction happened.
-          example: 0xd873927250e1353ba4eae9b7de599017f3002913
-          type: string
-        blockchain:
-          description: "Main blockchain identifier: Ethereum, Polygon, etc."
-          example: Polygon
-          type: string
-        chain_name:
-          description: "Chain name identifier: Ethereum, Goerli, Sepolia, PolygonPoS,\
-            \ etc."
-          example: Polygon
-          type: string
-        chain_id:
-          description: "Chain ID: 1 for Ethereum, 5 for Goerli, 80001 for Polygon\
-            \ Mumbai, etc."
-          example: 80001
-          type: number
-        environment:
-          description: "Chain environment: Testnet, Mainnet, etc."
-          example: Testnet
-          type: string
-        transaction_hash:
-          description: Unique transaction hash in the blockchain.
-          example: 0xbd4afbce29951be8ac6b4cfe79771c0159d461e51044cebe852ddb4ead7fa166
-          type: string
-        block_number:
-          description: Unique block number in the blockchain.
-          example: 34609977
-          type: number
-        type:
-          description: "Transaction type: Mint, Transfer, Award, Airdrop, etc."
-          example: Mint
-          type: string
-        method:
-          description: Function method name that was called in smart contract
-          example: award
-          type: string
-        events:
-          description: List of events that were emitted in the transaction
-          example:
-          - TransferSingle
-          - Award
-          items:
-            type: string
-          type: array
-        game_id:
-          description: The unique identifier of the game that the transaction is associated
-            with. This allows developers to organize their transactions by game and
-            helps with tracking and reporting.
-          example: fd1895eb-6301-4107-a248-c3f2ae5bcaad
-          type: string
-        collection_id:
-          description: The unique identifier of the collection that the transaction
-            is associated with. This allows developers to organize their transactions
-            by game and helps with tracking and reporting.
-          example: fd1895eb-6301-4107-a248-c3f2ae5bcaad
-          type: string
-        account_id:
-          description: The unique identifier of the account that the transaction belongs
-            to.
-          example: 313a56d2-b900-456b-ae11-829c8e5661a7
-          type: string
-        created_on:
-          description: The date when the collection was created.
-          format: date-time
-          type: string
-        modified_on:
-          description: The date when the collection was last modified.
-          format: date-time
-          type: string
-        created_by:
-          description: The Id of the user who created the collection.
-          example: f414ea43-7afc-424f-bed4-704bafa52093
-          type: string
-        modified_by:
-          description: The Id of the user who last modified the collection.
-          example: f414ea43-7afc-424f-bed4-704bafa52093
-          type: string
-      required:
-      - account_id
-      - block_number
-      - blockchain
-      - chain_id
-      - chain_name
-      - collection_id
-      - contract_address
-      - contract_id
-      - created_by
-      - created_on
-      - environment
-      - events
-      - from
-      - game_id
-      - id
-      - method
-      - modified_by
-      - modified_on
-      - status
-      - to
-      - transaction_hash
-      - type
-      type: object
     PlayerAsset:
       example:
         collection_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
@@ -2559,165 +2718,6 @@ components:
       - modified_by
       - modified_on
       - player_id
-      type: object
-    Player:
-      example:
-        modified_on: 2000-01-23T04:56:07.000+00:00
-        unique_id: f811b994a31
-        last_seen: 2000-01-23T04:56:07.000+00:00
-        avatar: https://example.com/avatar.png
-        is_create_wallet: true
-        created_by: f414ea43-7afc-424f-bed4-704bafa52093
-        account_id: 313a56d2-b900-456b-ae11-829c8e5661a7
-        created_on: 2000-01-23T04:56:07.000+00:00
-        name: Jack Coon
-        modified_by: f414ea43-7afc-424f-bed4-704bafa52093
-        id: 353c69f6-76a6-4baa-b68b-852c1c531953
-        custom_props: "[{\"prop_name\":\"VIP\",\"prop_type\":\"Boolean\",\"prop_value\"\
-          :\"true\"}]"
-        email: jack@coon.com
-        username: jackcoon
-        game_id: fd1895eb-6301-4107-a248-c3f2ae5bcaad
-      properties:
-        id:
-          description: The unique identifier for the Player entity.
-          example: 353c69f6-76a6-4baa-b68b-852c1c531953
-          type: string
-        unique_id:
-          description: The unique ID of the Player that can be provided by customers
-            or generated by us.
-          example: f811b994a31
-          type: string
-        name:
-          description: The name of the player
-          example: Jack Coon
-          type: string
-        username:
-          description: Username of the player
-          example: jackcoon
-          type: string
-        email:
-          description: Email of the player
-          example: jack@coon.com
-          type: string
-        avatar:
-          description: Avatar URL of the player
-          example: https://example.com/avatar.png
-          type: string
-        custom_props:
-          description: Custom props for player
-          example: "[{\"prop_name\":\"VIP\",\"prop_type\":\"Boolean\",\"prop_value\"\
-            :\"true\"}]"
-          type: object
-        last_seen:
-          description: The date when player was active last time
-          format: date-time
-          type: string
-        account_id:
-          description: The unique identifier of the account that the Player belongs
-            to.
-          example: 313a56d2-b900-456b-ae11-829c8e5661a7
-          type: string
-        game_id:
-          description: "The unique identifier of the game that the Player is associated\
-            \ with. This allows developers to organize their players by game and helps\
-            \ with tracking and reporting. Example: Player Jack is associated with\
-            \ game Fortnite."
-          example: fd1895eb-6301-4107-a248-c3f2ae5bcaad
-          type: string
-        created_on:
-          description: The date when the player was created.
-          format: date-time
-          type: string
-        modified_on:
-          description: The date when the player was last modified.
-          format: date-time
-          type: string
-        created_by:
-          description: The Id of the user who created the player.
-          example: f414ea43-7afc-424f-bed4-704bafa52093
-          type: string
-        modified_by:
-          description: The Id of the user who last modified the player.
-          example: f414ea43-7afc-424f-bed4-704bafa52093
-          type: string
-        is_create_wallet:
-          description: Boolean value indicating whether the player has wallet or not
-          example: true
-          type: boolean
-      required:
-      - account_id
-      - avatar
-      - created_by
-      - created_on
-      - custom_props
-      - email
-      - game_id
-      - id
-      - is_create_wallet
-      - last_seen
-      - modified_by
-      - modified_on
-      - name
-      - unique_id
-      - username
-      type: object
-    CreatePlayerInput:
-      example:
-        unique_id: f811b994a31
-        name: Jack
-        avatar: https://example.com/avatar.png
-        is_create_wallet: true
-        custom_props:
-        - prop_name: VIP
-          prop_type: Boolean
-          prop_value: "true"
-        email: jack@gmail.com
-        username: jack
-        game_id: 353c69f6-76a6-4baa-b68b-852c1c531953
-      properties:
-        unique_id:
-          description: "You can send your generated unique ID for player if it's handy\
-            \ for game. If field is empty, we will generate unique ID."
-          example: f811b994a31
-          type: string
-        name:
-          description: The name of the player.
-          example: Jack
-          type: string
-        username:
-          description: The username of the player.
-          example: jack
-          type: string
-        email:
-          description: The email of the player.
-          example: jack@gmail.com
-          type: string
-        avatar:
-          description: The image URL of the player avatar.
-          example: https://example.com/avatar.png
-          type: string
-        game_id:
-          description: "Game ID to create the player for. Example: Create player Jack\
-            \ for game Fortnite."
-          example: 353c69f6-76a6-4baa-b68b-852c1c531953
-          type: string
-        is_create_wallet:
-          description: Should create wallet for player or not.
-          example: true
-          type: boolean
-        custom_props:
-          description: Custom props for player.
-          example:
-          - prop_name: VIP
-            prop_type: Boolean
-            prop_value: "true"
-          items:
-            type: string
-          type: array
-      required:
-      - game_id
-      - name
       type: object
     TokenInput:
       properties:

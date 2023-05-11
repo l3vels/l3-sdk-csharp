@@ -2389,7 +2389,9 @@ components:
         properties:
           description: Custom properties of the asset.
           example: ""
-          type: string
+          items:
+            type: string
+          type: array
         attributes:
           description: Custom attributes of the asset.
           example: ""

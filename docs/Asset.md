@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **TokenId** | **decimal** | The token id of the asset. | 
 **Name** | **string** | The name of the asset. | 
 **ParentId** | **string** | ID of the parent asset. | 
-**Properties** | **string** | Custom properties of the asset. | 
+**Properties** | **List&lt;string&gt;** | Custom properties of the asset. | 
 **Attributes** | **Object** | Custom attributes of the asset. | 
 **Achievements** | **List&lt;string&gt;** | Achievements of the asset. | 
 **Rewards** | **List&lt;string&gt;** | Rewards of the asset. | 

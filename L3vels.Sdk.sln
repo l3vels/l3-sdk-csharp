@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L3vels.Sdk", "src\L3vels.Sdk\L3vels.Sdk.csproj", "{301B64D7-E5F2-49D4-93A3-717F59303E03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L3vels.Sdk", "src\L3vels.Sdk\L3vels.Sdk.csproj", "{1271551B-020F-4389-8B2E-27572ABA1AD8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L3vels.Sdk.Test", "src\L3vels.Sdk.Test\L3vels.Sdk.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{301B64D7-E5F2-49D4-93A3-717F59303E03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{301B64D7-E5F2-49D4-93A3-717F59303E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{301B64D7-E5F2-49D4-93A3-717F59303E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{301B64D7-E5F2-49D4-93A3-717F59303E03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1271551B-020F-4389-8B2E-27572ABA1AD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1271551B-020F-4389-8B2E-27572ABA1AD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1271551B-020F-4389-8B2E-27572ABA1AD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1271551B-020F-4389-8B2E-27572ABA1AD8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU

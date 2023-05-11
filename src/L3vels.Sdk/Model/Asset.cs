@@ -64,7 +64,7 @@ namespace L3vels.Sdk.Model
         /// <param name="modifiedOn">The date when the collection was last modified. (required).</param>
         /// <param name="createdBy">The Id of the user who created the collection. (required).</param>
         /// <param name="modifiedBy">The Id of the user who last modified the collection. (required).</param>
-        public Asset(string id = default(string), decimal tokenId = default(decimal), string name = default(string), string parentId = default(string), string properties = default(string), Object attributes = default(Object), List<string> achievements = default(List<string>), List<string> rewards = default(List<string>), string description = default(string), string status = default(string), decimal price = default(decimal), decimal supply = default(decimal), decimal mintedAmount = default(decimal), string assetType = default(string), string assetUrl = default(string), List<string> medias = default(List<string>), string mainMedia = default(string), string accountId = default(string), string gameId = default(string), string collectionId = default(string), DateTimeOffset createdOn = default(DateTimeOffset), DateTimeOffset modifiedOn = default(DateTimeOffset), string createdBy = default(string), string modifiedBy = default(string))
+        public Asset(string id = default(string), decimal tokenId = default(decimal), string name = default(string), string parentId = default(string), List<string> properties = default(List<string>), Object attributes = default(Object), List<string> achievements = default(List<string>), List<string> rewards = default(List<string>), string description = default(string), string status = default(string), decimal price = default(decimal), decimal supply = default(decimal), decimal mintedAmount = default(decimal), string assetType = default(string), string assetUrl = default(string), List<string> medias = default(List<string>), string mainMedia = default(string), string accountId = default(string), string gameId = default(string), string collectionId = default(string), DateTimeOffset createdOn = default(DateTimeOffset), DateTimeOffset modifiedOn = default(DateTimeOffset), string createdBy = default(string), string modifiedBy = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -218,9 +218,8 @@ namespace L3vels.Sdk.Model
         /// Custom properties of the asset.
         /// </summary>
         /// <value>Custom properties of the asset.</value>
-        /// <example>&quot;&quot;</example>
         [DataMember(Name = "properties", IsRequired = true, EmitDefaultValue = true)]
-        public string Properties { get; set; }
+        public List<string> Properties { get; set; }
 
         /// <summary>
         /// Custom attributes of the asset.
@@ -456,8 +455,9 @@ namespace L3vels.Sdk.Model
                 ) && 
                 (
                     this.Properties == input.Properties ||
-                    (this.Properties != null &&
-                    this.Properties.Equals(input.Properties))
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
                 ) && 
                 (
                     this.Attributes == input.Attributes ||

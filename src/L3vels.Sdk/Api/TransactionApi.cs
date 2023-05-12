@@ -93,26 +93,6 @@ namespace L3vels.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of Transaction</returns>
         ApiResponse<Transaction> GetTransactionsWithHttpInfo(string authorization, string gameId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        void TransactionControllerWebhook(string authorization, int operationIndex = 0);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> TransactionControllerWebhookWithHttpInfo(string authorization, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -192,31 +172,6 @@ namespace L3vels.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Transaction)</returns>
         System.Threading.Tasks.Task<ApiResponse<Transaction>> GetTransactionsWithHttpInfoAsync(string authorization, string gameId, string collectionId = default(string), string playerId = default(string), string sort = default(string), string order = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task TransactionControllerWebhookAsync(string authorization, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> TransactionControllerWebhookWithHttpInfoAsync(string authorization, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -754,146 +709,6 @@ namespace L3vels.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetTransactions", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns></returns>
-        public void TransactionControllerWebhook(string authorization, int operationIndex = 0)
-        {
-            TransactionControllerWebhookWithHttpInfo(authorization);
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public L3vels.Sdk.Client.ApiResponse<Object> TransactionControllerWebhookWithHttpInfo(string authorization, int operationIndex = 0)
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling TransactionApi->TransactionControllerWebhook");
-            }
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-
-            localVarRequestOptions.Operation = "TransactionApi.TransactionControllerWebhook";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/v1/transaction/webhook", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("TransactionControllerWebhook", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task TransactionControllerWebhookAsync(string authorization, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await TransactionControllerWebhookWithHttpInfoAsync(authorization, operationIndex, cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <summary>
-        ///  
-        /// </summary>
-        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Object>> TransactionControllerWebhookWithHttpInfoAsync(string authorization, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-            {
-                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling TransactionApi->TransactionControllerWebhook");
-            }
-
-
-            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-            };
-
-            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
-
-            localVarRequestOptions.Operation = "TransactionApi.TransactionControllerWebhook";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-
-            // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/v1/transaction/webhook", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("TransactionControllerWebhook", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

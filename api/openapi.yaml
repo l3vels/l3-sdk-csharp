@@ -781,41 +781,6 @@ paths:
       summary: Count players
       tags:
       - Player
-  /v1/transaction/webhook:
-    post:
-      operationId: TransactionController_webhook
-      parameters:
-      - description: API key is associated with multiple games. Please include it
-          in to use developers API.
-        explode: false
-        in: header
-        name: Authorization
-        required: true
-        schema:
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: ""
-        "400":
-          description: "Bad Request, The request was unacceptable, often due to missing\
-            \ a required parameter."
-        "401":
-          description: "Unauthorized, No valid API key provided."
-        "404":
-          description: "Not Found, The requested resource doesn't exist."
-        "409":
-          description: "Conflict, The request conflicts with another request (perhaps\
-            \ due to using the same idempotent key)."
-        "429":
-          description: "Too Many Requests, Too many requests hit the API too quickly.\
-            \ We recommend an exponential backoff of your requests."
-        "500":
-          description: "Server Errors, Something went wrong on L3vels's end."
-        "504":
-          description: "Gateway Timeout, Your request took too long."
-      tags:
-      - Transaction
   /v1/transaction:
     get:
       description: Retrieve all transactions.

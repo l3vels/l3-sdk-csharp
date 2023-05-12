@@ -130,7 +130,6 @@ Class | Method | HTTP request | Description
 *PlayerApi* | [**UpdatePlayer**](docs/PlayerApi.md#updateplayer) | **PUT** /v1/player | Update an existing Player
 *TransactionApi* | [**GetTransactionById**](docs/TransactionApi.md#gettransactionbyid) | **GET** /v1/transaction/{game_id}/{id} | Retrieve Transaction by ID
 *TransactionApi* | [**GetTransactions**](docs/TransactionApi.md#gettransactions) | **GET** /v1/transaction | Retrieve transactions
-*TransactionApi* | [**TransactionControllerWebhook**](docs/TransactionApi.md#transactioncontrollerwebhook) | **POST** /v1/transaction/webhook | 
 *UtilitiesApi* | [**UtilityControllerHealth**](docs/UtilitiesApi.md#utilitycontrollerhealth) | **GET** /v1/utilities/health | 
 
 

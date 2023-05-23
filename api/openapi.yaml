@@ -1660,6 +1660,13 @@ paths:
       summary: Batch mint assets by player
       tags:
       - Mint
+  /v1/chat/webhook:
+    post:
+      operationId: ChatController_webhook
+      parameters: []
+      responses:
+        "200":
+          description: ""
 components:
   schemas:
     Game:

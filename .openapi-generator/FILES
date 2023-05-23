@@ -10,6 +10,7 @@ docs/Collection.md
 docs/CollectionApi.md
 docs/ContractApi.md
 docs/CreatePlayerInput.md
+docs/DefaultApi.md
 docs/Game.md
 docs/GameApi.md
 docs/MintApi.md
@@ -27,10 +28,12 @@ docs/TransactionApi.md
 docs/UpdateAssetInput.md
 docs/UtilitiesApi.md
 git_push.sh
+src/L3vels.Sdk.Test/Api/DefaultApiTests.cs
 src/L3vels.Sdk.Test/L3vels.Sdk.Test.csproj
 src/L3vels.Sdk/Api/AssetApi.cs
 src/L3vels.Sdk/Api/CollectionApi.cs
 src/L3vels.Sdk/Api/ContractApi.cs
+src/L3vels.Sdk/Api/DefaultApi.cs
 src/L3vels.Sdk/Api/GameApi.cs
 src/L3vels.Sdk/Api/MintApi.cs
 src/L3vels.Sdk/Api/PlayerApi.cs

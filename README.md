@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
 *ContractApi* | [**GetContractURI**](docs/ContractApi.md#getcontracturi) | **GET** /v1/contract/contract-uri | Get Contract URI
 *ContractApi* | [**SetContractURI**](docs/ContractApi.md#setcontracturi) | **PUT** /v1/contract/contract-uri | Update Contract URI
 *ContractApi* | [**UpdateSaleStatus**](docs/ContractApi.md#updatesalestatus) | **PUT** /v1/contract/sale-status | Update Sale status
+*DefaultApi* | [**ChatControllerWebhook**](docs/DefaultApi.md#chatcontrollerwebhook) | **POST** /v1/chat/webhook | 
 *GameApi* | [**GetGameById**](docs/GameApi.md#getgamebyid) | **GET** /v1/game/{game_id} | Retrieve Game
 *MintApi* | [**AirdropAssetToPlayer**](docs/MintApi.md#airdropassettoplayer) | **POST** /v1/mint/airdrop | Airdrop asset to player
 *MintApi* | [**AwardAssetToPlayer**](docs/MintApi.md#awardassettoplayer) | **POST** /v1/mint/award | Award asset to player

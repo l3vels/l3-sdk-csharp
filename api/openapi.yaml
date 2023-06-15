@@ -81,6 +81,140 @@ paths:
       summary: Retrieve Game
       tags:
       - Game
+  /v1/game:
+    get:
+      description: "Retrieve all your games/games created on the platform. You can\
+        \ filter games by name, description. You can sort games by field"
+      operationId: GameController_getGames
+      parameters:
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: In which order to sort the results. Can be ASC for ascending
+          or DESC for descending order
+        example: ASC
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter by game name or description
+        example: Call of Duty
+        explode: true
+        in: query
+        name: search_text
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Number of players to return per page
+        example: "10"
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          type: number
+        style: form
+      - description: Page number
+        example: "1"
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          type: number
+        style: form
+      - description: Game ID
+        example: a44b646a-ae14-4e05-ae09-b12d5e7269bf
+        explode: true
+        in: query
+        name: game_id
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+          description: The games has been found.
+        "400":
+          description: "Bad Request, The request was unacceptable, often due to missing\
+            \ a required parameter."
+        "401":
+          description: "Unauthorized, No valid API key provided."
+        "404":
+          description: "Not Found, The requested resource doesn't exist."
+        "409":
+          description: "Conflict, The request conflicts with another request (perhaps\
+            \ due to using the same idempotent key)."
+        "429":
+          description: "Too Many Requests, Too many requests hit the API too quickly.\
+            \ We recommend an exponential backoff of your requests."
+        "500":
+          description: "Server Errors, Something went wrong on L3vels's end."
+        "504":
+          description: "Gateway Timeout, Your request took too long."
+      summary: Retrieve all games
+      tags:
+      - Game
+    post:
+      description: Create game on platform.
+      operationId: createGame
+      parameters:
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGameInput'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+          description: The Game has been found.
+        "400":
+          description: "Bad Request, The request was unacceptable, often due to missing\
+            \ a required parameter."
+        "401":
+          description: "Unauthorized, No valid API key provided."
+        "404":
+          description: "Not Found, The requested resource doesn't exist."
+        "409":
+          description: "Conflict, The request conflicts with another request (perhaps\
+            \ due to using the same idempotent key)."
+        "429":
+          description: "Too Many Requests, Too many requests hit the API too quickly.\
+            \ We recommend an exponential backoff of your requests."
+        "500":
+          description: "Server Errors, Something went wrong on L3vels's end."
+        "504":
+          description: "Gateway Timeout, Your request took too long."
+      summary: Create Game
+      tags:
+      - Game
   /v1/contract/collection-size:
     get:
       description: Count total contract in game.
@@ -367,6 +501,52 @@ paths:
         "504":
           description: "Gateway Timeout, Your request took too long."
       summary: Retrieve collections
+      tags:
+      - Collection
+    post:
+      description: This API method creates collection in a specified game
+      operationId: CollectionController_createCollection
+      parameters:
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCollectionInput'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+          description: The collection has been created.
+        "400":
+          description: "Bad Request, The request was unacceptable, often due to missing\
+            \ a required parameter."
+        "401":
+          description: "Unauthorized, No valid API key provided."
+        "404":
+          description: "Not Found, The requested resource doesn't exist."
+        "409":
+          description: "Conflict, The request conflicts with another request (perhaps\
+            \ due to using the same idempotent key)."
+        "429":
+          description: "Too Many Requests, Too many requests hit the API too quickly.\
+            \ We recommend an exponential backoff of your requests."
+        "500":
+          description: "Server Errors, Something went wrong on L3vels's end."
+        "504":
+          description: "Gateway Timeout, Your request took too long."
+      summary: Create a new collection inside specific game
       tags:
       - Collection
   /v1/collection/count/{game_id}:
@@ -1810,6 +1990,9 @@ components:
       - url
       - web_link
       type: object
+    CreateGameInput:
+      properties: {}
+      type: object
     SetContractUriInput:
       example:
         collection_id: a44b646a-ae14-4e05-ae09-b12d5e7269bf
@@ -2002,6 +2185,9 @@ components:
       - unique_id
       - url
       - web_link
+      type: object
+    CreateCollectionInput:
+      properties: {}
       type: object
     Player:
       example:

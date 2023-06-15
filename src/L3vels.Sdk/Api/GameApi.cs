@@ -28,6 +28,64 @@ namespace L3vels.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Create Game
+        /// </summary>
+        /// <remarks>
+        /// Create game on platform.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="body"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Game</returns>
+        Game CreateGame(string authorization, Object body, int operationIndex = 0);
+
+        /// <summary>
+        /// Create Game
+        /// </summary>
+        /// <remarks>
+        /// Create game on platform.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="body"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Game</returns>
+        ApiResponse<Game> CreateGameWithHttpInfo(string authorization, Object body, int operationIndex = 0);
+        /// <summary>
+        /// Retrieve all games
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all your games/games created on the platform. You can filter games by name, description. You can sort games by field
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID</param>
+        /// <param name="sort">In which order to sort the results. Can be ASC for ascending or DESC for descending order (optional)</param>
+        /// <param name="searchText">Filter by game name or description (optional)</param>
+        /// <param name="limit">Number of players to return per page (optional)</param>
+        /// <param name="page">Page number (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Game</returns>
+        Game GameControllerGetGames(string authorization, string gameId, string sort = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
+
+        /// <summary>
+        /// Retrieve all games
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all your games/games created on the platform. You can filter games by name, description. You can sort games by field
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID</param>
+        /// <param name="sort">In which order to sort the results. Can be ASC for ascending or DESC for descending order (optional)</param>
+        /// <param name="searchText">Filter by game name or description (optional)</param>
+        /// <param name="limit">Number of players to return per page (optional)</param>
+        /// <param name="page">Page number (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Game</returns>
+        ApiResponse<Game> GameControllerGetGamesWithHttpInfo(string authorization, string gameId, string sort = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0);
+        /// <summary>
         /// Retrieve Game
         /// </summary>
         /// <remarks>
@@ -61,6 +119,68 @@ namespace L3vels.Sdk.Api
     public interface IGameApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Create Game
+        /// </summary>
+        /// <remarks>
+        /// Create game on platform.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="body"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Game</returns>
+        System.Threading.Tasks.Task<Game> CreateGameAsync(string authorization, Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Create Game
+        /// </summary>
+        /// <remarks>
+        /// Create game on platform.
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="body"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Game)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Game>> CreateGameWithHttpInfoAsync(string authorization, Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Retrieve all games
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all your games/games created on the platform. You can filter games by name, description. You can sort games by field
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID</param>
+        /// <param name="sort">In which order to sort the results. Can be ASC for ascending or DESC for descending order (optional)</param>
+        /// <param name="searchText">Filter by game name or description (optional)</param>
+        /// <param name="limit">Number of players to return per page (optional)</param>
+        /// <param name="page">Page number (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Game</returns>
+        System.Threading.Tasks.Task<Game> GameControllerGetGamesAsync(string authorization, string gameId, string sort = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Retrieve all games
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all your games/games created on the platform. You can filter games by name, description. You can sort games by field
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID</param>
+        /// <param name="sort">In which order to sort the results. Can be ASC for ascending or DESC for descending order (optional)</param>
+        /// <param name="searchText">Filter by game name or description (optional)</param>
+        /// <param name="limit">Number of players to return per page (optional)</param>
+        /// <param name="page">Page number (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Game)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Game>> GameControllerGetGamesWithHttpInfoAsync(string authorization, string gameId, string sort = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Retrieve Game
         /// </summary>
@@ -206,6 +326,380 @@ namespace L3vels.Sdk.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Create Game Create game on platform.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="body"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Game</returns>
+        public Game CreateGame(string authorization, Object body, int operationIndex = 0)
+        {
+            L3vels.Sdk.Client.ApiResponse<Game> localVarResponse = CreateGameWithHttpInfo(authorization, body);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Game Create game on platform.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="body"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Game</returns>
+        public L3vels.Sdk.Client.ApiResponse<Game> CreateGameWithHttpInfo(string authorization, Object body, int operationIndex = 0)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling GameApi->CreateGame");
+            }
+
+            // verify the required parameter 'body' is set
+            if (body == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'body' when calling GameApi->CreateGame");
+            }
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "GameApi.CreateGame";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Game>("/v1/game", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGame", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create Game Create game on platform.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="body"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Game</returns>
+        public async System.Threading.Tasks.Task<Game> CreateGameAsync(string authorization, Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            L3vels.Sdk.Client.ApiResponse<Game> localVarResponse = await CreateGameWithHttpInfoAsync(authorization, body, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Game Create game on platform.
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="body"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Game)</returns>
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Game>> CreateGameWithHttpInfoAsync(string authorization, Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling GameApi->CreateGame");
+            }
+
+            // verify the required parameter 'body' is set
+            if (body == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'body' when calling GameApi->CreateGame");
+            }
+
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "GameApi.CreateGame";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Game>("/v1/game", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateGame", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve all games Retrieve all your games/games created on the platform. You can filter games by name, description. You can sort games by field
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID</param>
+        /// <param name="sort">In which order to sort the results. Can be ASC for ascending or DESC for descending order (optional)</param>
+        /// <param name="searchText">Filter by game name or description (optional)</param>
+        /// <param name="limit">Number of players to return per page (optional)</param>
+        /// <param name="page">Page number (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Game</returns>
+        public Game GameControllerGetGames(string authorization, string gameId, string sort = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
+        {
+            L3vels.Sdk.Client.ApiResponse<Game> localVarResponse = GameControllerGetGamesWithHttpInfo(authorization, gameId, sort, searchText, limit, page);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve all games Retrieve all your games/games created on the platform. You can filter games by name, description. You can sort games by field
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID</param>
+        /// <param name="sort">In which order to sort the results. Can be ASC for ascending or DESC for descending order (optional)</param>
+        /// <param name="searchText">Filter by game name or description (optional)</param>
+        /// <param name="limit">Number of players to return per page (optional)</param>
+        /// <param name="page">Page number (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Game</returns>
+        public L3vels.Sdk.Client.ApiResponse<Game> GameControllerGetGamesWithHttpInfo(string authorization, string gameId, string sort = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling GameApi->GameControllerGetGames");
+            }
+
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling GameApi->GameControllerGetGames");
+            }
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
+            }
+            if (searchText != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "search_text", searchText));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "game_id", gameId));
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+
+            localVarRequestOptions.Operation = "GameApi.GameControllerGetGames";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Game>("/v1/game", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GameControllerGetGames", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Retrieve all games Retrieve all your games/games created on the platform. You can filter games by name, description. You can sort games by field
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID</param>
+        /// <param name="sort">In which order to sort the results. Can be ASC for ascending or DESC for descending order (optional)</param>
+        /// <param name="searchText">Filter by game name or description (optional)</param>
+        /// <param name="limit">Number of players to return per page (optional)</param>
+        /// <param name="page">Page number (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Game</returns>
+        public async System.Threading.Tasks.Task<Game> GameControllerGetGamesAsync(string authorization, string gameId, string sort = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            L3vels.Sdk.Client.ApiResponse<Game> localVarResponse = await GameControllerGetGamesWithHttpInfoAsync(authorization, gameId, sort, searchText, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieve all games Retrieve all your games/games created on the platform. You can filter games by name, description. You can sort games by field
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="gameId">Game ID</param>
+        /// <param name="sort">In which order to sort the results. Can be ASC for ascending or DESC for descending order (optional)</param>
+        /// <param name="searchText">Filter by game name or description (optional)</param>
+        /// <param name="limit">Number of players to return per page (optional)</param>
+        /// <param name="page">Page number (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Game)</returns>
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Game>> GameControllerGetGamesWithHttpInfoAsync(string authorization, string gameId, string sort = default(string), string searchText = default(string), decimal? limit = default(decimal?), decimal? page = default(decimal?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling GameApi->GameControllerGetGames");
+            }
+
+            // verify the required parameter 'gameId' is set
+            if (gameId == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'gameId' when calling GameApi->GameControllerGetGames");
+            }
+
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
+            }
+            if (searchText != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "search_text", searchText));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            localVarRequestOptions.QueryParameters.Add(L3vels.Sdk.Client.ClientUtils.ParameterToMultiMap("", "game_id", gameId));
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+
+            localVarRequestOptions.Operation = "GameApi.GameControllerGetGames";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Game>("/v1/game", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GameControllerGetGames", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

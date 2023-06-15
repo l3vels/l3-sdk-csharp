@@ -27,6 +27,31 @@ namespace L3vels.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Create a new collection inside specific game
+        /// </summary>
+        /// <remarks>
+        /// This API method creates collection in a specified game
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="body"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Collection</returns>
+        Collection CollectionControllerCreateCollection(string authorization, Object body, int operationIndex = 0);
+
+        /// <summary>
+        /// Create a new collection inside specific game
+        /// </summary>
+        /// <remarks>
+        /// This API method creates collection in a specified game
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="body"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Collection</returns>
+        ApiResponse<Collection> CollectionControllerCreateCollectionWithHttpInfo(string authorization, Object body, int operationIndex = 0);
+        /// <summary>
         /// Count collections
         /// </summary>
         /// <remarks>
@@ -122,6 +147,33 @@ namespace L3vels.Sdk.Api
     public interface ICollectionApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Create a new collection inside specific game
+        /// </summary>
+        /// <remarks>
+        /// This API method creates collection in a specified game
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="body"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Collection</returns>
+        System.Threading.Tasks.Task<Collection> CollectionControllerCreateCollectionAsync(string authorization, Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Create a new collection inside specific game
+        /// </summary>
+        /// <remarks>
+        /// This API method creates collection in a specified game
+        /// </remarks>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="body"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Collection)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Collection>> CollectionControllerCreateCollectionWithHttpInfoAsync(string authorization, Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Count collections
         /// </summary>
@@ -333,6 +385,170 @@ namespace L3vels.Sdk.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Create a new collection inside specific game This API method creates collection in a specified game
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="body"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Collection</returns>
+        public Collection CollectionControllerCreateCollection(string authorization, Object body, int operationIndex = 0)
+        {
+            L3vels.Sdk.Client.ApiResponse<Collection> localVarResponse = CollectionControllerCreateCollectionWithHttpInfo(authorization, body);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a new collection inside specific game This API method creates collection in a specified game
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="body"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Collection</returns>
+        public L3vels.Sdk.Client.ApiResponse<Collection> CollectionControllerCreateCollectionWithHttpInfo(string authorization, Object body, int operationIndex = 0)
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling CollectionApi->CollectionControllerCreateCollection");
+            }
+
+            // verify the required parameter 'body' is set
+            if (body == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'body' when calling CollectionApi->CollectionControllerCreateCollection");
+            }
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "CollectionApi.CollectionControllerCreateCollection";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Collection>("/v1/collection", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CollectionControllerCreateCollection", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create a new collection inside specific game This API method creates collection in a specified game
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="body"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Collection</returns>
+        public async System.Threading.Tasks.Task<Collection> CollectionControllerCreateCollectionAsync(string authorization, Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            L3vels.Sdk.Client.ApiResponse<Collection> localVarResponse = await CollectionControllerCreateCollectionWithHttpInfoAsync(authorization, body, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create a new collection inside specific game This API method creates collection in a specified game
+        /// </summary>
+        /// <exception cref="L3vels.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="authorization">API key is associated with multiple games. Please include it in to use developers API.</param>
+        /// <param name="body"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Collection)</returns>
+        public async System.Threading.Tasks.Task<L3vels.Sdk.Client.ApiResponse<Collection>> CollectionControllerCreateCollectionWithHttpInfoAsync(string authorization, Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'authorization' is set
+            if (authorization == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'authorization' when calling CollectionApi->CollectionControllerCreateCollection");
+            }
+
+            // verify the required parameter 'body' is set
+            if (body == null)
+            {
+                throw new L3vels.Sdk.Client.ApiException(400, "Missing required parameter 'body' when calling CollectionApi->CollectionControllerCreateCollection");
+            }
+
+
+            L3vels.Sdk.Client.RequestOptions localVarRequestOptions = new L3vels.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = L3vels.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = L3vels.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.HeaderParameters.Add("Authorization", L3vels.Sdk.Client.ClientUtils.ParameterToString(authorization)); // header parameter
+            localVarRequestOptions.Data = body;
+
+            localVarRequestOptions.Operation = "CollectionApi.CollectionControllerCreateCollection";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Collection>("/v1/collection", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CollectionControllerCreateCollection", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

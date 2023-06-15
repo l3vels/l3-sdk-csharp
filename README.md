@@ -107,6 +107,7 @@ Class | Method | HTTP request | Description
 *AssetApi* | [**GetAssetById**](docs/AssetApi.md#getassetbyid) | **GET** /v1/asset/{game_id}/{id} | Retrieve asset by ID
 *AssetApi* | [**GetAssets**](docs/AssetApi.md#getassets) | **GET** /v1/asset | Retrieve assets
 *AssetApi* | [**UpdateAsset**](docs/AssetApi.md#updateasset) | **PATCH** /v1/asset/{id} | Update asset
+*CollectionApi* | [**CollectionControllerCreateCollection**](docs/CollectionApi.md#collectioncontrollercreatecollection) | **POST** /v1/collection | Create a new collection inside specific game
 *CollectionApi* | [**CountCollectionsByGameId**](docs/CollectionApi.md#countcollectionsbygameid) | **GET** /v1/collection/count/{game_id} | Count collections
 *CollectionApi* | [**GetCollectionById**](docs/CollectionApi.md#getcollectionbyid) | **GET** /v1/collection/{game_id}/{id} | Retrieve collection by ID
 *CollectionApi* | [**GetCollections**](docs/CollectionApi.md#getcollections) | **GET** /v1/collection | Retrieve collections
@@ -115,6 +116,8 @@ Class | Method | HTTP request | Description
 *ContractApi* | [**SetContractURI**](docs/ContractApi.md#setcontracturi) | **PUT** /v1/contract/contract-uri | Update Contract URI
 *ContractApi* | [**UpdateSaleStatus**](docs/ContractApi.md#updatesalestatus) | **PUT** /v1/contract/sale-status | Update Sale status
 *DefaultApi* | [**ChatControllerWebhook**](docs/DefaultApi.md#chatcontrollerwebhook) | **POST** /v1/chat/webhook | 
+*GameApi* | [**CreateGame**](docs/GameApi.md#creategame) | **POST** /v1/game | Create Game
+*GameApi* | [**GameControllerGetGames**](docs/GameApi.md#gamecontrollergetgames) | **GET** /v1/game | Retrieve all games
 *GameApi* | [**GetGameById**](docs/GameApi.md#getgamebyid) | **GET** /v1/game/{game_id} | Retrieve Game
 *MintApi* | [**AirdropAssetToPlayer**](docs/MintApi.md#airdropassettoplayer) | **POST** /v1/mint/airdrop | Airdrop asset to player
 *MintApi* | [**AwardAssetToPlayer**](docs/MintApi.md#awardassettoplayer) | **POST** /v1/mint/award | Award asset to player

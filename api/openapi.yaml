@@ -81,6 +81,54 @@ paths:
       summary: Retrieve Game
       tags:
       - Game
+  /v1/game/name/{name}:
+    get:
+      description: Get Game by Name created on the platform.
+      operationId: getGameByName
+      parameters:
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Game'
+          description: The Game has been found.
+        "400":
+          description: "Bad Request, The request was unacceptable, often due to missing\
+            \ a required parameter."
+        "401":
+          description: "Unauthorized, No valid API key provided."
+        "404":
+          description: "Not Found, The requested resource doesn't exist."
+        "409":
+          description: "Conflict, The request conflicts with another request (perhaps\
+            \ due to using the same idempotent key)."
+        "429":
+          description: "Too Many Requests, Too many requests hit the API too quickly.\
+            \ We recommend an exponential backoff of your requests."
+        "500":
+          description: "Server Errors, Something went wrong on L3vels's end."
+        "504":
+          description: "Gateway Timeout, Your request took too long."
+      summary: Retrieve Game By Name
+      tags:
+      - Game
   /v1/game:
     get:
       description: "Retrieve all your games/games created on the platform. You can\
@@ -1247,6 +1295,53 @@ paths:
       summary: Retrieve assets
       tags:
       - Asset
+    post:
+      description: "Create asset in specific collection. Example: Create asset AK-47\
+        \ in collection Weapons"
+      operationId: createAsset
+      parameters:
+      - description: API key is associated with multiple games. Please include it
+          in to use developers API.
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAssetInput'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Asset'
+          description: The asset has been created.
+        "400":
+          description: "Bad Request, The request was unacceptable, often due to missing\
+            \ a required parameter."
+        "401":
+          description: "Unauthorized, No valid API key provided."
+        "404":
+          description: "Not Found, The requested resource doesn't exist."
+        "409":
+          description: "Conflict, The request conflicts with another request (perhaps\
+            \ due to using the same idempotent key)."
+        "429":
+          description: "Too Many Requests, Too many requests hit the API too quickly.\
+            \ We recommend an exponential backoff of your requests."
+        "500":
+          description: "Server Errors, Something went wrong on L3vels's end."
+        "504":
+          description: "Gateway Timeout, Your request took too long."
+      summary: 'Create asset '
+      tags:
+      - Asset
   /v1/asset/count/{game_id}:
     get:
       description: Counts total assets in game.
@@ -1844,6 +1939,20 @@ paths:
     post:
       operationId: ChatController_webhook
       parameters: []
+      responses:
+        "200":
+          description: ""
+  /v1/chat/report:
+    get:
+      operationId: ChatController_getSqlReport
+      parameters:
+      - explode: true
+        in: query
+        name: sql
+        required: true
+        schema:
+          type: string
+        style: form
       responses:
         "200":
           description: ""
@@ -2745,6 +2854,9 @@ components:
       - limit
       - page
       - total
+      type: object
+    CreateAssetInput:
+      properties: {}
       type: object
     UpdateAssetInput:
       example:
